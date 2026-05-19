@@ -1,6 +1,6 @@
 # 42-pal! 🐚
 
-A highly-polished, terminal-based 42 Exam trainer for C, Python, and C++. Optimized for local practice with an exceptionally premium layout.
+A polished, terminal-based 42 Exam trainer for C, Python, and C++. Optimized for local practice and studying.
 
 ---
 
@@ -52,7 +52,7 @@ make
 
 ### 🔵 Knowledge Corner
 * **Orthodox Canonical Class Form (OCCF)**: Visual diagrams and complete templates for C++.
-* **Git Safety Guide**: Critical tips andBRANCH strategies to survive exam rules.
+* **Git Safety Guide**: Critical tips and BRANCH strategies to survive exam rules.
 * **Multi-Language Search**: High-speed, tag-based index searching across C, C++, Python, and general Tips & Tricks.
 
 ---
