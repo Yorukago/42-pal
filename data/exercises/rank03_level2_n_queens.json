@@ -1,0 +1,27 @@
+{
+  "name": "n_queens",
+  "rank": "rank03",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write a program that will print all the solutions to the n queens problem",
+  "description": "Write a program that will print all the solutions to the n queens problem\nfor a n given as argument.\nWe will not test with negative values.\nThe order of the solutions is not important.\n\nYou will display the solutions under the following format :\n<p1> <p2> <p3> ... \\n\nwhere pn are the line index of the queen in each colum starting from 0.\n\nFor example this should work :\n$> ./n_queens 2 | cat -e\n\n$> ./n_queens 4 | cat -e\n1 3 0 2$\n2 0 3 1$\n\n$> ./n_queens 7 | cat -e\n0 2 4 6 1 3 5$\n0 3 6 2 5 1 4$\netc...",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: atoi, fprintf, write, calloc, malloc, free, realloc, stdout, stderr"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "4",
+      "expected_output": "1 3 0 2\n2 0 3 1"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "7",
+      "expected_output": "0 2 4 6 1 3 5\n0 3 6 2 5 1 4\netc..."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "search_and_replace",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program called search_and_replace that takes 3 arguments, the first",
+  "description": "Write a program called search_and_replace that takes 3 arguments, the first\narguments is a string in which to replace a letter (2nd argument) by\nanother one (3rd argument).\n\nIf the number of arguments is not 3, just display a newline.\n\nIf the second argument is not contained in the first one (the string)\nthen the program simply rewrites the string followed by a newline.\n\nExamples:\n$>./search_and_replace \"Papache est un sabre\" \"a\" \"o\"\nPopoche est un sobre\n$>./search_and_replace \"zaz\" \"art\" \"zul\" | cat -e\n$\n$>./search_and_replace \"zaz\" \"r\" \"u\" | cat -e\nzaz$\n$>./search_and_replace \"jacob\" \"a\" \"b\" \"c\" \"e\" | cat -e\n$\n$>./search_and_replace \"ZoZ eT Dovid oiME le METol.\" \"o\" \"a\" | cat -e\nZaZ eT David aiME le METal.$\n$>./search_and_replace \"wNcOre Un ExEmPle Pas Facilw a Ecrirw \" \"w\" \"e\" | cat -e\neNcOre Un ExEmPle Pas Facile a Ecrire $",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write, exit"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "Papache est un sabre\" \"a\" \"o",
+      "expected_output": "Popoche est un sobre"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "zaz\" \"r\" \"u",
+      "expected_output": "zaz"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "ZoZ eT Dovid oiME le METol.\" \"o\" \"a",
+      "expected_output": "ZaZ eT David aiME le METal."
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "wNcOre Un ExEmPle Pas Facilw a Ecrirw \" \"w\" \"e",
+      "expected_output": "eNcOre Un ExEmPle Pas Facile a Ecrire"
+    }
+  ]
+}

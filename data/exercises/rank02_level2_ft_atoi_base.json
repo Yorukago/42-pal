@@ -1,0 +1,12 @@
+{
+  "name": "ft_atoi_base",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a function that converts the string argument str (base N <= 16)",
+  "description": "Write a function that converts the string argument str (base N <= 16)\nto an integer (base 10) and returns it.\n\nThe characters recognized in the input are: 0123456789abcdef\nThose are, of course, to be trimmed according to the requested base. For\nexample, base 4 recognizes \"0123\" and base 16 recognizes \"0123456789abcdef\".\n\nUppercase letters must also be recognized: \"12fdb3\" is the same as \"12FDB3\".\n\nMinus signs ('-') are interpreted only if they are the first character of the\nstring.\n\nYour function must be declared as follows:\n\nint\tft_atoi_base(const char *str, int str_base);",
+  "prototype": "int\tft_atoi_base(const char *str, int str_base);",
+  "notes": [],
+  "test_cases": []
+}

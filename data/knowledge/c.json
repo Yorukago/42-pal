@@ -1,0 +1,115 @@
+{
+  "lang": "c",
+  "entries": [
+    {
+      "title": "🧱 malloc - how it works",
+      "tags": ["malloc", "memory", "heap", "pointers"],
+      "content": "malloc() allocates a block of memory on the heap and returns a void pointer to it.\nYou must cast it and free it manually - C won't do it for you.\n\nSyntax:\n```\nvoid *malloc(size_t size);\n```\n\nExample - allocate an array of 10 ints:\n```\nint *arr = (int *)malloc(10 * sizeof(int));\nif (arr == NULL)\n    return (1); // always check for NULL!\narr[0] = 42;\nfree(arr);\n```\n\nCommon mistakes:\n- Forgetting to check if malloc returned NULL\n- Forgetting to free() - causes memory leaks\n- Freeing twice (double free) - undefined behaviour\n- Off-by-one: malloc(len) for a string needs to be malloc(len + 1) for the '\\0'",
+      "tips": [
+        "Always check for NULL after malloc()",
+        "sizeof(type) keeps your code portable",
+        "Use valgrind to detect memory leaks"
+      ]
+    },
+    {
+      "title": "📌 Pointers - basics",
+      "tags": ["pointers", "address", "dereference", "basics"],
+      "content": "A pointer stores the memory address of a variable.\n\n```\nint x = 42;\nint *p = &x;   // p holds the address of x\nprintf(\"%d\\n\", *p); // dereference: prints 42\n*p = 100;          // modifies x through the pointer\n```\n\nPointer arithmetic:\n```\nint arr[3] = {1, 2, 3};\nint *p = arr;   // points to arr[0]\np++;            // now points to arr[1]\nprintf(\"%d\\n\", *p); // 2\n```",
+      "tips": [
+        "& gives you the address of a variable",
+        "* on a pointer gives you the value at that address",
+        "Arrays decay into pointers to their first element"
+      ]
+    },
+    {
+      "title": "📝 Strings in C",
+      "tags": ["strings", "char", "null terminator", "basics"],
+      "content": "Strings in C are just arrays of char ending with a null terminator '\\0'.\n\n```\nchar str[] = \"hello\";  // stored as {'h','e','l','l','o','\\0'}\nchar *p = \"hello\";     // pointer to a string literal (read-only!)\n```\n\nManual string length:\n```\nint i = 0;\nwhile (str[i] != '\\0')\n    i++;\n// i is now the length\n```\n\nDynamic string on heap:\n```\nchar *s = malloc(6 * sizeof(char)); // 5 chars + '\\0'\nif (!s) return 1;\ns[0] = 'h'; s[1] = 'i'; s[2] = '\\0';\nfree(s);\n```",
+      "tips": [
+        "Always allocate strlen + 1 for the null terminator",
+        "String literals are read-only - never write to them",
+        "ft_strlen loops until it hits '\\0'"
+      ]
+    },
+    {
+      "title": "🖨️ write() - printing without printf",
+      "tags": ["write", "syscall", "unistd", "output"],
+      "content": "write() is a system call that writes raw bytes to a file descriptor.\nfd 1 = stdout, fd 2 = stderr.\n\nSignature:\n```\n#include <unistd.h>\nssize_t write(int fd, const void *buf, size_t count);\n```\n\nPrint a single character:\n```\nchar c = 'A';\nwrite(1, &c, 1);\n```\n\nPrint a string:\n```\nwrite(1, \"hello\\n\", 6);\n```\n\nPrint an integer (you have to convert first):\n```\nvoid put_nbr(int n)\n{\n    char c;\n    if (n >= 10)\n        put_nbr(n / 10);\n    c = '0' + (n % 10);\n    write(1, &c, 1);\n}\n```",
+      "tips": [
+        "At 42, printf may be forbidden - learn write()",
+        "write() doesn't add a newline - you must add '\\n' yourself",
+        "Return value is the number of bytes written, or -1 on error"
+      ]
+    },
+    {
+      "title": "🗂️ Structs",
+      "tags": ["struct", "typedef", "data structures"],
+      "content": "Structs let you group related data together.\n\n```\ntypedef struct s_point\n{\n    int x;\n    int y;\n} t_point;\n\nt_point p;\np.x = 3;\np.y = 7;\n```\n\nWith pointers (arrow notation):\n```\nt_point *ptr = &p;\nprintf(\"%d\\n\", ptr->x); // same as (*ptr).x\n```\n\nMalloc a struct:\n```\nt_point *p = malloc(sizeof(t_point));\nif (!p) return 1;\np->x = 1;\np->y = 2;\nfree(p);\n```",
+      "tips": [
+        "Use typedef to avoid writing 'struct' everywhere",
+        "-> is arrow notation for pointer-to-struct member access",
+        "42 style: struct names start with s_, typedef names with t_"
+      ]
+    },
+    {
+      "title": "🔗 Linked lists",
+      "tags": ["linked list", "struct", "malloc", "pointers"],
+      "content": "A linked list is a chain of nodes, each pointing to the next.\n\n```\ntypedef struct s_list\n{\n    void            *content;\n    struct s_list   *next;\n} t_list;\n```\n\nCreate a new node:\n```\nt_list *new_node(void *content)\n{\n    t_list *node = malloc(sizeof(t_list));\n    if (!node) return NULL;\n    node->content = content;\n    node->next = NULL;\n    return node;\n}\n```\n\nTraverse:\n```\nt_list *current = head;\nwhile (current)\n{\n    // do something with current->content\n    current = current->next;\n}\n```",
+      "tips": [
+        "Always check malloc return before using the node",
+        "The last node's ->next is NULL - use this to detect end",
+        "To free: traverse and free each node, don't free head first"
+      ]
+    },
+    {
+      "title": "⚙️ Preprocessor - macros & header guards",
+      "tags": ["preprocessor", "macros", "header guard", "ifndef", "define"],
+      "content": "The C preprocessor runs before compilation. It handles #include, #define, and conditionals.\n\nHeader guard - prevents a header being included twice:\n```\n#ifndef MY_HEADER_H\n# define MY_HEADER_H\n\n// your declarations here\n\n#endif\n```\n\nSimple macro:\n```\n#define MAX(a, b) ((a) > (b) ? (a) : (b))\n\nint x = MAX(3, 7); // expands to ((3) > (7) ? (3) : (7))\n```\n\nDebug macro - prints only when DEBUG is defined:\n```\n#ifdef DEBUG\n# define LOG(msg) fprintf(stderr, \"[DBG] %s\\n\", msg)\n#else\n# define LOG(msg)\n#endif\n```\n\nCompile with debug:\n```\ngcc -DDEBUG -o prog prog.c\n```",
+      "tips": [
+        "Always wrap macro arguments in () to avoid operator precedence bugs",
+        "Header guards stop circular includes from breaking your build",
+        "#ifndef vs #pragma once - 42 style uses #ifndef"
+      ]
+    },
+    {
+      "title": "🎯 Function Pointers - callbacks & simulated OOP",
+      "tags": ["function pointers", "callbacks", "rank3", "pointers"],
+      "content": "A function pointer stores the address of a function. This is how C fakes OOP and callbacks.\n\nSyntax - pointer to a function taking int, returning int:\n```\nint (*fp)(int);\n```\n\nAssign and call:\n```\nint square(int x) { return x * x; }\n\nint (*fp)(int) = square;\nprintf(\"%d\\n\", fp(5)); // 25\n```\n\nAs a parameter (callback pattern):\n```\nvoid apply(int *arr, int len, int (*fn)(int))\n{\n    int i = 0;\n    while (i < len)\n    {\n        arr[i] = fn(arr[i]);\n        i++;\n    }\n}\n\napply(arr, 5, square); // squares every element\n```\n\nIn a struct (simulated OOP):\n```\ntypedef struct s_op\n{\n    char *name;\n    int (*fn)(int, int);\n} t_op;\n```",
+      "tips": [
+        "Read the type right-to-left: int (*fp)(int) = 'fp is a pointer to a function taking int returning int'",
+        "Use typedef to make function pointer types readable",
+        "This is exactly how ft_list_foreach and ft_list_remove_if work!"
+      ]
+    },
+    {
+      "title": "🌐 Static vs Global - scope control",
+      "tags": ["static", "global", "scope", "storage class"],
+      "content": "Both static and global variables persist between function calls, but scope differs.\n\nGlobal - visible across ALL files:\n```\n// globals.c\nint g_counter = 0;  // 42 style: prefix g_\n\n// other.c\nextern int g_counter; // declare to use it\n```\n\nStatic local - persists between calls, but only visible in THIS function:\n```\nvoid count_calls(void)\n{\n    static int n = 0; // initialised only once\n    n++;\n    printf(\"Called %d times\\n\", n);\n}\n```\n\nStatic global - visible only within THIS file (file-private):\n```\n// In myfile.c only:\nstatic int s_secret = 42;\n```\n\nWhy it matters at 42:\n- Global state in GNL (get_next_line) must be static\n- Avoid globals leaking between files in multi-file projects",
+      "tips": [
+        "static local: same as global lifetime, function scope - great for GNL",
+        "static global: hides variable from other .c files (encapsulation)",
+        "42 norm: global vars must start with g_"
+      ]
+    },
+    {
+      "title": "🔧 FDs & Pipes - dup2, pipe, and redirection",
+      "tags": ["file descriptor", "pipe", "dup2", "redirection", "rank4", "processes"],
+      "content": "Everything in Unix is a file descriptor (FD). 0=stdin, 1=stdout, 2=stderr.\n\npipe() - creates a unidirectional channel:\n```\nint fd[2];\npipe(fd); // fd[0] = read end, fd[1] = write end\n```\n\nForking with a pipe (child writes, parent reads):\n```\npipe(fd);\nif (fork() == 0)\n{\n    close(fd[0]);           // child doesn't read\n    write(fd[1], \"hi\", 2);\n    close(fd[1]);\n    exit(0);\n}\nclose(fd[1]);               // parent doesn't write\nread(fd[0], buf, sizeof(buf));\nclose(fd[0]);\n```\n\ndup2() - redirect one FD to another:\n```\nint file = open(\"out.txt\", O_WRONLY | O_CREAT, 0644);\ndup2(file, STDOUT_FILENO); // stdout now goes to out.txt\nclose(file);\nprintf(\"This goes to the file!\\n\");\n```",
+      "tips": [
+        "Always close the end of the pipe you're not using - or read() will block forever",
+        "dup2(new, old) replaces 'old' with a copy of 'new'",
+        "This is the core of pipex and minishell!"
+      ]
+    },
+    {
+      "title": "🏗️ Stack vs Heap - memory layout",
+      "tags": ["stack", "heap", "memory", "malloc", "realloc"],
+      "content": "C programs have two main memory regions:\n\nSTACK - automatic, fast, limited:\n```\nvoid foo(void)\n{\n    int x = 42;      // lives on the stack\n    char buf[256];   // also stack\n}                    // x and buf die here!\n```\n\nHEAP - manual, slower, as big as RAM allows:\n```\nchar *s = malloc(256); // lives on heap until free()\n// s survives after the function returns\n```\n\nrealloc() - resize a heap allocation:\n```\nint *arr = malloc(5 * sizeof(int));\n// ... arr grows ...\narr = realloc(arr, 10 * sizeof(int)); // now 10 ints\nif (!arr) // realloc can return NULL!\n    return (1);\n```\n\nDanger - returning a pointer to a stack variable:\n```\nchar *bad(void)\n{\n    char buf[10] = \"hello\"; // stack!\n    return buf;  // UNDEFINED BEHAVIOUR - stack freed on return\n}\n```",
+      "tips": [
+        "Stack overflows happen with very deep recursion or huge local arrays",
+        "realloc may move the memory - always reassign the pointer",
+        "Rule of thumb: if it needs to outlive the function, heap it"
+      ]
+    }
+  ]
+}

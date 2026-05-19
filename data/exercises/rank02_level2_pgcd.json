@@ -1,0 +1,45 @@
+{
+  "name": "pgcd",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a program that takes two strings representing two strictly positive",
+  "description": "Write a program that takes two strings representing two strictly positive\nintegers that fit in an int.\n\nDisplay their highest common denominator followed by a newline (It's always a\nstrictly positive integer).\n\nIf the number of parameters is not 2, display a newline.\n\nExamples:\n\n$> ./pgcd 42 10 | cat -e\n2$\n$> ./pgcd 42 12 | cat -e\n6$\n$> ./pgcd 14 77 | cat -e\n7$\n$> ./pgcd 17 3 | cat -e \n1$\n$> ./pgcd | cat -e\n$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: printf, atoi, malloc, free"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "42 10",
+      "expected_output": "2"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "42 12",
+      "expected_output": "6"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "14 77",
+      "expected_output": "7"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "17 3",
+      "expected_output": "1"
+    },
+    {
+      "label": "test 5",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

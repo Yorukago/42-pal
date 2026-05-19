@@ -1,0 +1,39 @@
+{
+  "name": "expand_str",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a program that takes a string and displays it with exactly three spaces",
+  "description": "Write a program that takes a string and displays it with exactly three spaces\nbetween each word, with no spaces or tabs either at the beginning or the end,\nfollowed by a newline.\n\nA word is a section of string delimited either by spaces/tabs, or by the\nstart/end of the string.\n\nIf the number of parameters is not 1, or if there are no words, simply display\na newline.\n\nExamples:\n\n$> ./expand_str \"See? It's easy to print the same thing\" | cat -e\nSee?   It's   easy   to   print   the   same   thing$\n$> ./expand_str \" this        time it      will     be    more complex  \" | cat -e\nthis   time   it   will   be   more   complex$\n$> ./expand_str \"No S*** Sherlock...\" \"nAw S*** ShErLaWQ...\" | cat -e\n$\n$> ./expand_str \"\" | cat -e\n$\n$>\n\n$> ./expand_str \"vous   voyez   c'est   facile   d'afficher   la   meme   chose\" | cat -e\nvous   voyez   c'est   facile   d'afficher   la   meme   chose$\n$> ./expand_str \" seulement          la c'est      plus dur \" | cat -e\nseulement   la   c'est   plus   dur$\n$> ./expand_str \"comme c'est cocasse\" \"vous avez entendu, Mathilde ?\" | cat -e\n$\n$> ./expand_str \"\" | cat -e\n$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "See? It's easy to print the same thing",
+      "expected_output": "See?   It's   easy   to   print   the   same   thing"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": " this        time it      will     be    more complex  ",
+      "expected_output": "this   time   it   will   be   more   complex"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "vous   voyez   c'est   facile   d'afficher   la   meme   chose",
+      "expected_output": "vous   voyez   c'est   facile   d'afficher   la   meme   chose"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": " seulement          la c'est      plus dur ",
+      "expected_output": "seulement   la   c'est   plus   dur"
+    }
+  ]
+}

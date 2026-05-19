@@ -1,0 +1,30 @@
+{
+  "name": "is_palindrome",
+  "rank": "exam03",
+  "level": "level0",
+  "lang": "python",
+  "difficulty": "easy",
+  "short_desc": "Determine whether a string is a palindrome (ignore case & non-alphanumeric).",
+  "description": "Given a string `s`, determine whether it is a palindrome.\n\nA string is a palindrome if it reads the same forward and backward.\n\nThe function must:\n  -> Ignore case differences (A == a).\n  -> Ignore non-alphanumeric characters.\n  -> Return True if `s` is a palindrome, False otherwise.\n\nFunction signature:\n  def is_palindrome(s: str) -> bool\n\nExamples:\n  is_palindrome(\"madam\")                         -> True\n  is_palindrome(\"racecar\")                        -> True\n  is_palindrome(\"A man, a plan, a canal: Panama\") -> True\n  is_palindrome(\"No 'x' in Nixon\")               -> True\n  is_palindrome(\"\")                               -> True\n  is_palindrome(\"hello\")                          -> False\n  is_palindrome(\"12321\")                          -> True\n  is_palindrome(\"12345\")                          -> False",
+  "prototype": "def is_palindrome(s: str) -> bool:",
+  "notes": [
+    "File to submit: is_palindrome.py",
+    "Ignore all non-alphanumeric characters.",
+    "Case-insensitive comparison."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "is_palindrome('madam')",                         "expected": "True"},
+    {"call": "is_palindrome('racecar')",                       "expected": "True"},
+    {"call": "is_palindrome('A man, a plan, a canal: Panama')", "expected": "True"},
+    {"call": "is_palindrome(\"No 'x' in Nixon\")",             "expected": "True"},
+    {"call": "is_palindrome('')",                              "expected": "True"},
+    {"call": "is_palindrome('a')",                             "expected": "True"},
+    {"call": "is_palindrome('hello')",                         "expected": "False"},
+    {"call": "is_palindrome('python')",                        "expected": "False"},
+    {"call": "is_palindrome('12321')",                         "expected": "True"},
+    {"call": "is_palindrome('12345')",                         "expected": "False"},
+    {"call": "is_palindrome('Able was I ere I saw Elba')",     "expected": "True"}
+  ]
+}

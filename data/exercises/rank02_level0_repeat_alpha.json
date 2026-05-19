@@ -1,0 +1,39 @@
+{
+  "name": "repeat_alpha",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program called repeat_alpha that takes a string and display it",
+  "description": "Write a program called repeat_alpha that takes a string and display it\nrepeating each alphabetical character as many times as its alphabetical index,\nfollowed by a newline.\n\n'a' becomes 'a', 'b' becomes 'bb', 'e' becomes 'eeeee', etc...\n\nCase remains unchanged.\n\nIf the number of arguments is not 1, just display a newline.\n\nExamples:\n\n$>./repeat_alpha \"abc\"\nabbccc\n$>./repeat_alpha \"Alex.\" | cat -e\nAlllllllllllleeeeexxxxxxxxxxxxxxxxxxxxxxxx.$\n$>./repeat_alpha 'abacadaba 42!' | cat -e\nabbacccaddddabba 42!$\n$>./repeat_alpha | cat -e\n$\n$>\n$>./repeat_alpha \"\" | cat -e\n$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "abc",
+      "expected_output": "abbccc"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "Alex.",
+      "expected_output": "Alllllllllllleeeeexxxxxxxxxxxxxxxxxxxxxxxx."
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "abacadaba 42!",
+      "expected_output": "abbacccaddddabba 42!"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

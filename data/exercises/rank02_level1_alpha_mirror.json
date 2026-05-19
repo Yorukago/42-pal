@@ -1,0 +1,33 @@
+{
+  "name": "alpha_mirror",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program called alpha_mirror that takes a string and displays this string",
+  "description": "Write a program called alpha_mirror that takes a string and displays this string\nafter replacing each alphabetical character by the opposite alphabetical\ncharacter, followed by a newline.\n\n'a' becomes 'z', 'Z' becomes 'A'\n'd' becomes 'w', 'M' becomes 'N'\n\nand so on.\n\nCase is not changed.\n\nIf the number of arguments is not 1, display only a newline.\n\nExamples:\n\n$>./alpha_mirror \"abc\"\nzyx\n$>./alpha_mirror \"My horse is Amazing.\" | cat -e\nNb slihv rh Znzarmt.$\n$>./alpha_mirror | cat -e\n$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "abc",
+      "expected_output": "zyx"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "My horse is Amazing.",
+      "expected_output": "Nb slihv rh Znzarmt."
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

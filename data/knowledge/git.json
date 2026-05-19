@@ -1,0 +1,32 @@
+{
+  "lang": "git",
+  "entries": [
+    {
+      "title": "🌳 Branching - Alternate Realities",
+      "tags": ["git", "branch", "workflow"],
+      "content": "Think of the `main` branch as your 'clean' code. NEVER work directly on main if you're trying something risky.\n\n- Creating a Branch - `git checkout -b feature-name` (This creates a new timeline and jumps into it).\n- Switching Back - `git checkout main` (Teleport back to reality).\n- Why do it? - If you break everything in your `feature` branch, your `main` branch stays safe and working.",
+      "tips": [
+        "Use descriptive names like 'fix-timer' or 'add-json-parser'.",
+        "Type `git branch` to see where you are so you don't get lost in the multiverse."
+      ]
+    },
+    {
+      "title": "🤝 Merging & PRs - The Fusion",
+      "tags": ["merge", "pull-request", "collaboration"],
+      "content": "Once your code in a branch is perfect, you need to bring it back to the main project.\n\n- Merging - You go to `main` and say `git merge feature-name`. It sucks all the code from the branch into the main timeline.\n- Pull Requests (PRs) - This is the 'Social' version of a merge. On GitHub/GitLab, you ask: 'Hey, can I merge this?' and people can comment on it before it happens.\n- Merge Conflicts - The 'Boss Fight' of Git. Happens when you and a friend (or the AI) edited the same line. You just have to pick which version you want to keep manually.",
+      "tips": [
+        "Always pull before you push! `git pull origin main` keeps your local code up to date.",
+        "PRs are great for 'Peer Learning' - ask a friend to review your code before merging."
+      ]
+    },
+    {
+      "title": "🆘 The 'Oh Shit' Kit",
+      "tags": ["debug", "status", "log", "help"],
+      "content": "If you feel lost, these three commands are your flashlight in the dark:\n\n- `git status` - Tells you what files are changed and what branch you're on. Run this EVERY 5 MINUTES.\n- `git log --oneline` - Shows you a neat list of your past 'save points'.\n- `git checkout -- file` - The 'Ctrl+Z' for files. It throws away your changes and resets the file to the last commit.",
+      "tips": [
+        "Commit often, but only when the code compiles. Nobody likes a 'Save Game' that starts inside a wall.",
+        "If you get stuck in a weird text editor after committing, try typing `:wq` and press Enter to escape."
+      ]
+    }
+  ]
+}

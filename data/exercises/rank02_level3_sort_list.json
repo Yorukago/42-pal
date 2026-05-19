@@ -1,0 +1,12 @@
+{
+  "name": "sort_list",
+  "rank": "rank02",
+  "level": "level3",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write the following functions:",
+  "description": "Write the following functions:\n\nt_list\t*sort_list(t_list* lst, int (*cmp)(int, int));\n\nThis function must sort the list given as a parameter, using the function \npointer cmp to select the order to apply, and returns a pointer to the \nfirst element of the sorted list.\n\nDuplications must remain.\nInputs will always be consistent.\n\nYou must use the type t_list described in the file list.h \nthat is provided to you. You must include that file \n(#include \"list.h\"), but you must not turn it in. We will use our own \nto compile your assignment.\n\nFunctions passed as cmp will always return a value different from \n0 if a and b are in the right order, 0 otherwise.\n\nFor example, the following function used as cmp will sort the list \nin ascending order:\n\nint ascending(int a, int b)\n{\n\treturn (a <= b);\n}\nLIST.H FILE:\n\ntypedef struct s_list t_list;\n\nstruct s_list {\n    int data;\n    t_list *next;\n};\nYOU MUST TEST WITH YOUR LIST.H FILE JUST FOR THIS SHELL.",
+  "prototype": "t_list\t*sort_list(t_list* lst, int (*cmp)(int, int));",
+  "notes": [],
+  "test_cases": []
+}

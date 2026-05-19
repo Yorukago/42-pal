@@ -1,0 +1,33 @@
+{
+  "name": "wdmatch",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes two strings and checks whether it's possible to",
+  "description": "Write a program that takes two strings and checks whether it's possible to\nwrite the first string with characters from the second string, while respecting\nthe order in which these characters appear in the second string.\n\nIf it's possible, the program displays the string, followed by a \\n, otherwise\nit simply displays a \\n.\n\nIf the number of arguments is not 2, the program displays a \\n.\n\nExamples:\n\n$>./wdmatch \"faya\" \"fgvvfdxcacpolhyghbreda\" | cat -e\nfaya$\n$>./wdmatch \"faya\" \"fgvvfdxcacpolhyghbred\" | cat -e\n$\n$>./wdmatch \"quarante deux\" \"qfqfsudf arzgsayns tsregfdgs sjytdekuoixq \" | cat -e\nquarante deux$\n$>./wdmatch \"error\" rrerrrfiiljdfxjyuifrrvcoojh | cat -e\n$\n$>./wdmatch | cat -e\n$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "faya\" \"fgvvfdxcacpolhyghbreda",
+      "expected_output": "faya"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "quarante deux\" \"qfqfsudf arzgsayns tsregfdgs sjytdekuoixq ",
+      "expected_output": "quarante deux"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

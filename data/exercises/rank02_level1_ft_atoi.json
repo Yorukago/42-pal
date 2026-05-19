@@ -1,0 +1,12 @@
+{
+  "name": "ft_atoi",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that converts the string argument str to an integer (type int)",
+  "description": "Write a function that converts the string argument str to an integer (type int)\nand returns it.\n\nIt works much like the standard atoi(const char *str) function, see the man.\n\nYour function must be declared as follows:\n\nint\tft_atoi(const char *str);",
+  "prototype": "int\tft_atoi(const char *str);",
+  "notes": [],
+  "test_cases": []
+}

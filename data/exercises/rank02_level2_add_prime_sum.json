@@ -1,0 +1,33 @@
+{
+  "name": "add_prime_sum",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a program that takes a positive integer as argument and displays the sum",
+  "description": "Write a program that takes a positive integer as argument and displays the sum\nof all prime numbers inferior or equal to it followed by a newline.\n\nIf the number of arguments is not 1, or the argument is not a positive number,\njust display 0 followed by a newline.\n\nYes, the examples are right.\n\nExamples:\n\n$>./add_prime_sum 5\n10\n$>./add_prime_sum 7 | cat -e\n17$\n$>./add_prime_sum | cat -e\n0$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write, exit"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "5",
+      "expected_output": "10"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "7",
+      "expected_output": "17"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "",
+      "expected_output": "0"
+    }
+  ]
+}

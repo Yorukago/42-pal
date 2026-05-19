@@ -1,0 +1,14 @@
+{
+  "name": "ft_list_remove_if",
+  "rank": "rank02",
+  "level": "level3",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write a function called ft_list_remove_if that removes from the",
+  "description": "Write a function called ft_list_remove_if that removes from the\npassed list any element the data of which is \"equal\" to the reference data.\n\nIt will be declared as follows :\n\nvoid ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());\n\ncmp takes two void* and returns 0 when both parameters are equal.\n\nYou have to use the ft_list.h file, which will contain:\n\n$>cat ft_list.h\ntypedef struct      s_list\n{\n    struct s_list   *next;\n    void            *data;\n}                   t_list;",
+  "prototype": "void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());",
+  "notes": [
+    "Allowed functions: free"
+  ],
+  "test_cases": []
+}

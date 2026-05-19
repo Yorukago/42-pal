@@ -1,0 +1,105 @@
+{
+  "lang": "python",
+  "entries": [
+    {
+      "title": "🐍 Python basics - syntax overview",
+      "tags": ["syntax", "basics", "indentation"],
+      "content": "Python uses indentation (4 spaces) instead of braces.\n\n```\n# Variables\nx = 10\nname = \"hello\"\nis_cool = True\n\n# If / elif / else\nif x > 5:\n    print(\"big\")\nelif x == 5:\n    print(\"five\")\nelse:\n    print(\"small\")\n\n# For loop\nfor i in range(5):      # 0 1 2 3 4\n    print(i)\n\n# While loop\nwhile x > 0:\n    x -= 1\n```",
+      "tips": [
+        "Indentation IS the syntax - mixing tabs and spaces causes errors",
+        "range(1, 21) gives 1 through 20 inclusive",
+        "Use f-strings for formatting: f\"value is {x}\""
+      ]
+    },
+    {
+      "title": "📋 Lists - the Python workhorse",
+      "tags": ["list", "array", "slice", "append"],
+      "content": "Lists are ordered, mutable, and can hold anything.\n\n```\nnums = [1, 2, 3, 4, 5]\nnums.append(6)       # [1,2,3,4,5,6]\nnums.pop()           # removes last: [1,2,3,4,5]\nnums[0]              # 1  (indexing)\nnums[-1]             # 5  (last element)\nnums[1:3]            # [2, 3]  (slicing)\nnums[::-1]           # reversed copy\nlen(nums)            # 5\n```\n\nList comprehension - very Pythonic:\n```\nsquares = [x**2 for x in range(10)]\nevens = [x for x in nums if x % 2 == 0]\n```",
+      "tips": [
+        "Slicing never raises IndexError - it just returns what it can",
+        "List comprehensions are faster and more readable than loops",
+        "sorted(lst) returns a new list; lst.sort() sorts in-place"
+      ]
+    },
+    {
+      "title": "✨ List Comprehensions - 5 lines → 1 line",
+      "tags": ["list comprehension", "map", "filter", "pythonic"],
+      "content": "List comprehensions are the Pythonic way to build lists from other iterables.\n\nC vs Python comparison:\n```\n// C: square every element\nfor (int i = 0; i < n; i++)\n    arr[i] = arr[i] * arr[i];\n\n# Python: one line ✨\nsquares = [x * x for x in arr]\n```\n\nWith a filter (if clause):\n```\nevens   = [x for x in range(20) if x % 2 == 0]\nvowels  = [c for c in \"hello world\" if c in \"aeiou\"]\n```\n\nNested comprehension (transpose a matrix):\n```\nmatrix    = [[1,2,3],[4,5,6],[7,8,9]]\ntranspose = [[row[i] for row in matrix] for i in range(3)]\n```\n\nDict comprehension:\n```\nword_len = {w: len(w) for w in [\"cat\", \"elephant\", \"ox\"]}\n# {'cat': 3, 'elephant': 8, 'ox': 2}\n```",
+      "tips": [
+        "If the comprehension is longer than ~80 chars, just write a regular loop",
+        "Generator expressions use () instead of [] - they're lazy (memory-friendly)",
+        "sorted(), min(), max() all accept key= functions - pair with lambda"
+      ]
+    },
+    {
+      "title": "🎀 Decorators (@) - wrapping logic elegantly",
+      "tags": ["decorator", "higher order", "functools", "wrapper"],
+      "content": "A decorator is a function that wraps another function to add behaviour.\n\nThe concept:\n```\ndef shout(fn):              # decorator factory\n    def wrapper(*args, **kwargs):\n        result = fn(*args, **kwargs)\n        return str(result).upper()\n    return wrapper\n\n@shout                      # same as: greet = shout(greet)\ndef greet(name):\n    return f\"hello {name}\"\n\nprint(greet(\"alice\"))       # HELLO ALICE\n```\n\nPractical decorator - timer:\n```\nimport time, functools\n\ndef timer(fn):\n    @functools.wraps(fn)    # preserves fn.__name__ etc.\n    def wrapper(*args, **kwargs):\n        t = time.time()\n        result = fn(*args, **kwargs)\n        print(f\"{fn.__name__} took {time.time()-t:.4f}s\")\n        return result\n    return wrapper\n\n@timer\ndef slow_function():\n    time.sleep(1)\n```",
+      "tips": [
+        "Always use @functools.wraps(fn) inside your wrapper to preserve metadata",
+        "Decorators stack: @b @a def f() → f = b(a(f))",
+        "Built-in decorators you'll see: @staticmethod, @classmethod, @property"
+      ]
+    },
+    {
+      "title": "🧙 Dunder Methods - magic under the hood",
+      "tags": ["dunder", "__init__", "__str__", "__repr__", "OOP", "magic methods"],
+      "content": "Dunder (double-underscore) methods let your class hook into Python's built-in syntax.\n\nThe essentials:\n```\nclass Vector:\n    def __init__(self, x, y):      # constructor\n        self.x, self.y = x, y\n\n    def __repr__(self):            # for developers: repr(obj)\n        return f\"Vector({self.x}, {self.y})\"\n\n    def __str__(self):             # for users: str(obj) / print(obj)\n        return f\"({self.x}, {self.y})\"\n\n    def __add__(self, other):      # v1 + v2\n        return Vector(self.x + other.x, self.y + other.y)\n\n    def __len__(self):             # len(v)\n        return 2\n\n    def __eq__(self, other):       # v1 == v2\n        return self.x == other.x and self.y == other.y\n\nv1 = Vector(1, 2)\nv2 = Vector(3, 4)\nprint(v1 + v2)   # (4, 6)  - uses __str__\nprint(repr(v1))  # Vector(1, 2)  - uses __repr__\n```",
+      "tips": [
+        "__repr__ should ideally return something you could paste to recreate the object",
+        "__str__ is what print() uses; falls back to __repr__ if not defined",
+        "Other useful ones: __len__, __contains__ (in), __iter__, __getitem__ ([])"
+      ]
+    },
+    {
+      "title": "📦 Venv & Packages - pip vs pacman vs apt",
+      "tags": ["venv", "pip", "packages", "environment", "pacman", "apt"],
+      "content": "On 42 school machines or your own Linux system, managing Python packages cleanly matters.\n\nCreate and use a virtual environment:\n```\npython3 -m venv .venv          # create venv in .venv/\nsource .venv/bin/activate      # activate (bash/zsh)\npip install requests           # installs into .venv only\npip freeze > requirements.txt  # save dependencies\ndeactivate                     # leave venv\n```\n\nInstall from a requirements file:\n```\npip install -r requirements.txt\n```\n\nPackage manager cheat sheet:\n```\n# Arch Linux\npacman -Ss python-requests   # search\nsudo pacman -S python-requests\n\n# Ubuntu/Debian\nsudo apt install python3-requests\n\n# Fedora/RHEL\nsudo dnf install python3-requests\n\n# Any distro (inside venv!)\npip install requests\n```",
+      "tips": [
+        "At 42, always use venv - you don't have sudo on the exam machines",
+        "Never pip install globally as root - it can break system Python packages",
+        "python3 -m pip is safer than bare pip if you have multiple Python versions"
+      ]
+    },
+    {
+      "title": "⌨️ Stdin / Stdout - sys.stdin & argparse",
+      "tags": ["stdin", "stdout", "argparse", "sys", "argv", "input"],
+      "content": "Two main ways to get input: command-line arguments or stdin.\n\nsys.argv - raw arguments list:\n```\nimport sys\n\nif len(sys.argv) != 3:\n    print(\"Usage: prog arg1 arg2\", file=sys.stderr)\n    sys.exit(1)\n\nfirst  = sys.argv[1]\nsecond = sys.argv[2]\n```\n\nargparse - proper argument parsing:\n```\nimport argparse\n\nparser = argparse.ArgumentParser(description=\"My tool\")\nparser.add_argument(\"name\",            help=\"your name\")\nparser.add_argument(\"-v\", \"--verbose\", action=\"store_true\")\nargs = parser.parse_args()\n\nprint(f\"Hello {args.name}\")\nif args.verbose:\n    print(\"verbose mode on\")\n```\n\nReading stdin line by line (pipe-friendly):\n```\nimport sys\nfor line in sys.stdin:\n    line = line.rstrip(\"\\n\")\n    print(line[::-1])  # reverse each line\n```\n\nPrint to stderr:\n```\nprint(\"error!\", file=sys.stderr)\n```",
+      "tips": [
+        "sys.argv[0] is always the script name - your args start at index 1",
+        "Use sys.exit(1) to signal failure to the shell (non-zero exit code)",
+        "argparse auto-generates --help for free!"
+      ]
+    },
+    {
+      "title": "🗂️ Dictionaries",
+      "tags": ["dict", "hashmap", "key-value", "data structures"],
+      "content": "Dicts store key-value pairs.\n\n```\nd = {\"name\": \"alice\", \"age\": 20}\nd[\"age\"]          # 20\nd[\"city\"] = \"Lisbon\"  # add a key\nd.get(\"missing\", 0)   # returns 0 instead of KeyError\n\n# Iterate\nfor key, value in d.items():\n    print(key, value)\n\n# Check membership\nif \"name\" in d:\n    print(\"has name\")\n```",
+      "tips": [
+        "Use .get() with a default to avoid KeyError",
+        "dict.keys(), dict.values(), dict.items() all return views",
+        "Dicts maintain insertion order since Python 3.7"
+      ]
+    },
+    {
+      "title": "🛠️ Functions & lambda",
+      "tags": ["def", "functions", "return", "args", "kwargs", "lambda"],
+      "content": "Functions are defined with def.\n\n```\ndef greet(name, greeting=\"Hello\"):\n    return f\"{greeting}, {name}!\"\n\nprint(greet(\"Alice\"))            # Hello, Alice!\nprint(greet(\"Bob\", \"Hey\"))       # Hey, Bob!\n```\n\nVariable args:\n```\ndef add(*args):            # tuple of positional args\n    return sum(args)\n\ndef info(**kwargs):         # dict of keyword args\n    for k, v in kwargs.items():\n        print(k, v)\n```\n\nLambda (anonymous function):\n```\ndouble = lambda x: x * 2\ndouble(5)  # 10\n\n# Common use: as a sort key\nwords = [\"banana\", \"fig\", \"apple\"]\nwords.sort(key=lambda w: len(w))  # sort by length\n```",
+      "tips": [
+        "Default arguments are evaluated once at definition - avoid mutable defaults like []",
+        "Return without a value returns None",
+        "Use *args and **kwargs for flexible function signatures"
+      ]
+    },
+    {
+      "title": "📖 OOP - Classes and Dunder Methods",
+      "tags": ["oop", "class", "object", "inheritance", "__init__"],
+      "content": "Python uses classes to define objects.\n\n```\nclass Animal:\n    def __init__(self, name, sound):\n        self.name = name       # instance attribute\n        self.sound = sound\n\n    def speak(self):\n        return f\"{self.name} says {self.sound}\"\n\ndog = Animal(\"Dog\", \"woof\")\nprint(dog.speak())   # Dog says woof\n```\n\nInheritance:\n```\nclass Dog(Animal):\n    def __init__(self, name):\n        super().__init__(name, \"woof\")  # call parent __init__\n\n    def fetch(self):\n        return f\"{self.name} fetches the ball!\"\n\nrex = Dog(\"Rex\")\nprint(rex.speak())   # Rex says woof\nprint(rex.fetch())   # Rex fetches the ball!\n```",
+      "tips": [
+        "self is always the first parameter of instance methods",
+        "__init__ is the constructor - called when you create an object",
+        "super() lets you call the parent class's methods"
+      ]
+    }
+  ]
+}

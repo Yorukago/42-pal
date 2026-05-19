@@ -1,0 +1,39 @@
+{
+  "name": "inter",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes two strings and displays, without doubles, the",
+  "description": "Write a program that takes two strings and displays, without doubles, the\ncharacters that appear in both strings, in the order they appear in the first\none.\n\nThe display will be followed by a \\n.\n\nIf the number of arguments is not 2, the program displays \\n.\n\nExamples:\n\n$>./inter \"padinton\" \"paqefwtdjetyiytjneytjoeyjnejeyj\" | cat -e\npadinto$\n$>./inter ddf6vewg64f gtwthgdwthdwfteewhrtag6h4ffdhsd | cat -e\ndf6ewg4$\n$>./inter \"rien\" \"cette phrase ne cache rien\" | cat -e\nrien$\n$>./inter | cat -e\n$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "padinton\" \"paqefwtdjetyiytjneytjoeyjnejeyj",
+      "expected_output": "padinto"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "ddf6vewg64f gtwthgdwthdwfteewhrtag6h4ffdhsd",
+      "expected_output": "df6ewg4"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "rien\" \"cette phrase ne cache rien",
+      "expected_output": "rien"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "ft_swap",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that swaps the contents of two integers the adresses of which",
+  "description": "Write a function that swaps the contents of two integers the adresses of which\nare passed as parameters.\n\nYour function must be declared as follows:\n\nvoid\tft_swap(int *a, int *b);",
+  "prototype": "void\tft_swap(int *a, int *b);",
+  "notes": [],
+  "test_cases": []
+}

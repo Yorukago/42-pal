@@ -1,0 +1,39 @@
+{
+  "name": "print_hex",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a program that takes a positive (or zero) number expressed in base 10,",
+  "description": "Write a program that takes a positive (or zero) number expressed in base 10,\nand displays it in base 16 (lowercase letters) followed by a newline.\n\nIf the number of parameters is not 1, the program displays a newline.\n\nExamples:\n\n$> ./print_hex \"10\" | cat -e\na$\n$> ./print_hex \"255\" | cat -e\nff$\n$> ./print_hex \"5156454\" | cat -e\n4eae66$\n$> ./print_hex | cat -e\n$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "10",
+      "expected_output": "a"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "255",
+      "expected_output": "ff"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "5156454",
+      "expected_output": "4eae66"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

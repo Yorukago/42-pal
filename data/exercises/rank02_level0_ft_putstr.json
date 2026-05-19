@@ -1,0 +1,14 @@
+{
+  "name": "ft_putstr",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that displays a string on the standard output.",
+  "description": "Write a function that displays a string on the standard output.\n\nThe pointer passed to the function contains the address of the string's first\ncharacter.\n\nYour function must be declared as follows:\n\nvoid\tft_putstr(char *str);",
+  "prototype": "void\tft_putstr(char *str);",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": []
+}

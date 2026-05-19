@@ -1,0 +1,39 @@
+{
+  "name": "epur_str",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a program that takes a string, and displays this string with exactly one",
+  "description": "Write a program that takes a string, and displays this string with exactly one\nspace between words, with no spaces or tabs either at the beginning or the end,\nfollowed by a \\n.\n\nA \"word\" is defined as a part of a string delimited either by spaces/tabs, or\nby the start/end of the string.\n\nIf the number of arguments is not 1, or if there are no words to display, the\nprogram displays \\n.\n\nExample:\n\n$> ./epur_str \"See? It's easy to print the same thing\" | cat -e\nSee? It's easy to print the same thing$\n$> ./epur_str \" this        time it      will     be    more complex  . \" | cat -e\nthis time it will be more complex .$\n$> ./epur_str \"No S*** Sherlock...\" \"nAw S*** ShErLaWQ...\" | cat -e\n$\n$> ./epur_str \"\" | cat -e\n$\n$>\n\n$> ./epur_str \"vous voyez c'est facile d'afficher la meme chose\" | cat -e\nvous voyez c'est facile d'afficher la meme chose$\n$> ./epur_str \" seulement          la c'est      plus dur \" | cat -e\nseulement la c'est plus dur$\n$> ./epur_str \"comme c'est cocasse\" \"vous avez entendu, Mathilde ?\" | cat -e\n$\n$> ./epur_str \"\" | cat -e\n$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "See? It's easy to print the same thing",
+      "expected_output": "See? It's easy to print the same thing"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": " this        time it      will     be    more complex  . ",
+      "expected_output": "this time it will be more complex ."
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "vous voyez c'est facile d'afficher la meme chose",
+      "expected_output": "vous voyez c'est facile d'afficher la meme chose"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": " seulement          la c'est      plus dur ",
+      "expected_output": "seulement la c'est plus dur"
+    }
+  ]
+}

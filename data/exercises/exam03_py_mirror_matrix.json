@@ -1,0 +1,26 @@
+{
+  "name": "reverseMatrix",
+  "rank": "exam03",
+  "level": "level0",
+  "lang": "python",
+  "difficulty": "easy",
+  "short_desc": "Reverse each row of a 2D matrix individually.",
+  "description": "Given a 2D matrix `s` (list of lists), return a new matrix where\neach row is reversed individually.\n\nThe function must:\n  -> Reverse the order of elements inside each row.\n  -> Keep the row order unchanged.\n  -> Preserve the original dimensions of the matrix.\n  -> Return a new matrix (don't modify in-place).\n\nFunction signature:\n  def reverseMatrix(s: list) -> list\n\nExamples:\n  reverseMatrix([[1, 2], [3, 4]])          -> [[2, 1], [4, 3]]\n  reverseMatrix([[1, 2, 3], [4, 5, 6]])    -> [[3, 2, 1], [6, 5, 4]]\n  reverseMatrix([[1, 2, 3, 4]])            -> [[4, 3, 2, 1]]\n  reverseMatrix([[1], [2], [3]])           -> [[1], [2], [3]]\n  reverseMatrix([[1]])                     -> [[1]]\n  reverseMatrix([])                        -> []",
+  "prototype": "def reverseMatrix(s: list) -> list:",
+  "notes": [
+    "File to submit: reverseMatrix.py",
+    "Return a new matrix - do not mutate the original.",
+    "Works with any element types (integers, strings, etc.)."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "reverseMatrix([[1, 2], [3, 4]])",                  "expected": "[[2, 1], [4, 3]]"},
+    {"call": "reverseMatrix([[1, 2, 3], [4, 5, 6]])",            "expected": "[[3, 2, 1], [6, 5, 4]]"},
+    {"call": "reverseMatrix([[1, 2, 3, 4]])",                    "expected": "[[4, 3, 2, 1]]"},
+    {"call": "reverseMatrix([[1], [2], [3]])",                   "expected": "[[1], [2], [3]]"},
+    {"call": "reverseMatrix([[1]])",                             "expected": "[[1]]"},
+    {"call": "reverseMatrix([])",                                "expected": "[]"},
+    {"call": "reverseMatrix([[1,2,3],[4,5,6],[7,8,9]])",         "expected": "[[3, 2, 1], [6, 5, 4], [9, 8, 7]]"}
+  ]
+}

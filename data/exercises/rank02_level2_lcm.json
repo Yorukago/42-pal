@@ -1,0 +1,12 @@
+{
+  "name": "lcm",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a function who takes two unsigned int as parameters and returns the",
+  "description": "Write a function who takes two unsigned int as parameters and returns the\ncomputed LCM of those parameters.\n\nLCM (Lowest Common Multiple) of two non-zero integers is the smallest postive\ninteger divisible by the both integers.\n\nA LCM can be calculated in two ways:\n\n- You can calculate every multiples of each integers until you have a common\nmultiple other than 0\n\n- You can use the HCF (Highest Common Factor) of these two integers and\ncalculate as follows:\n\n\tLCM(x, y) = | x * y | / HCF(x, y)\n\n  | x * y | means \"Absolute value of the product of x by y\"\n\nIf at least one integer is null, LCM is equal to 0.\n\nYour function must be prototyped as follows:\n\n  unsigned int    lcm(unsigned int a, unsigned int b);",
+  "prototype": "",
+  "notes": [],
+  "test_cases": []
+}

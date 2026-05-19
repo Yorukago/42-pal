@@ -1,0 +1,39 @@
+{
+  "name": "rot_13",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes a string and displays it, replacing each of its",
+  "description": "Write a program that takes a string and displays it, replacing each of its\nletters by the letter 13 spaces ahead in alphabetical order.\n\n'z' becomes 'm' and 'Z' becomes 'M'. Case remains unaffected.\n\nThe output will be followed by a newline.\n\nIf the number of arguments is not 1, the program displays a newline.\n\nExample:\n\n$>./rot_13 \"abc\"\nnop\n$>./rot_13 \"My horse is Amazing.\" | cat -e\nZl ubefr vf Nznmvat.$\n$>./rot_13 \"AkjhZ zLKIJz , 23y \" | cat -e\nNxwuM mYXVWm , 23l $\n$>./rot_13 | cat -e\n$\n$>\n$>./rot_13 \"\" | cat -e\n$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "abc",
+      "expected_output": "nop"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "My horse is Amazing.",
+      "expected_output": "Zl ubefr vf Nznmvat."
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "AkjhZ zLKIJz , 23y ",
+      "expected_output": "NxwuM mYXVWm , 23l"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

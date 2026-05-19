@@ -1,0 +1,27 @@
+{
+  "name": "twister",
+  "rank": "exam03",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Rotate a list right by n steps (supports negative n for left rotation).",
+  "description": "Given a list `nums` and an integer `n`, rotate the list to the right\nby `n` steps and return the resulting list.\n\nThe function must:\n  -> Shift elements to the right `n` times.\n  -> Wrap around elements that go beyond the list length.\n  -> Handle negative values of `n` (rotate left).\n  -> Return a new rotated list.\n\nFunction signature:\n  def twister(nums: list, n: int) -> list\n\nExamples:\n  twister([1, 2, 3, 4, 5], 2)    -> [4, 5, 1, 2, 3]\n  twister([4, 2, 1, -1, 'a'], 4) -> [2, 1, -1, 'a', 4]\n  twister([1, 2, 3], 3)          -> [1, 2, 3]\n  twister([1, 2, 3], 5)          -> [2, 3, 1]\n  twister([1, 2, 3, 4], -1)      -> [2, 3, 4, 1]\n  twister([], 3)                  -> []\n  twister([1], 10)               -> [1]",
+  "prototype": "def twister(nums: list, n: int) -> list:",
+  "notes": [
+    "File to submit: twister.py",
+    "Right rotation by n: last n elements move to the front.",
+    "Negative n means left rotation.",
+    "Hint: collections.deque.rotate() works nicely here."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "twister([1, 2, 3, 4, 5], 2)",    "expected": "[4, 5, 1, 2, 3]"},
+    {"call": "twister([4, 2, 1, -1, 'a'], 4)", "expected": "[2, 1, -1, 'a', 4]"},
+    {"call": "twister([1, 2, 3], 3)",           "expected": "[1, 2, 3]"},
+    {"call": "twister([1, 2, 3], 5)",           "expected": "[2, 3, 1]"},
+    {"call": "twister([1, 2, 3, 4], -1)",       "expected": "[2, 3, 4, 1]"},
+    {"call": "twister([], 3)",                  "expected": "[]"},
+    {"call": "twister([1], 10)",               "expected": "[1]"}
+  ]
+}

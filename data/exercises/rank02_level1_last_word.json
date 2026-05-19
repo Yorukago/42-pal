@@ -1,0 +1,33 @@
+{
+  "name": "last_word",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes a string and displays its last word followed by a \\n.",
+  "description": "Write a program that takes a string and displays its last word followed by a \\n.\n\nA word is a section of string delimited by spaces/tabs or by the start/end of\nthe string.\n\nIf the number of parameters is not 1, or there are no words, display a newline.\n\nExample:\n\n$> ./last_word \"FOR PONY\" | cat -e\nPONY$\n$> ./last_word \"this        ...       is sparta, then again, maybe    not\" | cat -e\nnot$\n$> ./last_word \"   \" | cat -e\n$\n$> ./last_word \"a\" \"b\" | cat -e\n$\n$> ./last_word \"  lorem,ipsum  \" | cat -e\nlorem,ipsum$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "FOR PONY",
+      "expected_output": "PONY"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "this        ...       is sparta, then again, maybe    not",
+      "expected_output": "not"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "  lorem,ipsum  ",
+      "expected_output": "lorem,ipsum"
+    }
+  ]
+}

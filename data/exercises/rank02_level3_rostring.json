@@ -1,0 +1,45 @@
+{
+  "name": "rostring",
+  "rank": "rank02",
+  "level": "level3",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write a program that takes a string and displays this string after rotating it",
+  "description": "Write a program that takes a string and displays this string after rotating it\none word to the left.\n\nThus, the first word becomes the last, and others stay in the same order.\n\nA \"word\" is defined as a part of a string delimited either by spaces/tabs, or\nby the start/end of the string.\n\nWords will be separated by only one space in the output.\n\nIf there's less than one argument, the program displays \\n.\n\nExample:\n\n$>./rostring \"abc   \" | cat -e\nabc$\n$>\n$>./rostring \"Que la      lumiere soit et la lumiere fut\"\nla lumiere soit et la lumiere fut Que\n$>\n$>./rostring \"     AkjhZ zLKIJz , 23y\"\nzLKIJz , 23y AkjhZ\n$>\n$>./rostring \"first\" \"2\" \"11000000\"\nfirst\n$>\n$>./rostring | cat -e\n$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write, malloc, free"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "abc   ",
+      "expected_output": "abc"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "Que la      lumiere soit et la lumiere fut",
+      "expected_output": "la lumiere soit et la lumiere fut Que"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "     AkjhZ zLKIJz , 23y",
+      "expected_output": "zLKIJz , 23y AkjhZ"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "first\" \"2\" \"11000000",
+      "expected_output": "first"
+    },
+    {
+      "label": "test 5",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

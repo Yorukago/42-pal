@@ -1,0 +1,33 @@
+{
+  "name": "first_word",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes a string and displays its first word, followed by a",
+  "description": "Write a program that takes a string and displays its first word, followed by a\nnewline.\n\nA word is a section of string delimited by spaces/tabs or by the start/end of\nthe string.\n\nIf the number of parameters is not 1, or if there are no words, simply display\na newline.\n\nExamples:\n\n$> ./first_word \"FOR PONY\" | cat -e\nFOR$\n$> ./first_word \"this        ...    is sparta, then again, maybe    not\" | cat -e\nthis$\n$> ./first_word \"   \" | cat -e\n$\n$> ./first_word \"a\" \"b\" | cat -e\n$\n$> ./first_word \"  lorem,ipsum  \" | cat -e\nlorem,ipsum$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "FOR PONY",
+      "expected_output": "FOR"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "this        ...    is sparta, then again, maybe    not",
+      "expected_output": "this"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "  lorem,ipsum  ",
+      "expected_output": "lorem,ipsum"
+    }
+  ]
+}

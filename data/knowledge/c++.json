@@ -1,0 +1,69 @@
+{
+  "lang": "c++",
+  "entries": [
+    {
+      "title": "🆚 C++ vs C - Key Differences",
+      "tags": ["basics", "syntax", "c++ vs c"],
+      "content": "C++ is a superset of C with OOP, templates, and a standard library.\n\n```cpp\n// C++ hello world\n#include <iostream>\n\nint main() {\n    std::cout << \"Hello, world!\" << std::endl;\n    return 0;\n}\n```\n\nKey differences from C:\n- `std::cout` instead of `printf`\n- `std::string` instead of `char` arrays\n- References (`&`) in addition to pointers\n- Classes with constructors/destructors\n- `new`/`delete` instead of `malloc`/`free`\n- Function and operator overloading",
+      "tips": [
+        "Add `using namespace std;` to avoid typing `std::` everywhere (but avoid in headers).",
+        "Compile with `g++ -std=c++98` (for 42) or `-std=c++17`.",
+        "`std::endl` flushes the buffer; `\\n` is faster if you don't need flushing."
+      ]
+    },
+    {
+      "title": "📦 Canonical Form - The 42 Standard",
+      "tags": ["oop", "canonical form", "occf", "classes"],
+      "content": "42 requires the Orthodox Canonical Class Form (OCCF). You must explicitly define 4 things for your classes:\n\n1. Default Constructor\n2. Copy Constructor\n3. Copy Assignment Operator\n4. Destructor\n\n```cpp\nclass Dog {\npublic:\n    Dog();                                 // Default constructor\n    Dog(const Dog& other);                 // Copy constructor\n    Dog& operator=(const Dog& other);      // Copy assignment operator\n    ~Dog();                                // Destructor\n};\n```\n\n- The Rule of Three - If you need to write a custom destructor, you almost certainly need a custom copy constructor and assignment operator.",
+      "tips": [
+        "Use member initializer lists in constructors for efficiency.",
+        "Always make destructors `virtual` in base classes!"
+      ]
+    },
+    {
+      "title": "🧬 Templates - Generic Coding",
+      "tags": ["templates", "generic", "types"],
+      "content": "Templates let you write a function or class once, and use it with any data type.\n\n```cpp\ntemplate <typename T>\nT max(T a, T b) {\n    return (a > b) ? a : b;\n}\n\nint main() {\n    std::cout << max<int>(3, 7) << std::endl;       // int\n    std::cout << max<float>(3.14f, 2.71f) << std::endl; // float\n}\n```\n\n- Templates are evaluated at compile time.\n- For template classes, implementation must usually stay in the header file (`.hpp`).",
+      "tips": [
+        "Template errors can be very long - read the first line of the error closely.",
+        "Use `typename` instead of `class` in the template parameter list (it's identical but clearer)."
+      ]
+    },
+    {
+      "title": "🧰 The STL - Smart Containers",
+      "tags": ["stl", "vector", "map", "containers"],
+      "content": "The Standard Template Library (STL) provides data structures that manage their own memory.\n\n`std::vector` (dynamic array):\n```cpp\n#include <vector>\nstd::vector<int> v;\nv.push_back(42);   // add to end\nv.pop_back();      // remove from end\nstd::cout << v.size() << std::endl;\n```\n\n`std::map` (key-value dictionary):\n```cpp\n#include <map>\nstd::map<std::string, int> ages;\nages[\"Alice\"] = 25;\nstd::cout << ages[\"Alice\"] << std::endl;\n```",
+      "tips": [
+        "`std::vector` is almost always better than a raw array.",
+        "Use iterators to loop through STL containers efficiently."
+      ]
+    },
+    {
+      "title": "🛡️ Casting - The Safe Quartet",
+      "tags": ["casting", "types", "safety"],
+      "content": "C-style casts `(int)x` are dangerous in C++. Use the four specific casts:\n\n- `static_cast` - For normal, safe conversions (e.g., `float` to `int`). Checked at compile time.\n- `dynamic_cast` - For safe downcasting in class hierarchies (requires `virtual` functions). Checked at runtime.\n- `const_cast` - To remove or add `const` qualifiers (use sparingly).\n- `reinterpret_cast` - To treat a pointer of one type as a pointer of another. Very dangerous!\n\n```cpp\nfloat f = 3.14f;\nint i = static_cast<int>(f);\n\nBase* b = new Derived();\nDerived* d = dynamic_cast<Derived*>(b);\nif (d) { /* successful cast */ }\n```",
+      "tips": [
+        "Avoid `reinterpret_cast` unless absolutely necessary (like low-level hardware or parsing raw bytes).",
+        "`dynamic_cast` returns `nullptr` (or throws `std::bad_cast` for references) if the cast fails."
+      ]
+    },
+    {
+      "title": "📌 Refs vs Pointers",
+      "tags": ["references", "pointers", "nullptr", "basics"],
+      "content": "References are aliases for existing variables. They are safer than pointers.\n\n```cpp\nint x = 10;\nint &ref = x;    // ref IS x\nref = 20;        // x is now 20\n```\n\n- When to use references - When a parameter must always refer to a valid object. References cannot be null and cannot be reassigned.\n- When to use pointers - When you need to iterate over arrays, reassign the target, or if `nullptr` is a valid, expected state.\n\n- Enter `nullptr` - Never use `NULL` or `0` for pointers in modern C++. Use `nullptr`, which has a specific pointer type and prevents overload resolution errors.\n```cpp\nint* ptr = nullptr;\n```",
+      "tips": [
+        "Pass large objects as `const Type&` to avoid expensive copies.",
+        "Always initialize pointers to `nullptr` if they don't have a value yet."
+      ]
+    },
+    {
+      "title": "🧠 C++ Memory Map & new/delete",
+      "tags": ["memory", "new", "delete", "heap", "mermaid"],
+      "content": "C++ simplifies heap allocation with `new` and `delete`.\n\n```mermaid\ngraph TD\n    A[Stack] -->|Fast, local, auto| B(Local Variables)\n    C[Heap] -->|Dynamic, manual| D(new / delete)\n    E[Data Segment] -->|Global / static| F(Static Variables)\n    G[Code Segment] -->|Read-only| H(Binary Instructions)\n```\n\n```cpp\n// Allocate single object\nDog* d = new Dog();\ndelete d;\n\n// Allocate array\nint* arr = new int[10];\ndelete[] arr;\n```\n\n- `new` calls the constructor automatically.\n- `delete` calls the destructor automatically.\n- Never mix them up! (Don't use `free` on `new`, don't use `delete` on `malloc`).",
+      "tips": [
+        "If you use `new[]`, you must use `delete[]`.",
+        "Memory leaks occur if you lose the pointer before calling `delete`."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "paramsum",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a program that displays the number of arguments passed to it, followed by",
+  "description": "Write a program that displays the number of arguments passed to it, followed by\na newline.\n\nIf there are no arguments, just display a 0 followed by a newline.\n\nExample:\n\n$>./paramsum 1 2 3 5 7 24\n6\n$>./paramsum 6 12 24 | cat -e\n3$\n$>./paramsum | cat -e\n0$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "1 2 3 5 7 24",
+      "expected_output": "6"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "6 12 24",
+      "expected_output": "3"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "",
+      "expected_output": "0"
+    }
+  ]
+}

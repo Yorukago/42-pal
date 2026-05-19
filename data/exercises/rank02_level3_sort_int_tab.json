@@ -1,0 +1,12 @@
+{
+  "name": "sort_int_tab",
+  "rank": "rank02",
+  "level": "level3",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write the following function:",
+  "description": "Write the following function:\n\nvoid sort_int_tab(int *tab, unsigned int size);\n\nIt must sort (in-place) the 'tab' int array, that contains exactly 'size'\nmembers, in ascending order.\n\nDoubles must be preserved.\n\nInput is always coherent.",
+  "prototype": "void sort_int_tab(int *tab, unsigned int size);",
+  "notes": [],
+  "test_cases": []
+}

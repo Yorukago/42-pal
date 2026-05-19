@@ -1,0 +1,70 @@
+{
+  "lang": "life_tips",
+  "entries": [
+    {
+      "title": "🧠 The Exam Prep Mindset",
+      "tags": ["prep", "study", "exam", "mental"],
+      "content": "Preparing for Rank 3+ is different from Rank 2.\n\n- The Paper Test - Sketch logic on paper first. If you can't explain a list comprehension without a keyboard, you don't know it yet.\n- Simulate Clutter - Practice without VS Code extensions. Use raw syntax to mimic the school machines.\n- Review Dunders - In Python, review `__init__` and `__str__`. They are common fail points in automated grading.",
+      "tips": [
+        "Hydrate and sleep - the 'Rank 3 Wall' is usually just exhaustion.",
+        "The 15-Minute Rule: If stuck for 15 mins, walk away and look at a wall. The answer will come.",
+        "Help others: Explaining a concept to a Pisciner cements your own knowledge."
+      ]
+    },
+    {
+      "title": "💻 The Real Exam Protocol",
+      "tags": ["exam", "strategy", "survival"],
+      "content": "When the timer starts, don't rush into coding.\n\n- Read Twice - Students often fail because they missed a tiny requirement at the bottom of the subject.\n- Hello World First - Write a version that just prints the expected output format first to confirm your parsing is correct.\n- No Over-engineering - You don't get points for 'cute' code in an exam. A simple `for` loop beats a buggy nested comprehension.",
+      "tips": [
+        "Check memory even in Python - massive lists in loops can hit machine limits.",
+        "Keep code clean - it makes debugging 10x faster under pressure.",
+        "If you fail: Don't tilt. Take the feedback, update your corner, and try again."
+      ]
+    },
+    {
+      "title": "🕳️ Managing the Black Hole",
+      "tags": ["pacing", "blackhole", "survival"],
+      "content": "The Black Hole is a psychological boss, not just a timer.\n\n- Don't Sprint, Saunter - Burning out in month 2 is the fastest way to get sucked in. Aim for 'Sustainable Suffering'.\n- The Buffer Zone - Try to keep at least 30-40 days of life at all times. It gives you the mental 'safe space' to fail a project once or twice without panic.\n- Holiday Logic - Remember that the Black Hole doesn't care about your birthday or Christmas. Plan your project submissions around your life, not the other way around.",
+      "tips": [
+        "Frozen days are your best friend - use them wisely!",
+        "Submit a 'small' project if you're getting dangerously close to 0."
+      ]
+    },
+    {
+      "title": "🤝 The Art of Peer Learning",
+      "tags": ["community", "evaluations", "soft skills"],
+      "content": "You are the teacher and the student. If you stay in your own bubble, you're doing 42 wrong.\n\n- The 'Explain Like I'm Five' Rule - If you can't explain your `ft_printf` to someone who just finished the Piscine, you don't actually understand your code.\n- Don't Be a 'Yes-Man' Evaluator - Giving a pass to bad code helps nobody. Be strict but kind. You're saving them from failing the exam later.\n- Network > Code - The person sitting next to you might be the person who refers you to your first 100k job. Talk to people!",
+      "tips": [
+        "Ask 'Why?' three times during every evaluation you receive.",
+        "The best projects are finished in the cafeteria, not just at the iMacs."
+      ]
+    },
+    {
+      "title": "🍕 Cluster Etiquette & Ergonomics",
+      "tags": ["health", "cluster", "etiquette"],
+      "content": "Living in a room with 300 other people requires some 'unspoken' rules.\n\n- The Smell Check - If you’ve been in the lab for 12 hours, you might not smell yourself. Take a walk. Shower. Your peers will thank you.\n- Keyboard Respect - Don't be the person with the ultra-clicky mechanical keyboard at 3 AM. It’s a war crime.\n- Save Your Back - Arch Linux won't help you if your spine is shaped like a shrimp. Adjust your chair height and look up every 20 minutes.",
+      "tips": [
+        "Lock your screen! People love to change your wallpaper to something embarrassing if you leave it open.",
+        "Use the 'Quiet Zone' for deep work, but the 'Loud Zone' for brainstorming."
+      ]
+    },
+    {
+      "title": "🐛 The Art of Debugging",
+      "tags": ["debugging", "printf", "python", "errors"],
+      "content": "Print debugging is an art form, but it varies wildly by language.\n\n- C-style `printf` - In C and C++, `printf` can be dangerous if you don't use it right. You have to specify format specifiers (`%d`, `%s`), and if you get them wrong, you segfault. It also buffers, so if you don't print a `\\n`, your debug text might not show up before a crash!\n- Python `f-strings` - Python's `f\"{var=}\"` (f-string debugging, added in Python 3.8) is pure magic. It prints both the variable name and its value instantly. No format specifiers, no segfaults, no buffering issues.\n- The 'Wolf Fence' Method - When a bug is hiding, print exactly halfway through your code. If the print happens, the bug is in the second half. If it doesn't, the bug is in the first. Keep splitting the code in half.",
+      "tips": [
+        "Always add `\\n` to your C debug prints, or use `fflush(stdout)`.",
+        "In Python, use `print(f\"{my_var=}\")` instead of `print(\"my_var is \", my_var)`."
+      ]
+    },
+    {
+      "title": "🛡️ Git Safety & Etiquette",
+      "tags": ["git", "safety", "version control"],
+      "content": "Git is a time machine, but it can also be a blender if you aren't careful.\n\n- Never Force Push - `git push -f` rewrites history. If you do this on a shared branch, your teammates will hate you. It deletes their timelines.\n- Commit Atomic Chunks - Don't commit 40 changed files with the message `\"stuff\"`. Commit small, logical pieces: `\"fixed the parsing loop\"`, `\"added the css styles\"`.\n- The `.gitignore` is Sacred - Never commit `.o` files, `a.out`, `__pycache__`, or your `.env` file containing passwords. Configure your `.gitignore` before your first commit.",
+      "tips": [
+        "If you messed up your local repo, clone it again in a new folder rather than crying over a broken merge.",
+        "Read the dedicated `git` section in the Knowledge Corner for more command specifics!"
+      ]
+    }
+  ]
+}

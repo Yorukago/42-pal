@@ -1,0 +1,12 @@
+{
+  "name": "reverse_bits",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that takes a byte, reverses it, bit by bit (like the",
+  "description": "Write a function that takes a byte, reverses it, bit by bit (like the\nexample) and returns the result.\n\nYour function must be declared as follows:\n\nunsigned char\treverse_bits(unsigned char octet);\n\nExample:\n\n  1 byte\n_____________\n 0010  0110\n\t ||\n\t \\/\n 0110  0100",
+  "prototype": "",
+  "notes": [],
+  "test_cases": []
+}

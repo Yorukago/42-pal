@@ -1,0 +1,28 @@
+{
+  "name": "Shift_alphabet",
+  "rank": "exam03",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Caesar-cipher shift: shift each alpha char by n positions, preserve case.",
+  "description": "Given a string `s` and an integer `n`, shift each alphabetic character\nin the string by `n` positions in the alphabet.\n\nThe function must:\n  -> Preserve case (lowercase and uppercase handled separately).\n  -> Wrap around the alphabet (e.g. 'z' + 1 -> 'a').\n  -> Leave non-alphabetic characters unchanged.\n  -> Support positive and negative shifts.\n\nFunction signature:\n  def Shift_alphabet(s: str, n: int) -> str\n\nExamples:\n  Shift_alphabet(\"abz\", 1)        -> \"bca\"\n  Shift_alphabet(\"AbZ\", 1)        -> \"BcA\"\n  Shift_alphabet(\"Hello World!\", 3) -> \"Khoor Zruog!\"\n  Shift_alphabet(\"bca\", -1)       -> \"abz\"\n  Shift_alphabet(\"abc\", 26)       -> \"abc\"\n  Shift_alphabet(\"xyz\", 3)        -> \"abc\"\n  Shift_alphabet(\"\", 10)          -> \"\"\n  Shift_alphabet(\"12345\", 4)      -> \"12345\"",
+  "prototype": "def Shift_alphabet(s: str, n: int) -> str:",
+  "notes": [
+    "File to submit: Shift_alphabet.py",
+    "Use modulo 26 to wrap around.",
+    "Non-alphabetic characters (digits, spaces, punctuation) pass through unchanged."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "Shift_alphabet('abz', 1)",         "expected": "bca"},
+    {"call": "Shift_alphabet('AbZ', 1)",         "expected": "BcA"},
+    {"call": "Shift_alphabet('Hello World!', 3)", "expected": "Khoor Zruog!"},
+    {"call": "Shift_alphabet('bca', -1)",        "expected": "abz"},
+    {"call": "Shift_alphabet('abc', 26)",        "expected": "abc"},
+    {"call": "Shift_alphabet('xyz', 3)",         "expected": "abc"},
+    {"call": "Shift_alphabet('Python 3.8!', 5)", "expected": "Udymts 3.8!"},
+    {"call": "Shift_alphabet('', 10)",           "expected": ""},
+    {"call": "Shift_alphabet('12345', 4)",       "expected": "12345"}
+  ]
+}

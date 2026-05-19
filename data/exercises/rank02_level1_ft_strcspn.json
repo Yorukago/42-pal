@@ -1,0 +1,12 @@
+{
+  "name": "ft_strcspn",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Reproduce exactly the behavior of the function strcspn",
+  "description": "Reproduce exactly the behavior of the function strcspn\n(man strcspn).\n\nThe function should be prototyped as follows:\n\nsize_t\tft_strcspn(const char *s, const char *reject);",
+  "prototype": "size_t\tft_strcspn(const char *s, const char *reject);",
+  "notes": [],
+  "test_cases": []
+}

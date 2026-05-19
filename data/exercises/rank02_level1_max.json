@@ -1,0 +1,12 @@
+{
+  "name": "max",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write the following function:",
+  "description": "Write the following function:\n\nint\t\tmax(int* tab, unsigned int len);\n\nThe first parameter is an array of int, the second is the number of elements in\nthe array.\n\nThe function returns the largest number found in the array.\n\nIf the array is empty, the function returns 0.",
+  "prototype": "int\t\tmax(int* tab, unsigned int len);",
+  "notes": [],
+  "test_cases": []
+}

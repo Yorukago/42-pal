@@ -1,0 +1,24 @@
+{
+  "name": "cryptic_sorter",
+  "rank": "exam03",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Sort strings by vowel count, then length, then lexicographically.",
+  "description": "Given a list of strings `tlist`, return a new list sorted by:\n  1. Number of vowels (ascending).\n  2. If equal vowels, by string length (ascending).\n  3. If still equal, lexicographically (alphabetically, case-insensitive).\n\nVowels are: a, e, i, o, u (case-insensitive).\n\nFunction signature:\n  def cryptic_sorter(tlist: list) -> list\n\nExamples:\n  cryptic_sorter([\"apple\", \"bat\", \"car\", \"ae\", \"b\"])\n    -> ['b', 'bat', 'car', 'ae', 'apple']\n\n  cryptic_sorter([\"dog\", \"cat\", \"hi\", \"a\"])\n    -> ['a', 'hi', 'cat', 'dog']\n\n  cryptic_sorter([\"bat\", \"cat\", \"ant\"])\n    -> ['ant', 'bat', 'cat']\n\n  cryptic_sorter([])\n    -> []",
+  "prototype": "def cryptic_sorter(tlist: list) -> list:",
+  "notes": [
+    "File to submit: cryptic_sorter.py",
+    "Vowels: a, e, i, o, u - case-insensitive.",
+    "Sort priority: vowel count ASC -> length ASC -> lexicographic ASC."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "cryptic_sorter(['apple', 'bat', 'car', 'ae', 'b'])", "expected": "['b', 'bat', 'car', 'ae', 'apple']"},
+    {"call": "cryptic_sorter(['dog', 'cat', 'hi', 'a'])",          "expected": "['a', 'hi', 'cat', 'dog']"},
+    {"call": "cryptic_sorter(['bat', 'cat', 'ant'])",               "expected": "['ant', 'bat', 'cat']"},
+    {"call": "cryptic_sorter([])",                                  "expected": "[]"},
+    {"call": "cryptic_sorter(['bbb', 'ccc', 'ddd'])",              "expected": "['bbb', 'ccc', 'ddd']"}
+  ]
+}

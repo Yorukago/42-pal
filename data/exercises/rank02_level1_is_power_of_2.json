@@ -1,0 +1,12 @@
+{
+  "name": "is_power_of_2",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that determines if a given number is a power of 2.",
+  "description": "Write a function that determines if a given number is a power of 2.\n\nThis function returns 1 if the given number is a power of 2, otherwise it returns 0.\n\nYour function must be declared as follows:\n\nint\t    is_power_of_2(unsigned int n);",
+  "prototype": "int\t    is_power_of_2(unsigned int n);",
+  "notes": [],
+  "test_cases": []
+}

@@ -1,0 +1,21 @@
+{
+  "name": "fizzbuzz",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that prints the numbers from 1 to 100, each separated by a",
+  "description": "Write a program that prints the numbers from 1 to 100, each separated by a\nnewline.\n\nIf the number is a multiple of 3, it prints 'fizz' instead.\n\nIf the number is a multiple of 5, it prints 'buzz' instead.\n\nIf the number is both a multiple of 3 and a multiple of 5, it prints 'fizzbuzz' instead.\n\nExample:\n\n$>./fizzbuzz\n1\n2\nfizz\n4\nbuzz\nfizz\n7\n8\nfizz\nbuzz\n11\nfizz\n13\n14\nfizzbuzz\n[...]\n97\n98\nfizz\nbuzz\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "",
+      "expected_output": "1\n2\nfizz\n4\nbuzz\nfizz\n7\n8"
+    }
+  ]
+}

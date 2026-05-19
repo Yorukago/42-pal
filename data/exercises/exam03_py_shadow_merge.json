@@ -1,0 +1,27 @@
+{
+  "name": "mergeList",
+  "rank": "exam03",
+  "level": "level0",
+  "lang": "python",
+  "difficulty": "easy",
+  "short_desc": "Merge two integer lists and return them sorted in ascending order.",
+  "description": "Given two lists of integers `list1` and `list2`, return a new list\ncontaining all elements from both lists, sorted in ascending order.\n\nThe function must:\n  -> Combine all elements from both input lists.\n  -> Handle empty or None lists correctly.\n  -> Return a new sorted list (ascending order).\n\nFunction signature:\n  def mergeList(list1, list2) -> list\n\nExamples:\n  mergeList([1, 3, 5, -1], [0, 8, 2, 1])  -> [-1, 0, 1, 1, 2, 3, 5, 8]\n  mergeList([99, -22, 10, 9], [])          -> [-22, 9, 10, 99]\n  mergeList([4, 2], [1, 3])               -> [1, 2, 3, 4]\n  mergeList(None, [5, 3, 1])             -> [1, 3, 5]\n  mergeList([7, 6, 8], None)             -> [6, 7, 8]\n  mergeList([], [])                       -> []\n  mergeList([1, 1, 1], [1, 1])           -> [1, 1, 1, 1, 1]\n  mergeList([-5, -2], [-3, -1])          -> [-5, -3, -2, -1]",
+  "prototype": "def mergeList(list1, list2) -> list:",
+  "notes": [
+    "File to submit: mergeList.py",
+    "Treat None as an empty list.",
+    "The merged list must be sorted in ascending order."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "mergeList([1, 3, 5, -1], [0, 8, 2, 1])", "expected": "[-1, 0, 1, 1, 2, 3, 5, 8]"},
+    {"call": "mergeList([99, -22, 10, 9], [])",         "expected": "[-22, 9, 10, 99]"},
+    {"call": "mergeList([4, 2], [1, 3])",               "expected": "[1, 2, 3, 4]"},
+    {"call": "mergeList(None, [5, 3, 1])",              "expected": "[1, 3, 5]"},
+    {"call": "mergeList([7, 6, 8], None)",              "expected": "[6, 7, 8]"},
+    {"call": "mergeList([], [])",                       "expected": "[]"},
+    {"call": "mergeList([1, 1, 1], [1, 1])",            "expected": "[1, 1, 1, 1, 1]"},
+    {"call": "mergeList([-5, -2], [-3, -1])",           "expected": "[-5, -3, -2, -1]"}
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "do_op",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes three strings:",
+  "description": "Write a program that takes three strings:\n- The first and the third one are representations of base-10 signed integers\n  that fit in an int.\n- The second one is an arithmetic operator chosen from: + - * / %\n\nThe program must display the result of the requested arithmetic operation,\nfollowed by a newline. If the number of parameters is not 3, the program\njust displays a newline.\n\nYou can assume the string have no mistakes or extraneous characters. Negative\nnumbers, in input or output, will have one and only one leading '-'. The\nresult of the operation fits in an int.\n\nExamples:\n\n$> ./do_op \"123\" \"*\" 456 | cat -e\n56088$\n$> ./do_op \"9828\" \"/\" 234 | cat -e\n42$\n$> ./do_op \"1\" \"+\" \"-43\" | cat -e\n-42$\n$> ./do_op | cat -e\n$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: atoi, printf, write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "123\" \"*\" 456",
+      "expected_output": "56088"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "9828\" \"/\" 234",
+      "expected_output": "42"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "1\" \"+\" \"-43",
+      "expected_output": "-42"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

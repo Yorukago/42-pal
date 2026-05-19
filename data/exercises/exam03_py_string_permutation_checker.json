@@ -1,0 +1,27 @@
+{
+  "name": "Anagram",
+  "rank": "exam03",
+  "level": "level0",
+  "lang": "python",
+  "difficulty": "easy",
+  "short_desc": "Check if two strings are anagrams (same characters, same frequency).",
+  "description": "Given two strings s and t, return True if t is an anagram of s.\n\nTwo strings are anagrams if they contain the same characters with the\nsame frequency (case-sensitive).\n\nFunction signature:\n  def Anagram(s1: str, s2: str) -> bool\n\nExamples:\n  Anagram(\"racecar\", \"carrace\")             -> True\n  Anagram(\"racecar\", \"carace\")              -> False\n  Anagram(\"listen\", \"silent\")               -> True\n  Anagram(\"Conversation\", \"Voices rant on\") -> False\n  Anagram(\"\", \"\")                           -> True",
+  "prototype": "def Anagram(s1: str, s2: str) -> bool:",
+  "notes": [
+    "File to submit: Anagram.py",
+    "Case-sensitive comparison.",
+    "Spaces and punctuation are significant."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "Anagram('racecar', 'carrace')",             "expected": "True"},
+    {"call": "Anagram('racecar', 'carace')",              "expected": "False"},
+    {"call": "Anagram('listen', 'silent')",               "expected": "True"},
+    {"call": "Anagram('Conversation', 'Voices rant on')", "expected": "False"},
+    {"call": "Anagram('', '')",                           "expected": "True"},
+    {"call": "Anagram('a', 'b')",                         "expected": "False"},
+    {"call": "Anagram('abc', 'cba')",                     "expected": "True"},
+    {"call": "Anagram('Rat', 'tar')",                     "expected": "False"}
+  ]
+}

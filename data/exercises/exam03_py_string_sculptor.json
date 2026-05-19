@@ -1,0 +1,27 @@
+{
+  "name": "sculptor",
+  "rank": "exam03",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Alternate case of alphabetic characters; non-alpha chars unchanged.",
+  "description": "Given a string `text`, return a new string where alphabetic characters\nalternate between lowercase and uppercase.\n\nThe function must:\n  -> Start with lowercase for the first alphabetic character.\n  -> Alternate case for each subsequent alphabetic character.\n  -> Ignore non-alphabetic characters (they remain unchanged).\n  -> Non-alphabetic characters do NOT affect the alternation counter.\n\nFunction signature:\n  def sculptor(text: str) -> str\n\nExamples:\n  sculptor(\"Hello world\")   -> \"hElLo WoRlD\"\n  sculptor(\"Hello, world!\") -> \"hElLo, WoRlD!\"\n  sculptor(\"123abcDEF\")     -> \"123aBcDeF\"\n  sculptor(\"a-bC-dEf-ghIj\") -> \"a-Bc-DeF-gHiJ\"\n  sculptor(\"\")              -> \"\"\n  sculptor(\"12345\")         -> \"12345\"\n  sculptor(\"A\")             -> \"a\"\n  sculptor(\"ab\")            -> \"aB\"",
+  "prototype": "def sculptor(text: str) -> str:",
+  "notes": [
+    "File to submit: sculptor.py",
+    "First alphabetic char is always lowercase.",
+    "Non-alpha chars (digits, punctuation, spaces) do NOT count toward alternation."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "sculptor('Hello world')",   "expected": "hElLo WoRlD"},
+    {"call": "sculptor('Hello, world!')", "expected": "hElLo, WoRlD!"},
+    {"call": "sculptor('123abcDEF')",     "expected": "123aBcDeF"},
+    {"call": "sculptor('a-bC-dEf-ghIj')", "expected": "a-Bc-DeF-gHiJ"},
+    {"call": "sculptor('')",              "expected": ""},
+    {"call": "sculptor('12345')",         "expected": "12345"},
+    {"call": "sculptor('A')",             "expected": "a"},
+    {"call": "sculptor('ab')",            "expected": "aB"}
+  ]
+}

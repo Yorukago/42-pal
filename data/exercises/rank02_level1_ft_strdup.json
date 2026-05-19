@@ -1,0 +1,14 @@
+{
+  "name": "ft_strdup",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Reproduce the behavior of the function strdup (man strdup).",
+  "description": "Reproduce the behavior of the function strdup (man strdup).\n\nYour function must be declared as follows:\n\nchar    *ft_strdup(char *src);",
+  "prototype": "char    *ft_strdup(char *src);",
+  "notes": [
+    "Allowed functions: malloc"
+  ],
+  "test_cases": []
+}

@@ -1,0 +1,14 @@
+{
+  "name": "scanf",
+  "rank": "rank03",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a function named `ft_scanf` that will mimic the real scanf with the follow",
+  "description": "Write a function named `ft_scanf` that will mimic the real scanf with the following constraints:\n\n- It will manage only the following conversions: s, d, and c\n- You don't have to handle the options *, m and '\n- You don't have to handle the maximum field width\n- You don't have to handle the types modifier characters (h, hh, l, etc.)\n- You don't have to handle the conversions beginning with %n$\n\nYour function must be declared as follows:\n\nint ft_scanf(const char *, ... );\n\nYou will find in this directory a file containing a part of the code you will need, you just have to complete it.\n\nTo test your program compare your results with the real scanf.\n\nHint : You may need to read the man of scanf.\n\n#include <stdarg.h>\n#include <stdio.h>\n#include <ctype.h>\n\nint match_space(FILE *f)\n{\n        // You may insert code here\n    return (0);\n}\n\nint match_char(FILE *f, char c)\n{\n        // You may insert code here\n    return (0);\n}\n\nint scan_char(FILE *f, va_list ap)\n{\n        // You may insert code here\n    return (0);\n}\n\nint scan_int(FILE *f, va_list ap)\n{\n        // You may insert code here\n    return (0);\n}\n\nint scan_string(FILE *f, va_list ap)\n{\n        // You may insert code here\n    return (0);\n}\n\n\nint\tmatch_conv(FILE *f, const char **format, va_list ap)\n{\n\tswitch (**format)\n\t{\n\t\tcase 'c':\n\t\t\treturn scan_char(f, ap);\n\t\tcase 'd':\n\t\t\tmatch_space(f);\n\t\t\treturn scan_int(f, ap);\n\t\tcase 's':\n\t\t\tmatch_space(f);\n\t\t\treturn scan_string(f, ap);\n\t\tcase EOF:\n\t\t\treturn -1;\n\t\tdefault:\n\t\t\treturn -1;\n\t}\n}\n\nint ft_vfscanf(FILE *f, const char *format, va_list ap)\n{\n\tint nconv = 0;\n\n\tint c = fgetc(f);\n\tif (c == EOF)\n\t\treturn EOF;\n\tungetc(c, f);\n\n\twhile (*format)\n\t{\n\t\tif (*format == '%')\n\t\t{\n\t\t\tformat++;\n\t\t\tif (match_conv(f, &format, ap) != 1)\n\t\t\t\tbreak;\n\t\t\telse\n\t\t\t\tnconv++;\n\t\t}\n\t\telse if (isspace(*format))\n\t\t{\n\t\t\tif (match_space(f) == -1)\n\t\t\t\tbreak;\n\t\t}\n\t\telse if (match_char(f, *format) != 1)\n\t\t\tbreak;\n\t\tformat++;\n\t}\n\t\n\tif (ferror(f))\n\t\treturn EOF;\n\treturn nconv;\n}\n\n\nint ft_scanf(const char *f",
+  "prototype": "int ft_scanf(const char *, ... );",
+  "notes": [
+    "Allowed functions: fgetc, ungetc, ferror, feof, isspace, isdigit, stdin, va_start, va_arg, va_copy, va_end"
+  ],
+  "test_cases": []
+}

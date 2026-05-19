@@ -1,0 +1,14 @@
+{
+  "name": "ft_rrange",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write the following function:",
+  "description": "Write the following function:\n\nint     *ft_rrange(int start, int end);\n\nIt must allocate (with malloc()) an array of integers, fill it with consecutive\nvalues that begin at end and end at start (Including start and end !), then\nreturn a pointer to the first value of the array.\n\nExamples:\n\n- With (1, 3) you will return an array containing 3, 2 and 1\n- With (-1, 2) you will return an array containing 2, 1, 0 and -1.\n- With (0, 0) you will return an array containing 0.\n- With (0, -3) you will return an array containing -3, -2, -1 and 0.",
+  "prototype": "int     *ft_rrange(int start, int end);",
+  "notes": [
+    "Allowed functions: malloc"
+  ],
+  "test_cases": []
+}

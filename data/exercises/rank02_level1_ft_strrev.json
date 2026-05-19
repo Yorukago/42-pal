@@ -1,0 +1,12 @@
+{
+  "name": "ft_strrev",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that reverses (in-place) a string.",
+  "description": "Write a function that reverses (in-place) a string.\n\nIt must return its parameter.\n\nYour function must be declared as follows:\n\nchar    *ft_strrev(char *str);",
+  "prototype": "char    *ft_strrev(char *str);",
+  "notes": [],
+  "test_cases": []
+}

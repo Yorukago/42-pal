@@ -1,0 +1,33 @@
+{
+  "name": "rstr_capitalizer",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a program that takes one or more strings and, for each argument, puts",
+  "description": "Write a program that takes one or more strings and, for each argument, puts \nthe last character that is a letter of each word in uppercase and the rest\nin lowercase, then displays the result followed by a \\n.\n\nA word is a section of string delimited by spaces/tabs or the start/end of the\nstring. If a word has a single letter, it must be capitalized.\n\nA letter is a character in the set [a-zA-Z]\n\nIf there are no parameters, display \\n.\n\nExamples:\n\n$> ./rstr_capitalizer | cat -e\n$\n$> ./rstr_capitalizer \"a FiRSt LiTTlE TESt\" | cat -e\nA firsT littlE tesT$\n$> ./rstr_capitalizer \"SecONd teST A LITtle BiT   Moar comPLEX\" \"   But... This iS not THAT COMPLEX\" \"     Okay, this is the last 1239809147801 but not    the least    t\" | cat -e\nseconD tesT A littlE biT   moaR compleX$\n   but... thiS iS noT thaT compleX$\n     okay, thiS iS thE lasT 1239809147801 buT noT    thE leasT    T$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "a FiRSt LiTTlE TESt",
+      "expected_output": "A firsT littlE tesT"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "SecONd teST A LITtle BiT   Moar comPLEX\" \"   But... This iS not THAT COMPLEX\" \"     Okay, this is the last 1239809147801 but not    the least    t",
+      "expected_output": "seconD tesT A littlE biT   moaR compleX\n   but... thiS iS noT thaT compleX\n     okay, thiS iS thE lasT 1239809147801 buT noT    thE leasT    T"
+    }
+  ]
+}

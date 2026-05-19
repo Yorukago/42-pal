@@ -1,0 +1,27 @@
+{
+  "name": "Pattern_tracker",
+  "rank": "exam03",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Count consecutive digit pairs where the second is exactly one greater.",
+  "description": "Given a string `s`, count the number of times two consecutive characters\nare digits such that the second digit is exactly one greater than the first.\n\nThe function must:\n  -> Only consider adjacent characters in the string.\n  -> Count pairs where both are digits.\n  -> Increment count if int(s[i]) == int(s[i-1]) + 1.\n  -> Return the total count of such valid consecutive pairs.\n\nFunction signature:\n  def Pattern_tracker(string: str) -> int\n\nExamples:\n  Pattern_tracker(\"123a345\")  -> 4   (pairs: 1-2, 2-3, 3-4, 4-5)\n  Pattern_tracker(\"1a2b3c4d5\") -> 0  (no adjacent digit pairs)\n  Pattern_tracker(\"012345\")   -> 5\n  Pattern_tracker(\"111111\")   -> 0   (not increasing)\n  Pattern_tracker(\"98\")       -> 0   (decreasing, not counted)\n  Pattern_tracker(\"\")         -> 0",
+  "prototype": "def Pattern_tracker(string: str) -> int:",
+  "notes": [
+    "File to submit: Pattern_tracker.py",
+    "Only adjacent digit pairs count - letters/spaces act as separators.",
+    "Decreasing pairs (e.g. 9,8) do NOT count."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "Pattern_tracker('123a345')",                                            "expected": "4"},
+    {"call": "Pattern_tracker('1a2b3c4d5')",                                         "expected": "0"},
+    {"call": "Pattern_tracker('12asd34hkh45kjhj56jhj67kjhjh78kjhjh89kjhkhj110')",   "expected": "7"},
+    {"call": "Pattern_tracker('111111')",                                             "expected": "0"},
+    {"call": "Pattern_tracker('012345')",                                             "expected": "5"},
+    {"call": "Pattern_tracker('98')",                                                 "expected": "0"},
+    {"call": "Pattern_tracker('')",                                                   "expected": "0"},
+    {"call": "Pattern_tracker('7')",                                                  "expected": "0"}
+  ]
+}

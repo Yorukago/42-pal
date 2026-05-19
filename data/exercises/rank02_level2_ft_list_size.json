@@ -1,0 +1,12 @@
+{
+  "name": "ft_list_size",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a function that returns the number of elements in the linked list that's",
+  "description": "Write a function that returns the number of elements in the linked list that's\npassed to it.\n\nIt must be declared as follows:\n\nint\tft_list_size(t_list *begin_list);\n\nYou must use the following structure in your program ft_list_size.c :\n\ntypedef struct    s_list\n{\n    struct s_list *next;\n    void          *data;\n}                 t_list;",
+  "prototype": "int\tft_list_size(t_list *begin_list);",
+  "notes": [],
+  "test_cases": []
+}

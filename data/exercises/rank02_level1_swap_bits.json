@@ -1,0 +1,12 @@
+{
+  "name": "swap_bits",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that takes a byte, swaps its halves (like the example) and",
+  "description": "Write a function that takes a byte, swaps its halves (like the example) and\nreturns the result.\n\nYour function must be declared as follows:\n\nunsigned char\tswap_bits(unsigned char octet);\n\nExample:\n\n  1 byte\n_____________\n 0100 | 0001\n     \\ /\n     / \\\n 0001 | 0100",
+  "prototype": "",
+  "notes": [],
+  "test_cases": []
+}

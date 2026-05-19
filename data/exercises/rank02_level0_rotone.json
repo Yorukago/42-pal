@@ -1,0 +1,39 @@
+{
+  "name": "rotone",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes a string and displays it, replacing each of its",
+  "description": "Write a program that takes a string and displays it, replacing each of its\nletters by the next one in alphabetical order.\n\n'z' becomes 'a' and 'Z' becomes 'A'. Case remains unaffected.\n\nThe output will be followed by a \\n.\n\nIf the number of arguments is not 1, the program displays \\n.\n\nExample:\n\n$>./rotone \"abc\"\nbcd\n$>./rotone \"Les stagiaires du staff ne sentent pas toujours tres bon.\" | cat -e\nMft tubhjbjsft ev tubgg of tfoufou qbt upvkpvst usft cpo.$\n$>./rotone \"AkjhZ zLKIJz , 23y \" | cat -e\nBlkiA aMLJKa , 23z $\n$>./rotone | cat -e\n$\n$>\n$>./rotone \"\" | cat -e\n$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "abc",
+      "expected_output": "bcd"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "Les stagiaires du staff ne sentent pas toujours tres bon.",
+      "expected_output": "Mft tubhjbjsft ev tubgg of tfoufou qbt upvkpvst usft cpo."
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "AkjhZ zLKIJz , 23y ",
+      "expected_output": "BlkiA aMLJKa , 23z"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

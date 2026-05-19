@@ -1,0 +1,29 @@
+{
+  "name": "bracket_validator",
+  "rank": "exam03",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Determine whether a string of brackets is valid.",
+  "description": "Given a string `s` containing brackets '(', ')', '{', '}', '[', ']' (plus\nany other characters), determine whether the bracket structure is valid.\n\nA string is considered valid if:\n  -> Open brackets are closed by the same type of bracket.\n  -> Open brackets are closed in the correct order.\n  -> Every closing bracket has a corresponding opening bracket.\n  -> Non-bracket characters are ignored.\n\nFunction signature:\n  def bracket_validator(s: str) -> bool\n\nExamples:\n  bracket_validator(\"()\")                         -> True\n  bracket_validator(\"()[]{}\")                     -> True\n  bracket_validator(\"{[()]}\")                     -> True\n  bracket_validator(\"\")                           -> True\n  bracket_validator(\"hello(hhhh)world{ho}w are\") -> True\n  bracket_validator(\"(]\")                         -> False\n  bracket_validator(\"([)]\")                       -> False\n  bracket_validator(\"(((\")                        -> False",
+  "prototype": "def bracket_validator(s: str) -> bool:",
+  "notes": [
+    "File to submit: bracket_validator.py",
+    "Non-bracket characters must be ignored (treated as transparent).",
+    "Empty string is valid (True)."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {"call": "bracket_validator('()')",                         "expected": "True"},
+    {"call": "bracket_validator('()[]{}')",                    "expected": "True"},
+    {"call": "bracket_validator('{[()]}')",                    "expected": "True"},
+    {"call": "bracket_validator('')",                          "expected": "True"},
+    {"call": "bracket_validator('hello(hhhh)world{ho}w are')", "expected": "True"},
+    {"call": "bracket_validator('(]')",                        "expected": "False"},
+    {"call": "bracket_validator('([)]')",                      "expected": "False"},
+    {"call": "bracket_validator('(((')",                       "expected": "False"},
+    {"call": "bracket_validator('())')",                       "expected": "False"},
+    {"call": "bracket_validator('{[(])}')",                    "expected": "False"}
+  ]
+}

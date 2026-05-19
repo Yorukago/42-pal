@@ -1,0 +1,51 @@
+{
+  "name": "fprime",
+  "rank": "rank02",
+  "level": "level3",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write a program that takes a positive int and displays its prime factors on the",
+  "description": "Write a program that takes a positive int and displays its prime factors on the\nstandard output, followed by a newline.\n\nFactors must be displayed in ascending order and separated by '*', so that\nthe expression in the output gives the right result.\n\nIf the number of parameters is not 1, simply display a newline.\n\nThe input, when there is one, will be valid.\n\nExamples:\n\n$> ./fprime 225225 | cat -e\n3*3*5*5*7*11*13$\n$> ./fprime 8333325 | cat -e\n3*3*5*5*7*11*13*37$\n$> ./fprime 9539 | cat -e\n9539$\n$> ./fprime 804577 | cat -e\n804577$\n$> ./fprime 42 | cat -e\n2*3*7$\n$> ./fprime 1 | cat -e\n1$\n$> ./fprime | cat -e\n$\n$> ./fprime 42 21 | cat -e\n$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: printf, atoi"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "225225",
+      "expected_output": "3*3*5*5*7*11*13"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "8333325",
+      "expected_output": "3*3*5*5*7*11*13*37"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "9539",
+      "expected_output": "9539"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "804577",
+      "expected_output": "804577"
+    },
+    {
+      "label": "test 5",
+      "stdin": "",
+      "args": "42",
+      "expected_output": "2*3*7"
+    },
+    {
+      "label": "test 6",
+      "stdin": "",
+      "args": "1",
+      "expected_output": "1"
+    }
+  ]
+}

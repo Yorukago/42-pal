@@ -1,0 +1,14 @@
+{
+  "name": "print_bits",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that takes a byte, and prints it in binary WITHOUT A NEWLINE",
+  "description": "Write a function that takes a byte, and prints it in binary WITHOUT A NEWLINE\nAT THE END.\n\nYour function must be declared as follows:\n\nvoid\tprint_bits(unsigned char octet);\n\nExample, if you pass 2 to print_bits, it will print \"00000010\"",
+  "prototype": "void\tprint_bits(unsigned char octet);",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": []
+}

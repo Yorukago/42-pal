@@ -1,0 +1,33 @@
+{
+  "name": "str_capitalizer",
+  "rank": "rank02",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write a program that takes one or several strings and, for each argument,",
+  "description": "Write a program that takes one or several strings and, for each argument,\ncapitalizes the first character of each word (If it's a letter, obviously),\nputs the rest in lowercase, and displays the result on the standard output,\nfollowed by a \\n.\n\nA \"word\" is defined as a part of a string delimited either by spaces/tabs, or\nby the start/end of the string. If a word only has one letter, it must be\ncapitalized.\n\nIf there are no arguments, the progam must display \\n.\n\nExample:\n\n$> ./str_capitalizer | cat -e\n$\n$> ./str_capitalizer \"a FiRSt LiTTlE TESt\" | cat -e\nA First Little Test$\n$> ./str_capitalizer \"__SecONd teST A LITtle BiT   Moar comPLEX\" \"   But... This iS not THAT COMPLEX\" \"     Okay, this is the last 1239809147801 but not    the least    t\" | cat -e\n__second Test A Little Bit   Moar Complex$\n   But... This Is Not That Complex$\n     Okay, This Is The Last 1239809147801 But Not    The Least    T$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "a FiRSt LiTTlE TESt",
+      "expected_output": "A First Little Test"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "__SecONd teST A LITtle BiT   Moar comPLEX\" \"   But... This iS not THAT COMPLEX\" \"     Okay, this is the last 1239809147801 but not    the least    t",
+      "expected_output": "__second Test A Little Bit   Moar Complex\n   But... This Is Not That Complex\n     Okay, This Is The Last 1239809147801 But Not    The Least    T"
+    }
+  ]
+}

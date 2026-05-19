@@ -1,0 +1,12 @@
+{
+  "name": "ft_strlen",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a function that returns the length of a string.",
+  "description": "Write a function that returns the length of a string.\n\nYour function must be declared as follows:\n\nint\tft_strlen(char *str);",
+  "prototype": "int\tft_strlen(char *str);",
+  "notes": [],
+  "test_cases": []
+}

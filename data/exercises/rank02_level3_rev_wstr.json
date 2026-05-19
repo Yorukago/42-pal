@@ -1,0 +1,39 @@
+{
+  "name": "rev_wstr",
+  "rank": "rank02",
+  "level": "level3",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write a program that takes a string as a parameter, and prints its words in",
+  "description": "Write a program that takes a string as a parameter, and prints its words in \nreverse order.\n\nA \"word\" is a part of the string bounded by spaces and/or tabs, or the \nbegin/end of the string.\n\nIf the number of parameters is different from 1, the program will display \n'\\n'.\n\nIn the parameters that are going to be tested, there won't be any \"additional\" \nspaces (meaning that there won't be additionnal spaces at the beginning or at \nthe end of the string, and words will always be separated by exactly one space).\n\nExamples:\n\n$> ./rev_wstr \"You hate people! But I love gatherings. Isn't it ironic?\" | cat -e\nironic? it Isn't gatherings. love I But people! hate You$\n$>./rev_wstr \"abcdefghijklm\"\nabcdefghijklm\n$> ./rev_wstr \"Wingardium Leviosa\" | cat -e\nLeviosa Wingardium$\n$> ./rev_wstr | cat -e\n$\n$>",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write, malloc, free"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "You hate people! But I love gatherings. Isn't it ironic?",
+      "expected_output": "ironic? it Isn't gatherings. love I But people! hate You"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "abcdefghijklm",
+      "expected_output": "abcdefghijklm"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "Wingardium Leviosa",
+      "expected_output": "Leviosa Wingardium"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

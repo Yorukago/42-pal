@@ -1,0 +1,33 @@
+{
+  "name": "snake_to_camel",
+  "rank": "rank02",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes a single string in snake_case format",
+  "description": "Write a program that takes a single string in snake_case format\nand converts it into a string in lowerCamelCase format.\n\nA snake_case string is a string where each word is in lower case, separated by\nan underscore \"_\".\n\nA lowerCamelCase string is a string where each word begins with a capital letter\nexcept for the first one.\n\nExamples:\n$>./snake_to_camel \"here_is_a_snake_case_word\"\nhereIsASnakeCaseWord\n$>./snake_to_camel \"hello_world\" | cat -e\nhelloWorld$\n$>./snake_to_camel | cat -e\n$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: malloc, free, realloc, write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "here_is_a_snake_case_word",
+      "expected_output": "hereIsASnakeCaseWord"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "hello_world",
+      "expected_output": "helloWorld"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

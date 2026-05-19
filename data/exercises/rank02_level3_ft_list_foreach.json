@@ -1,0 +1,12 @@
+{
+  "name": "ft_list_foreach",
+  "rank": "rank02",
+  "level": "level3",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write a function that takes a list and a function pointer, and applies this",
+  "description": "Write a function that takes a list and a function pointer, and applies this\nfunction to each element of the list.\n\nIt must be declared as follows:\n\nvoid    ft_list_foreach(t_list *begin_list, void (*f)(void *));\n\nThe function pointed to by f will be used as follows:\n\n(*f)(list_ptr->data);\n\nYou must use the following structure, and turn it in as a file called\nft_list.h:\n\ntypedef struct    s_list\n{\n    struct s_list *next;\n    void          *data;\n}                 t_list;",
+  "prototype": "void    ft_list_foreach(t_list *begin_list, void (*f)(void *));",
+  "notes": [],
+  "test_cases": []
+}

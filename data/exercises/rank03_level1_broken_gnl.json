@@ -1,0 +1,14 @@
+{
+  "name": "broken_gnl",
+  "rank": "rank03",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Repair the function \u2018get_next_line\u2019 in the file get_next_line.c, whose prototype",
+  "description": "Repair the function \u2018get_next_line\u2019 in the file get_next_line.c, whose prototype should be:\nchar *get_next_line(int fd);\n\nYou may need to repair other functions as well.\n\nDescription of the \u2018get_next_line\u2019 function:\n\nYour function must return a line that has been read from the file descriptor\npassed as a parameter.\n\nA \u2018line that has been read\u2019 is defined as a succession of 0 to n characters\nending with \u2018\\n\u2019 (ASCII code 0x0a) or with End of File (EOF).\n\nThe line should be returned including the \u2018\\n\u2019 if there is one at the end\nof the line that has been read.\n\nWhen you reach the EOF, you must store the current buffer in a char * and\nreturn it. If the buffer is empty, you must return NULL.\n\nIn case of an error, return NULL.\n\nIf not returning NULL, the pointer should be freeable.\n\nYour program will be compiled with the flag -D BUFFER_SIZE=xx, which must be\nused as the buffer size for the read calls in your functions.\n\nYour function must be free of memory leaks.\n\nWhen you reach the EOF, your function should not keep any memory allocated with\nmalloc except for the line that has been returned.\n\nCalling your function get_next_line in a loop will allow you to read\nthe text available on a file descriptor one line at a time until the end of the\ntext, regardless of the size of the text or any of its lines.\n\nMake sure that your function behaves correctly when reading from a file, from the\nstandard output, from a redirection etc.\n\nNo call to another function will be done on the file descriptor between two calls\nof get_next_line.\n\nFinally, we consider that get_next_line has undefined behavior when reading\nfrom a binary file.\n--------------------------------------------------------------------------------",
+  "prototype": "char *get_next_line(int fd);",
+  "notes": [
+    "Allowed functions: read, free, malloc"
+  ],
+  "test_cases": []
+}

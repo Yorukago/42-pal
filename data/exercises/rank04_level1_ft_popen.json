@@ -1,0 +1,14 @@
+{
+  "name": "ft_popen",
+  "rank": "rank04",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "Write the following function:",
+  "description": "Write the following function:\n\nint ft_popen(const char *file, char *const argv[], char type);\n\nThe function must launch the executable file with the arguments argv (using execvp).\nIf type is 'r' the function must return a file descriptor connected to the output of the command.\nIf type is 'w' the function must return a file descriptor connected to the input of the command.\nIn case of error or invalid parameter the function must return -1.\n\nFor example, the function could be used like that:\n\nint main()\n{\n    int  fd;\n    char *line;\n\n    fd = ft_popen(\"ls\", (char *const []){\"ls\", NULL}, 'r');\n    while ((line = get_next_line(fd)))\n        ft_putstr(line);\n    return (0);\n}\n\n\nint\tmain() {\n\tint\tfd = ft_popen(\"ls\", (char *const []){\"ls\", NULL}, 'r');\n\tdup2(fd, 0);\n\tfd = ft_popen(\"grep\", (char *const []){\"grep\", \"c\", NULL}, 'r');\n\tchar\t*line;\n\twhile ((line = get_next_line(fd)))\n\t\tprintf(\"%s\", line);\n}\n\n\nHints:\nDo not leak file descriptors!\nThis exercise is inspired by the libc's popen().",
+  "prototype": "int ft_popen(const char *file, char *const argv[], char type);",
+  "notes": [
+    "Allowed functions: pipe, fork, dup2, execvp, close, exit"
+  ],
+  "test_cases": []
+}

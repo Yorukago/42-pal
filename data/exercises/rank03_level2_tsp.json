@@ -1,0 +1,21 @@
+{
+  "name": "tsp",
+  "rank": "rank03",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "The first publication referring to this problem as the \"traveling salesman",
+  "description": "The first publication referring to this problem as the \"traveling salesman\nproblem\" is found in the 1949 RAND Corporation report by Julia Robinson,\n\"On the Hamiltonian game (a traveling salesman problem).\"\n\nHere is how she defines the problem:\n\n\"The purpose of this note is to give a method for solving a problem related\nto the traveling salesman problem. It seems worthwhile to give a description\nof the original problem. One formulation is to find the shortest route for a\nsalesman starting from Washington, visiting all the state capitals and then\nreturning to Washington.\n\nMore generally, to find the shortest CLOSED CURVE containing n given points\nin the plane.\"\n\nfor example with the following set of cities:\n0, 0\n1, 0\n2, 0\n0, 1\n1, 1\n2, 1\n1, 2\n2, 2\nwhich can be presented as follows:\n+ + +\n+ + +\n  + +\nthe shortest path is:\n _____\n|__   |\n   |__|\n\nso you should print the length of this path that is:\n8.00\n\nWrite a program that will read a set of city coordinates in the form \n'%f, %f\\n' from the standard input and will print the length of the shortest\npossible path containing all these cities under the form '%.2f'.\n\nYour program will not be tested with more than 11 cities.\n\nYou will find in this directory a file tsp.c containing all the boring parts of\nthis exercise and example files to help you test your program.\n\nhint: in order to use sqrtf, add -lm at the end of your compilation command.\n\nFor example this should work:\n$> cat square.txt\n1, 1\n0, 1\n1, 0\n0, 0\n$> ./tsp < square.txt | cat -e\n4.00$\n\nHint : in order to use sqrtf , add -lm at the end of your compilation command",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write, sqrtf, getline, fseek, fscanf, ferror, feof,"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "< square.txt",
+      "expected_output": "4.00\n\nHint : in order to use sqrtf , add -lm at the end of your compilation command"
+    }
+  ]
+}

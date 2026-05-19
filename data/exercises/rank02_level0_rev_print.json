@@ -1,0 +1,33 @@
+{
+  "name": "rev_print",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Write a program that takes a string, and displays the string in reverse",
+  "description": "Write a program that takes a string, and displays the string in reverse\nfollowed by a newline.\n\nIf the number of parameters is not 1, the program displays a newline.\n\nExamples:\n\n$> ./rev_print \"zaz\" | cat -e\nzaz$\n$> ./rev_print \"dub0 a POIL\" | cat -e\nLIOP a 0bud$\n$> ./rev_print | cat -e\n$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "zaz",
+      "expected_output": "zaz"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "dub0 a POIL",
+      "expected_output": "LIOP a 0bud"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "",
+      "expected_output": ""
+    }
+  ]
+}

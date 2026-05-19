@@ -1,0 +1,12 @@
+{
+  "name": "ft_strcpy",
+  "rank": "rank02",
+  "level": "level0",
+  "lang": "c",
+  "difficulty": "easy",
+  "short_desc": "Reproduce the behavior of the function strcpy (man strcpy).",
+  "description": "Reproduce the behavior of the function strcpy (man strcpy).\n\nYour function must be declared as follows:\n\nchar    *ft_strcpy(char *s1, char *s2);",
+  "prototype": "char    *ft_strcpy(char *s1, char *s2);",
+  "notes": [],
+  "test_cases": []
+}

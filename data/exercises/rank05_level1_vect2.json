@@ -1,0 +1,12 @@
+{
+  "name": "vect2",
+  "rank": "rank05",
+  "level": "level1",
+  "lang": "c++",
+  "difficulty": "medium",
+  "short_desc": "Create a class vect2 representing a mathematical vector of dimension 2 containin",
+  "description": "Create a class vect2 representing a mathematical vector of dimension 2 containing ints.\n\nIt must support addition, substraction and multiplication by a scalar (such as the expression (vect2(2,2) * 2 == vect2(4,4)) is true).\n\nthe operator [] can be used to access the component of your vector (with 0 and 1), no bound checking is required.\n\nYour function must be printable with the << operator such as:\n        std::cout << v << std::endl;\nproduce the same output as:\n        std::cout << \"{\" << v[0] << \", \" << v[1] << \"}\" << std::endl;\n\nYou will find a main in this directory that must work with your class.\n\n#include \"vect2.hpp\"\n#include <iostream>\n\nint main()\n{\n    vect2 v1; // 0, 0\n    vect2 v2(1, 2); // 1, 2\n    const vect2 v3(v2); // 1, 2\n    vect2 v4 = v2; // 1, 2\n\n    std::cout << \"v1: \" << v1 << std::endl;\n    std::cout << \"v1: \" << \"{\" << v1[0] << \", \" << v1[1] << \"}\" << std::endl;\n    std::cout << \"v2: \" << v2 << std::endl;\n    std::cout << \"v3: \" << v3 << std::endl;\n    std::cout << \"v4: \" << v4 << std::endl;\n    std::cout << v4++ << std::endl; // 2, 3\n    std::cout << ++v4 << std::endl; // 3, 4\n    std::cout << v4-- << std::endl; // 2, 3\n    std::cout << --v4 << std::endl; // 1, 2\n    v2 += v3; // 2, 4\n    v1 -= v2; // -2, -4\n    v2 = v3 + v3 *2; // 3, 6\n    v2 = 3 * v2; // 9, 18\n    v2 += v2 += v3; // 20, 40\n    v1 *= 42; // -84, -168\n    v1 = v1 - v1 +v1;\n    std::cout << \"v1: \" << v1 << std::endl;\n    std::cout << \"v2: \" << v2 << std::endl;\n    std::cout << \"-v2: \" << -v2 << std::endl;\n    std::cout << \"v1[1]: \" << v1[1] << std::endl;\n    v1[1] = 12;\n    std::cout << \"v1[1]: \" << v1[1] << std::endl;\n    std::cout << \"v3[1]: \" << v3[1] << std::endl;\n    std::cout << \"v1 == v3: \" << (v1 == v3) << std::endl;\n    std::cout << \"v1 == v1: \" << (v1 == v1) << std::endl;\n    std::cout << \"v1 != v3: \" << (v1 != v3) << std::endl;\n    std::cout << \"v1 != v1: \" << (v1 != v1) << std::endl;\n}",
+  "prototype": "",
+  "notes": [],
+  "test_cases": []
+}

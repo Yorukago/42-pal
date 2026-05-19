@@ -1,0 +1,39 @@
+{
+  "name": "rip",
+  "rank": "rank03",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write a program that will take as argument a string containing only parenthesis.",
+  "description": "Write a program that will take as argument a string containing only parenthesis.\nif the parenthesis are unbalanced (for example \"())\")\nyour program shall remove the minimum number of parentheses for the expression to be balanced.\nBy removing we mean replacing by spaces.\nYou will then print all the solutions (can be more than one).\n\nThe order of the solutions is not important.\n\nFor example this should work:\n$> ./rip '(()' | cat -e\n ()$\n( )$\n$> ./rip '((()()())())' | cat -e\n((()()())())$\n$> ./rip '()())()'| cat -e\n()() ()$\n()( )()$\n( ())()$\n$> ./rip '(()(()(' | cat -e\n(()  ) $\n( )( ) $\n( ) () $\n ()( ) $",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: puts, write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "(()",
+      "expected_output": "()\n( )"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "((()()())())",
+      "expected_output": "((()()())())"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "()())()",
+      "expected_output": "()() ()\n()( )()\n( ())()"
+    },
+    {
+      "label": "test 4",
+      "stdin": "",
+      "args": "(()(()(",
+      "expected_output": "(()  ) \n( )( ) \n( ) () \n ()( )"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "permutations",
+  "rank": "rank03",
+  "level": "level2",
+  "lang": "c",
+  "difficulty": "hard",
+  "short_desc": "Write a program that will print all the permutations of a string given as argume",
+  "description": "Write a program that will print all the permutations of a string given as argument.\n\nThe solutions must be given in alphabetical order.\n\nWe will not try your program with strings containing duplicates (eg: 'abccd').\n\nFor example this should work:\n\n$> ./permutations a | cat -e\na$\n\n$> ./permutations ab | cat -e\nab$\nba$\n\n$> ./permutations abc | cat -e\nabc$\nacb$\nbac$\nbca$\ncab$\ncba$",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: puts, malloc, calloc, realloc, free, write"
+  ],
+  "test_cases": [
+    {
+      "label": "test 1",
+      "stdin": "",
+      "args": "a",
+      "expected_output": "a"
+    },
+    {
+      "label": "test 2",
+      "stdin": "",
+      "args": "ab",
+      "expected_output": "ab\nba"
+    },
+    {
+      "label": "test 3",
+      "stdin": "",
+      "args": "abc",
+      "expected_output": "abc\nacb\nbac\nbca\ncab\ncba"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "picoshell",
+  "rank": "rank04",
+  "level": "level1",
+  "lang": "c",
+  "difficulty": "medium",
+  "short_desc": "",
+  "description": "",
+  "prototype": "",
+  "notes": [
+    "Allowed functions: close, fork, wait, exit, execvp, dup2, pipe"
+  ],
+  "test_cases": []
+}
