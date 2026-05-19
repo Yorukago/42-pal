@@ -1,0 +1,19 @@
+# Submissions and Local Assets
+rendu/
+data/rendu
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Compiled binaries
+a.out
+*.o
+*.a
+*.so
+
+# System files
+.DS_Store
+.directory
