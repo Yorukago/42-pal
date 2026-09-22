@@ -3,7 +3,12 @@
   "entries": [
     {
       "title": "🧱 malloc - how it works",
-      "tags": ["malloc", "memory", "heap", "pointers"],
+      "tags": [
+        "malloc",
+        "memory",
+        "heap",
+        "pointers"
+      ],
       "content": "malloc() allocates a block of memory on the heap and returns a void pointer to it.\nYou must cast it and free it manually - C won't do it for you.\n\nSyntax:\n```\nvoid *malloc(size_t size);\n```\n\nExample - allocate an array of 10 ints:\n```\nint *arr = (int *)malloc(10 * sizeof(int));\nif (arr == NULL)\n    return (1); // always check for NULL!\narr[0] = 42;\nfree(arr);\n```\n\nCommon mistakes:\n- Forgetting to check if malloc returned NULL\n- Forgetting to free() - causes memory leaks\n- Freeing twice (double free) - undefined behaviour\n- Off-by-one: malloc(len) for a string needs to be malloc(len + 1) for the '\\0'",
       "tips": [
         "Always check for NULL after malloc()",
@@ -13,7 +18,12 @@
     },
     {
       "title": "📌 Pointers - basics",
-      "tags": ["pointers", "address", "dereference", "basics"],
+      "tags": [
+        "pointers",
+        "address",
+        "dereference",
+        "basics"
+      ],
       "content": "A pointer stores the memory address of a variable.\n\n```\nint x = 42;\nint *p = &x;   // p holds the address of x\nprintf(\"%d\\n\", *p); // dereference: prints 42\n*p = 100;          // modifies x through the pointer\n```\n\nPointer arithmetic:\n```\nint arr[3] = {1, 2, 3};\nint *p = arr;   // points to arr[0]\np++;            // now points to arr[1]\nprintf(\"%d\\n\", *p); // 2\n```",
       "tips": [
         "& gives you the address of a variable",
@@ -23,7 +33,12 @@
     },
     {
       "title": "📝 Strings in C",
-      "tags": ["strings", "char", "null terminator", "basics"],
+      "tags": [
+        "strings",
+        "char",
+        "null terminator",
+        "basics"
+      ],
       "content": "Strings in C are just arrays of char ending with a null terminator '\\0'.\n\n```\nchar str[] = \"hello\";  // stored as {'h','e','l','l','o','\\0'}\nchar *p = \"hello\";     // pointer to a string literal (read-only!)\n```\n\nManual string length:\n```\nint i = 0;\nwhile (str[i] != '\\0')\n    i++;\n// i is now the length\n```\n\nDynamic string on heap:\n```\nchar *s = malloc(6 * sizeof(char)); // 5 chars + '\\0'\nif (!s) return 1;\ns[0] = 'h'; s[1] = 'i'; s[2] = '\\0';\nfree(s);\n```",
       "tips": [
         "Always allocate strlen + 1 for the null terminator",
@@ -33,7 +48,12 @@
     },
     {
       "title": "🖨️ write() - printing without printf",
-      "tags": ["write", "syscall", "unistd", "output"],
+      "tags": [
+        "write",
+        "syscall",
+        "unistd",
+        "output"
+      ],
       "content": "write() is a system call that writes raw bytes to a file descriptor.\nfd 1 = stdout, fd 2 = stderr.\n\nSignature:\n```\n#include <unistd.h>\nssize_t write(int fd, const void *buf, size_t count);\n```\n\nPrint a single character:\n```\nchar c = 'A';\nwrite(1, &c, 1);\n```\n\nPrint a string:\n```\nwrite(1, \"hello\\n\", 6);\n```\n\nPrint an integer (you have to convert first):\n```\nvoid put_nbr(int n)\n{\n    char c;\n    if (n >= 10)\n        put_nbr(n / 10);\n    c = '0' + (n % 10);\n    write(1, &c, 1);\n}\n```",
       "tips": [
         "At 42, printf may be forbidden - learn write()",
@@ -43,7 +63,11 @@
     },
     {
       "title": "🗂️ Structs",
-      "tags": ["struct", "typedef", "data structures"],
+      "tags": [
+        "struct",
+        "typedef",
+        "data structures"
+      ],
       "content": "Structs let you group related data together.\n\n```\ntypedef struct s_point\n{\n    int x;\n    int y;\n} t_point;\n\nt_point p;\np.x = 3;\np.y = 7;\n```\n\nWith pointers (arrow notation):\n```\nt_point *ptr = &p;\nprintf(\"%d\\n\", ptr->x); // same as (*ptr).x\n```\n\nMalloc a struct:\n```\nt_point *p = malloc(sizeof(t_point));\nif (!p) return 1;\np->x = 1;\np->y = 2;\nfree(p);\n```",
       "tips": [
         "Use typedef to avoid writing 'struct' everywhere",
@@ -53,7 +77,12 @@
     },
     {
       "title": "🔗 Linked lists",
-      "tags": ["linked list", "struct", "malloc", "pointers"],
+      "tags": [
+        "linked list",
+        "struct",
+        "malloc",
+        "pointers"
+      ],
       "content": "A linked list is a chain of nodes, each pointing to the next.\n\n```\ntypedef struct s_list\n{\n    void            *content;\n    struct s_list   *next;\n} t_list;\n```\n\nCreate a new node:\n```\nt_list *new_node(void *content)\n{\n    t_list *node = malloc(sizeof(t_list));\n    if (!node) return NULL;\n    node->content = content;\n    node->next = NULL;\n    return node;\n}\n```\n\nTraverse:\n```\nt_list *current = head;\nwhile (current)\n{\n    // do something with current->content\n    current = current->next;\n}\n```",
       "tips": [
         "Always check malloc return before using the node",
@@ -63,7 +92,13 @@
     },
     {
       "title": "⚙️ Preprocessor - macros & header guards",
-      "tags": ["preprocessor", "macros", "header guard", "ifndef", "define"],
+      "tags": [
+        "preprocessor",
+        "macros",
+        "header guard",
+        "ifndef",
+        "define"
+      ],
       "content": "The C preprocessor runs before compilation. It handles #include, #define, and conditionals.\n\nHeader guard - prevents a header being included twice:\n```\n#ifndef MY_HEADER_H\n# define MY_HEADER_H\n\n// your declarations here\n\n#endif\n```\n\nSimple macro:\n```\n#define MAX(a, b) ((a) > (b) ? (a) : (b))\n\nint x = MAX(3, 7); // expands to ((3) > (7) ? (3) : (7))\n```\n\nDebug macro - prints only when DEBUG is defined:\n```\n#ifdef DEBUG\n# define LOG(msg) fprintf(stderr, \"[DBG] %s\\n\", msg)\n#else\n# define LOG(msg)\n#endif\n```\n\nCompile with debug:\n```\ngcc -DDEBUG -o prog prog.c\n```",
       "tips": [
         "Always wrap macro arguments in () to avoid operator precedence bugs",
@@ -73,7 +108,12 @@
     },
     {
       "title": "🎯 Function Pointers - callbacks & simulated OOP",
-      "tags": ["function pointers", "callbacks", "rank3", "pointers"],
+      "tags": [
+        "function pointers",
+        "callbacks",
+        "rank3",
+        "pointers"
+      ],
       "content": "A function pointer stores the address of a function. This is how C fakes OOP and callbacks.\n\nSyntax - pointer to a function taking int, returning int:\n```\nint (*fp)(int);\n```\n\nAssign and call:\n```\nint square(int x) { return x * x; }\n\nint (*fp)(int) = square;\nprintf(\"%d\\n\", fp(5)); // 25\n```\n\nAs a parameter (callback pattern):\n```\nvoid apply(int *arr, int len, int (*fn)(int))\n{\n    int i = 0;\n    while (i < len)\n    {\n        arr[i] = fn(arr[i]);\n        i++;\n    }\n}\n\napply(arr, 5, square); // squares every element\n```\n\nIn a struct (simulated OOP):\n```\ntypedef struct s_op\n{\n    char *name;\n    int (*fn)(int, int);\n} t_op;\n```",
       "tips": [
         "Read the type right-to-left: int (*fp)(int) = 'fp is a pointer to a function taking int returning int'",
@@ -83,7 +123,12 @@
     },
     {
       "title": "🌐 Static vs Global - scope control",
-      "tags": ["static", "global", "scope", "storage class"],
+      "tags": [
+        "static",
+        "global",
+        "scope",
+        "storage class"
+      ],
       "content": "Both static and global variables persist between function calls, but scope differs.\n\nGlobal - visible across ALL files:\n```\n// globals.c\nint g_counter = 0;  // 42 style: prefix g_\n\n// other.c\nextern int g_counter; // declare to use it\n```\n\nStatic local - persists between calls, but only visible in THIS function:\n```\nvoid count_calls(void)\n{\n    static int n = 0; // initialised only once\n    n++;\n    printf(\"Called %d times\\n\", n);\n}\n```\n\nStatic global - visible only within THIS file (file-private):\n```\n// In myfile.c only:\nstatic int s_secret = 42;\n```\n\nWhy it matters at 42:\n- Global state in GNL (get_next_line) must be static\n- Avoid globals leaking between files in multi-file projects",
       "tips": [
         "static local: same as global lifetime, function scope - great for GNL",
@@ -93,7 +138,14 @@
     },
     {
       "title": "🔧 FDs & Pipes - dup2, pipe, and redirection",
-      "tags": ["file descriptor", "pipe", "dup2", "redirection", "rank4", "processes"],
+      "tags": [
+        "file descriptor",
+        "pipe",
+        "dup2",
+        "redirection",
+        "rank4",
+        "processes"
+      ],
       "content": "Everything in Unix is a file descriptor (FD). 0=stdin, 1=stdout, 2=stderr.\n\npipe() - creates a unidirectional channel:\n```\nint fd[2];\npipe(fd); // fd[0] = read end, fd[1] = write end\n```\n\nForking with a pipe (child writes, parent reads):\n```\npipe(fd);\nif (fork() == 0)\n{\n    close(fd[0]);           // child doesn't read\n    write(fd[1], \"hi\", 2);\n    close(fd[1]);\n    exit(0);\n}\nclose(fd[1]);               // parent doesn't write\nread(fd[0], buf, sizeof(buf));\nclose(fd[0]);\n```\n\ndup2() - redirect one FD to another:\n```\nint file = open(\"out.txt\", O_WRONLY | O_CREAT, 0644);\ndup2(file, STDOUT_FILENO); // stdout now goes to out.txt\nclose(file);\nprintf(\"This goes to the file!\\n\");\n```",
       "tips": [
         "Always close the end of the pipe you're not using - or read() will block forever",
@@ -103,12 +155,159 @@
     },
     {
       "title": "🏗️ Stack vs Heap - memory layout",
-      "tags": ["stack", "heap", "memory", "malloc", "realloc"],
+      "tags": [
+        "stack",
+        "heap",
+        "memory",
+        "malloc",
+        "realloc"
+      ],
       "content": "C programs have two main memory regions:\n\nSTACK - automatic, fast, limited:\n```\nvoid foo(void)\n{\n    int x = 42;      // lives on the stack\n    char buf[256];   // also stack\n}                    // x and buf die here!\n```\n\nHEAP - manual, slower, as big as RAM allows:\n```\nchar *s = malloc(256); // lives on heap until free()\n// s survives after the function returns\n```\n\nrealloc() - resize a heap allocation:\n```\nint *arr = malloc(5 * sizeof(int));\n// ... arr grows ...\narr = realloc(arr, 10 * sizeof(int)); // now 10 ints\nif (!arr) // realloc can return NULL!\n    return (1);\n```\n\nDanger - returning a pointer to a stack variable:\n```\nchar *bad(void)\n{\n    char buf[10] = \"hello\"; // stack!\n    return buf;  // UNDEFINED BEHAVIOUR - stack freed on return\n}\n```",
       "tips": [
         "Stack overflows happen with very deep recursion or huge local arrays",
         "realloc may move the memory - always reassign the pointer",
         "Rule of thumb: if it needs to outlive the function, heap it"
+      ]
+    },
+    {
+      "title": "⌨️ argc & argv - reading the command line",
+      "tags": [
+        "argc",
+        "argv",
+        "main",
+        "arguments",
+        "rank2"
+      ],
+      "content": "```\nint main(int argc, char **argv)\n{\n    int i = 1;\n    while (i < argc)\n    {\n        ft_putstr(argv[i]);\n        write(1, \"\\n\", 1);\n        i++;\n    }\n    return (0);\n}\n```\nargv[0] is the program name, so real arguments start at index 1 and argc\ncounts the program itself. `argv[argc]` is NULL, so you can walk to NULL\ninstead of counting.\n\nMost rank02 subjects end with a line like \"if the number of arguments is\nnot 1, display a newline\":\n```\nif (argc != 2)\n    return (write(1, \"\\n\", 1), 0);\n```\nNote `argc != 2` - one argument means argc is 2.",
+      "tips": [
+        "Read the argument rule twice: 'one argument' means argc == 2, not 1",
+        "Subjects are exact about what to print on the wrong argc - usually just '\\n'",
+        "argv strings are writable, so in-place transforms are allowed"
+      ]
+    },
+    {
+      "title": "🔩 Bitwise operations - masks and shifts",
+      "tags": [
+        "bitwise",
+        "bits",
+        "shift",
+        "mask",
+        "xor",
+        "rank2"
+      ],
+      "content": "```\na & b     AND        a | b     OR\na ^ b     XOR        ~a        NOT\na << n    shift left   (x2 per shift)\na >> n    shift right  (/2 per shift)\n```\n\nPrint the 8 bits of a byte, high bit first:\n```\nvoid print_bits(unsigned char octet)\n{\n    int i = 7;\n    while (i >= 0)\n    {\n        write(1, ((octet >> i) & 1) ? \"1\" : \"0\", 1);\n        i--;\n    }\n}\n```\n\nSwap the two halves of a byte:\n```\nunsigned char swap_bits(unsigned char octet)\n{\n    return ((octet >> 4) | (octet << 4));\n}\n```\n\nPower of two, the classic trick:\n```\nint is_power_of_2(unsigned int n)\n{\n    return (n != 0 && (n & (n - 1)) == 0);\n}\n```\n`n - 1` flips the lowest set bit and everything below it, so `n & (n - 1)`\nclears that bit. If the result is 0, there was only one bit set.",
+      "tips": [
+        "rank02: print_bits, swap_bits, reverse_bits, is_power_of_2",
+        "Use unsigned types - >> on a negative signed int copies the sign bit",
+        "(x >> i) & 1 reads bit i; x |= (1 << i) sets it; x &= ~(1 << i) clears it"
+      ]
+    },
+    {
+      "title": "🌲 Recursion & backtracking - choose, explore, un-choose",
+      "tags": [
+        "recursion",
+        "backtracking",
+        "n_queens",
+        "permutations",
+        "powerset",
+        "rank3"
+      ],
+      "content": "Every backtracking problem is the same three steps in a loop.\n\n```\nvoid solve(int *board, int col, int n)\n{\n    int row;\n\n    if (col == n)            // base case first, always\n    {\n        print_solution(board, n);\n        return;\n    }\n    row = 0;\n    while (row < n)\n    {\n        if (is_safe(board, col, row))\n        {\n            board[col] = row;           // choose\n            solve(board, col + 1, n);   // explore\n            board[col] = -1;            // un-choose (backtrack)\n        }\n        row++;\n    }\n}\n```\n\nPowerset is the same shape with a binary choice - take this element or\nskip it:\n```\nvoid subsets(int *set, int n, int i, int *pick, int k)\n{\n    if (i == n)\n        return (print_subset(pick, k));\n    subsets(set, n, i + 1, pick, k);            // skip\n    pick[k] = set[i];\n    subsets(set, n, i + 1, pick, k + 1);        // take\n}\n```",
+      "tips": [
+        "rank03 n_queens, permutations, powerset, rip and tsp are ALL this pattern",
+        "Forgetting the un-choose step is the single most common bug",
+        "Write the base case before the loop or you will recurse forever",
+        "For permutations, swap element i with each later element, recurse, swap back"
+      ]
+    },
+    {
+      "title": "🍴 fork, exec & wait - the process model",
+      "tags": [
+        "fork",
+        "execvp",
+        "wait",
+        "waitpid",
+        "processes",
+        "rank4"
+      ],
+      "content": "fork() duplicates the process. It returns 0 in the child, the child's pid\nin the parent, and -1 on failure.\n\n```\npid_t pid = fork();\nif (pid == -1)\n    return (1);\nif (pid == 0)\n{\n    execvp(argv[0], argv);\n    exit(1);            // only reached if execvp FAILED\n}\n```\nexec* replaces the process image, so nothing after it runs on success.\nThat `exit(1)` is not optional - without it a failed exec leaves you with\na duplicate of the parent running the parent's code.\n\nReap children so they do not become zombies:\n```\nint status;\n\nwaitpid(pid, &status, 0);\nif (WIFEXITED(status))\n    code = WEXITSTATUS(status);\n```\nWait for all of them:\n```\nwhile (wait(NULL) != -1)\n    ;\n```\n\nFor a pipeline, the parent must close every pipe fd it is not using.\nA reader only sees EOF once *every* copy of the write end is closed - and\nfork duplicated them all.",
+      "tips": [
+        "rank04 ft_popen, picoshell - see also 'FDs & Pipes' for the plumbing",
+        "Unclosed write ends are why a pipeline hangs forever instead of finishing",
+        "exec only returns on failure, so treat 'it returned' as the error branch",
+        "Wait for ALL children before returning, not just the last one"
+      ]
+    },
+    {
+      "title": "🚨 Signals & alarm - timeouts and crash detection",
+      "tags": [
+        "signal",
+        "alarm",
+        "sigalrm",
+        "timeout",
+        "rank4"
+      ],
+      "content": "```\n#include <signal.h>\n\nvoid handler(int sig)\n{\n    (void)sig;          // keep handlers tiny - just set a flag or return\n}\n\nsignal(SIGALRM, handler);\nalarm(5);               // deliver SIGALRM in 5 seconds\n```\nA handler that does nothing is still useful: delivering the signal\ninterrupts a blocking call, which is how you implement a timeout.\n\nWork out how a child ended:\n```\nint status;\n\nwaitpid(pid, &status, 0);\nif (WIFEXITED(status))\n    printf(\"exited with %d\\n\", WEXITSTATUS(status));\nelse if (WIFSIGNALED(status))\n    printf(\"killed by signal %d\\n\", WTERMSIG(status));\n```",
+      "tips": [
+        "rank04 sandbox must distinguish clean exit, bad exit, crash and timeout",
+        "WIFEXITED and WIFSIGNALED are how you tell 'returned 1' from 'segfaulted'",
+        "alarm(0) cancels a pending alarm - do that once the child is reaped",
+        "Do not call printf inside a handler; set a flag and print outside"
+      ]
+    },
+    {
+      "title": "📖 read() & static buffers - the get_next_line shape",
+      "tags": [
+        "read",
+        "static",
+        "buffer",
+        "get_next_line",
+        "gnl",
+        "rank3"
+      ],
+      "content": "```\nssize_t n = read(fd, buf, BUFFER_SIZE);\n```\n  n > 0   bytes read\n  n == 0  end of file\n  n < 0   error\n\nread() does NOT null-terminate. You must write `buf[n] = '\\0'` yourself,\nwhich is why the buffer is declared one byte bigger than BUFFER_SIZE.\n\nA `static` variable inside a function keeps its value between calls -\nthat is how get_next_line remembers the leftovers of the last read:\n```\nchar *get_next_line(int fd)\n{\n    static char stash[BUFFER_SIZE + 1];\n    /* ... */\n    return (0);\n}\n```\n\nThe usual loop: if the stash already holds a newline, cut the line out of\nit and keep the rest. Otherwise read more and append, until you find a\nnewline or hit EOF.",
+      "tips": [
+        "rank03 broken_gnl - the bug is nearly always in the leftover handling",
+        "Test: last line with no trailing newline, empty file, and a line longer than BUFFER_SIZE",
+        "Check n == 0 and n < 0 separately - treating -1 as EOF hides real errors",
+        "A static buffer is per-fd state; reading two fds at once breaks a naive version"
+      ]
+    },
+    {
+      "title": "🔍 Recursive descent - parsing by grammar",
+      "tags": [
+        "parser",
+        "grammar",
+        "recursive descent",
+        "argo",
+        "vbc",
+        "rank4"
+      ],
+      "content": "Write the grammar down first, then one function per rule.\n\n```\n//  expr   := term ('+' term)*\n//  term   := factor ('*' factor)*\n//  factor := digit | '(' expr ')'\n\nint expr(char **s);\n\nint factor(char **s)\n{\n    int v;\n\n    if (**s == '(')\n    {\n        (*s)++;\n        v = expr(s);\n        if (**s != ')')\n            return (unexpected(**s));\n        (*s)++;\n        return (v);\n    }\n    if (**s >= '0' && **s <= '9')\n        return (*(*s)++ - '0');\n    return (unexpected(**s));\n}\n\nint term(char **s)\n{\n    int v = factor(s);\n\n    while (**s == '*')\n    {\n        (*s)++;\n        v = v * factor(s);\n    }\n    return (v);\n}\n```\n\nPass the cursor as `char **` so every level advances the *same* position.\nPrecedence falls out of the nesting: expr calls term calls factor, so the\ndeepest rule binds tightest.",
+      "tips": [
+        "rank04 vbc (arithmetic) and argo (JSON) are both exactly this",
+        "Write the grammar as a comment first - the code then writes itself",
+        "The error message usually must name the offending character, so keep the cursor exact",
+        "Check for leftover input after the top-level rule: '1+2)' must be an error"
+      ]
+    },
+    {
+      "title": "🗺️ 2D grids in C - allocation and traversal",
+      "tags": [
+        "grid",
+        "2d",
+        "matrix",
+        "malloc",
+        "bsq",
+        "life",
+        "rank5"
+      ],
+      "content": "Array of pointers - easy to index, many allocations:\n```\nchar **grid = malloc(sizeof(char *) * rows);\nint i = 0;\nwhile (i < rows)\n    grid[i++] = malloc(cols + 1);\n```\n\nFlat buffer - one malloc, one free, index by hand:\n```\nchar *grid = malloc(rows * cols);\ngrid[y * cols + x] = '.';\n```\n\nDirection vectors keep traversal flat:\n```\nint dx[4] = {1, -1, 0, 0};\nint dy[4] = {0, 0, 1, -1};\n\nint k = 0;\nwhile (k < 4)\n{\n    int nx = x + dx[k];\n    int ny = y + dy[k];\n    if (nx >= 0 && nx < cols && ny >= 0 && ny < rows)\n        visit(grid, nx, ny);\n    k++;\n}\n```",
+      "tips": [
+        "rank05 bsq and life",
+        "A flat buffer is one malloc and one free - far fewer ways to leak",
+        "Bound-check BEFORE indexing; C will happily read off the end of the array",
+        "With char **, free every row and then the row array, in that order"
       ]
     }
   ]

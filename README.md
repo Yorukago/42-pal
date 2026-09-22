@@ -56,6 +56,11 @@ make
   `heapq`, BFS/DFS, topological sort, flood fill, sliding windows, DP, greedy
   intervals, grids, ciphers and base conversion. Every code snippet is checked
   against the real exercise vectors, so what you read is what passes.
+* **C & C++ for the old exams**: argc/argv, bitwise masks, recursion & backtracking
+  (rank03), fork/exec/wait, signals, `read()` and static buffers, recursive-descent
+  parsing (rank04), 2D grids, operator overloading and the polyset diamond (rank05).
+  Every C snippet is compiled; the `vect2` interface is type-checked against the
+  exercise's own `main.cpp`.
 * **Orthodox Canonical Class Form (OCCF)**: Visual diagrams and complete templates for C++.
 * **Git Safety Guide**: Critical tips and BRANCH strategies to survive exam rules.
 * **Multi-Language Search**: High-speed, tag-based index searching across every section.
