@@ -5,17 +5,36 @@
   "lang": "python",
   "difficulty": "hard",
   "short_desc": "Write a function that transforms a string by alternating the case of alphabetic characters only....",
-  "description": "Write a function that transforms a string by alternating the case of\nalphabetic characters only.\nNon-alphabetic characters remain unchanged and are NOT counted in the\nalternation index.\nThe first alphabetic character should be lowercase, the second uppercase, etc.\nSpaces reset the alternation (next alpha after a space is lowercase again).\n\nYour function must be declared as follows:\n\n    def string_sculptor(text: str) -> str:\n\nExamples:\n    string_sculptor(\"hello\")        -> \"hElLo\"\n    string_sculptor(\"Hello World\")  -> \"hElLo wOrLd\"\n    string_sculptor(\"abc123def\")    -> \"aBc123DeF\"\n    string_sculptor(\"Python3.9!\")   -> \"pYtHoN3.9!\"\n    string_sculptor(\"\")             -> \"\"",
+  "description": "Write a function that transforms a string by alternating the case of\nalphabetic characters only.\nNon-alphabetic characters remain unchanged and are NOT counted in the\nalternation index.\nThe first alphabetic character should be lowercase, the second uppercase, etc.\nSpaces reset the alternation (next alpha after a space is lowercase again).",
   "prototype": "def string_sculptor(text: str) -> str:",
   "function": "string_sculptor",
   "notes": [
     "File to submit: py_string_sculptor.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "string_sculptor(\"hello\")",
+      "expected": "\"hElLo\""
+    },
+    {
+      "call": "string_sculptor(\"Hello World\")",
+      "expected": "\"hElLo wOrLd\""
+    },
+    {
+      "call": "string_sculptor(\"abc123def\")",
+      "expected": "\"aBc123DeF\""
+    },
+    {
+      "call": "string_sculptor(\"Python3.9!\")",
+      "expected": "\"pYtHoN3.9!\""
+    },
+    {
+      "call": "string_sculptor(\"\")",
+      "expected": "\"\""
+    },
     {
       "call": "string_sculptor('hello')",
       "expected": "'hElLo'"

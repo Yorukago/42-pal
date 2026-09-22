@@ -5,17 +5,36 @@
   "lang": "python",
   "difficulty": "easy",
   "short_desc": "Given a 2D matrix (list of lists), return a new matrix where each row is reversed.",
-  "description": "Given a 2D matrix (list of lists), return a new matrix where each row\nis reversed.\n\nYour function must be declared as follows:\n\n    def mirror_matrix(matrix: list[list[int]]) -> list[list[int]]:\n\nExamples:\n    mirror_matrix([[1,2,3],[4,5,6]])      -> [[3,2,1],[6,5,4]]\n    mirror_matrix([[1,2],[3,4],[5,6]])    -> [[2,1],[4,3],[6,5]]\n    mirror_matrix([[7]])                  -> [[7]]\n    mirror_matrix([[1,2,3,4]])            -> [[4,3,2,1]]\n    mirror_matrix([[-1,-2],[-3,-4]])      -> [[-2,-1],[-4,-3]]",
+  "description": "Given a 2D matrix (list of lists), return a new matrix where each row\nis reversed.",
   "prototype": "def mirror_matrix(matrix: list[list[int]]) -> list[list[int]]:",
   "function": "mirror_matrix",
   "notes": [
     "File to submit: py_mirror_matrix.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "mirror_matrix([[1,2,3],[4,5,6]])",
+      "expected": "[[3,2,1],[6,5,4]]"
+    },
+    {
+      "call": "mirror_matrix([[1,2],[3,4],[5,6]])",
+      "expected": "[[2,1],[4,3],[6,5]]"
+    },
+    {
+      "call": "mirror_matrix([[7]])",
+      "expected": "[[7]]"
+    },
+    {
+      "call": "mirror_matrix([[1,2,3,4]])",
+      "expected": "[[4,3,2,1]]"
+    },
+    {
+      "call": "mirror_matrix([[-1,-2],[-3,-4]])",
+      "expected": "[[-2,-1],[-4,-3]]"
+    },
     {
       "call": "mirror_matrix([[1, 2, 3], [4, 5, 6]])",
       "expected": "[[3, 2, 1], [6, 5, 4]]"
@@ -23,10 +42,6 @@
     {
       "call": "mirror_matrix([[1, 2], [3, 4], [5, 6]])",
       "expected": "[[2, 1], [4, 3], [6, 5]]"
-    },
-    {
-      "call": "mirror_matrix([[7]])",
-      "expected": "[[7]]"
     },
     {
       "call": "mirror_matrix([[1, 2, 3, 4]])",

@@ -4,18 +4,45 @@
   "level": "level2",
   "lang": "python",
   "difficulty": "easy",
-  "short_desc": "Write a function that checks if a string is a palindrome, ignoring spaces and case.",
-  "description": "Write a function that checks if a string is a palindrome,\nignoring spaces and case.\n\nYour function must be declared as follows:\n\n    def echo_validator(text: str) -> bool:\n\nExamples:\n    echo_validator(\"racecar\")                    -> True\n    echo_validator(\"A man a plan a canal Panama\")-> True\n    echo_validator(\"race a car\")                 -> False\n    echo_validator(\"Was it a car or a cat I saw\")-> True\n    echo_validator(\"hello\")                      -> False\n    echo_validator(\"Madam Im Adam\")              -> True\n    echo_validator(\"\")                           -> False",
+  "short_desc": "Write a function that checks if a string is a palindrome, ignoring spaces and case, only consider...",
+  "description": "Write a function that checks if a string is a palindrome,\nignoring spaces and case, only consider alphabetic characters\nfor the comparison.",
   "prototype": "def echo_validator(text: str) -> bool:",
   "function": "echo_validator",
   "notes": [
     "File to submit: py_echo_validator.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "echo_validator(\"racecar\")",
+      "expected": "True"
+    },
+    {
+      "call": "echo_validator(\"A man a plan a canal Panama\")",
+      "expected": "True"
+    },
+    {
+      "call": "echo_validator(\"race a car\")",
+      "expected": "False"
+    },
+    {
+      "call": "echo_validator(\"Was it a car or a cat I saw\")",
+      "expected": "True"
+    },
+    {
+      "call": "echo_validator(\"hello\")",
+      "expected": "False"
+    },
+    {
+      "call": "echo_validator(\"Madam Im Adam\")",
+      "expected": "True"
+    },
+    {
+      "call": "echo_validator(\"\")",
+      "expected": "False"
+    },
     {
       "call": "echo_validator('racecar')",
       "expected": "True"

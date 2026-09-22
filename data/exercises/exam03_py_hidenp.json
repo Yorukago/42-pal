@@ -5,17 +5,44 @@
   "lang": "python",
   "difficulty": "medium",
   "short_desc": "Write a function that checks if the string 'small' is a subsequence of 'big'. A subsequence means all...",
-  "description": "Write a function that checks if the string 'small' is a subsequence\nof 'big'. A subsequence means all characters of 'small' appear in 'big'\nin the same order, but not necessarily consecutively.\nFunction is case-sensitive.\n\nYour function must be declared as follows:\n\n    def hidenp(small: str, big: str) -> bool:\n\nExamples:\n    hidenp(\"abc\", \"a1b2c3\")              -> True\n    hidenp(\"ace\", \"abcde\")               -> True\n    hidenp(\"aec\", \"abcde\")               -> False\n    hidenp(\"\", \"abc\")                    -> True\n    hidenp(\"abc\", \"ab\")                  -> False\n    hidenp(\"aaaa\", \"aaa\")                -> False\n    hidenp(\"sing\",\"subsequence testing\") -> True",
+  "description": "Write a function that checks if the string 'small' is a subsequence\nof 'big'. A subsequence means all characters of 'small' appear in 'big'\nin the same order, but not necessarily consecutively.\nFunction is case-sensitive.",
   "prototype": "def hidenp(small: str, big: str) -> bool:",
   "function": "hidenp",
   "notes": [
     "File to submit: py_hidenp.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "hidenp(\"abc\", \"a1b2c3\")",
+      "expected": "True"
+    },
+    {
+      "call": "hidenp(\"ace\", \"abcde\")",
+      "expected": "True"
+    },
+    {
+      "call": "hidenp(\"aec\", \"abcde\")",
+      "expected": "False"
+    },
+    {
+      "call": "hidenp(\"\", \"abc\")",
+      "expected": "True"
+    },
+    {
+      "call": "hidenp(\"abc\", \"ab\")",
+      "expected": "False"
+    },
+    {
+      "call": "hidenp(\"aaaa\", \"aaa\")",
+      "expected": "False"
+    },
+    {
+      "call": "hidenp(\"sing\",\"subsequence testing\")",
+      "expected": "True"
+    },
     {
       "call": "hidenp('abc', 'a1b2c3')",
       "expected": "True"

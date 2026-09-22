@@ -5,17 +5,37 @@
   "lang": "python",
   "difficulty": "easy",
   "short_desc": "Write a function that sorts a list of strings according to multiple criteria: 1. Primary sort: By string...",
-  "description": "Write a function that sorts a list of strings according to multiple criteria:\n1. Primary sort: By string length (shortest first)\n2. Secondary sort: ASCII order, except letters are compared case-insensitively\n   (for strings of same length)\n3. Tertiary sort: By number of vowels (ascending, for same length and lexically equal)\n4. Equal strings will appear in the same order as in the input list.\n\nYour function must be declared as follows:\n\n    def cryptic_sorter(strings: list[str]) -> list[str]:\n\nThe function should return the sorted list.\n\nYour function must handle:\n  - Empty strings and empty lists\n  - Mixed case strings (treat as lowercase for sorting)\n  - Special characters (ignore for vowel counting)\n\nExamples:\n    cryptic_sorter([\"apple\",\"cat\",\"banana\",\"dog\",\"elephant\"])\n        -> [\"cat\",\"dog\",\"apple\",\"banana\",\"elephant\"]\n    cryptic_sorter([\"aaa\",\"bbb\",\"AAA\",\"BBB\"])\n        -> [\"aaa\", \"AAA\", \"bbb\", \"BBB\"]\n    cryptic_sorter([\"hello\",\"world\",\"hi\",\"test\"])\n        -> [\"hi\",\"test\",\"hello\",\"world\"]\n    cryptic_sorter([])       -> []\n    cryptic_sorter([\"\"])     -> [\"\"]",
+  "description": "Write a function that sorts a list of strings according to multiple criteria:\n1. Primary sort: By string length (shortest first)\n2. Secondary sort: ASCII order, except letters are compared case-insensitively\n   (for strings of same length)\n3. Tertiary sort: By number of vowels (ascending, for same length and lexically equal)\n4. Equal strings will appear in the same order as in the input list.\n\n**Forbidden functions: sorted(), list.sort()**",
   "prototype": "def cryptic_sorter(strings: list[str]) -> list[str]:",
   "function": "cryptic_sorter",
   "notes": [
     "File to submit: py_cryptic_sorter.py",
-    "Allowed functions: None",
+    "Forbidden: sorted(), list.sort()",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "cryptic_sorter([\"apple\",\"cat\",\"banana\",\"dog\",\"elephant\"])",
+      "expected": "[\"cat\",\"dog\",\"apple\",\"banana\",\"elephant\"]"
+    },
+    {
+      "call": "cryptic_sorter([\"aaa\",\"bbb\",\"AAA\",\"BBB\"])",
+      "expected": "[\"aaa\", \"AAA\", \"bbb\", \"BBB\"]"
+    },
+    {
+      "call": "cryptic_sorter([\"hello\",\"world\",\"hi\",\"test\"])",
+      "expected": "[\"hi\",\"test\",\"hello\",\"world\"]"
+    },
+    {
+      "call": "cryptic_sorter([])",
+      "expected": "[]"
+    },
+    {
+      "call": "cryptic_sorter([\"\"])",
+      "expected": "[\"\"]"
+    },
     {
       "call": "cryptic_sorter(['apple', 'cat', 'banana', 'dog', 'elephant'])",
       "expected": "['cat', 'dog', 'apple', 'banana', 'elephant']"
@@ -27,10 +47,6 @@
     {
       "call": "cryptic_sorter(['hello', 'world', 'hi', 'test'])",
       "expected": "['hi', 'test', 'hello', 'world']"
-    },
-    {
-      "call": "cryptic_sorter([])",
-      "expected": "[]"
     },
     {
       "call": "cryptic_sorter([''])",

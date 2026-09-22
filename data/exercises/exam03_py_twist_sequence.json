@@ -5,17 +5,36 @@
   "lang": "python",
   "difficulty": "hard",
   "short_desc": "Write a function that rotates an array to the right by k positions. Rotating right by k means the last k...",
-  "description": "Write a function that rotates an array to the right by k positions.\nRotating right by k means the last k elements move to the front.\n\nYour function must be declared as follows:\n\n    def twist_sequence(arr: list[int], k: int) -> list[int]:\n\nExamples:\n    twist_sequence([1,2,3,4,5], 2)  -> [4,5,1,2,3]\n    twist_sequence([1,2,3], 1)      -> [3,1,2]\n    twist_sequence([1,2,3,4], 0)    -> [1,2,3,4]\n    twist_sequence([1,2,3], 5)      -> [2,3,1]\n    twist_sequence([], 3)           -> []",
+  "description": "Write a function that rotates an array to the right by k positions.\nRotating right by k means the last k elements move to the front.",
   "prototype": "def twist_sequence(arr: list[int], k: int) -> list[int]:",
   "function": "twist_sequence",
   "notes": [
     "File to submit: py_twist_sequence.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "twist_sequence([1,2,3,4,5], 2)",
+      "expected": "[4,5,1,2,3]"
+    },
+    {
+      "call": "twist_sequence([1,2,3], 1)",
+      "expected": "[3,1,2]"
+    },
+    {
+      "call": "twist_sequence([1,2,3,4], 0)",
+      "expected": "[1,2,3,4]"
+    },
+    {
+      "call": "twist_sequence([1,2,3], 5)",
+      "expected": "[2,3,1]"
+    },
+    {
+      "call": "twist_sequence([], 3)",
+      "expected": "[]"
+    },
     {
       "call": "twist_sequence([1, 2, 3, 4, 5], 2)",
       "expected": "[4, 5, 1, 2, 3]"
@@ -31,10 +50,6 @@
     {
       "call": "twist_sequence([1, 2, 3], 5)",
       "expected": "[2, 3, 1]"
-    },
-    {
-      "call": "twist_sequence([], 3)",
-      "expected": "[]"
     },
     {
       "call": "twist_sequence([1], 1)",

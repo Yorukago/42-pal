@@ -5,17 +5,48 @@
   "lang": "python",
   "difficulty": "medium",
   "short_desc": "Write a function that determines if two strings are permutations of each other. Case sensitive. Whitespace...",
-  "description": "Write a function that determines if two strings are permutations of each other.\nCase sensitive. Whitespace and punctuation count as regular characters.\nEmpty strings are permutations of each other.\n\nYour function must be declared as follows:\n\n    def string_permutation_checker(s1: str, s2: str) -> bool:\n\nExamples:\n    string_permutation_checker(\"abc\", \"bca\")              -> True\n    string_permutation_checker(\"abc\", \"def\")              -> False\n    string_permutation_checker(\"listen\", \"silent\")        -> True\n    string_permutation_checker(\"hello\", \"bello\")          -> False\n    string_permutation_checker(\"\", \"\")                    -> True\n    string_permutation_checker(\"a\", \"\")                   -> False\n    string_permutation_checker(\"Abc\", \"abc\")              -> False\n    string_permutation_checker(\"a gentleman\",\"elegant man\")-> True",
+  "description": "Write a function that determines if two strings are permutations of each other.\nCase sensitive. Whitespace and punctuation count as regular characters.\nEmpty strings are permutations of each other.",
   "prototype": "def string_permutation_checker(s1: str, s2: str) -> bool:",
   "function": "string_permutation_checker",
   "notes": [
     "File to submit: py_string_permutation_checker.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "string_permutation_checker(\"abc\", \"bca\")",
+      "expected": "True"
+    },
+    {
+      "call": "string_permutation_checker(\"abc\", \"def\")",
+      "expected": "False"
+    },
+    {
+      "call": "string_permutation_checker(\"listen\", \"silent\")",
+      "expected": "True"
+    },
+    {
+      "call": "string_permutation_checker(\"hello\", \"bello\")",
+      "expected": "False"
+    },
+    {
+      "call": "string_permutation_checker(\"\", \"\")",
+      "expected": "True"
+    },
+    {
+      "call": "string_permutation_checker(\"a\", \"\")",
+      "expected": "False"
+    },
+    {
+      "call": "string_permutation_checker(\"Abc\", \"abc\")",
+      "expected": "False"
+    },
+    {
+      "call": "string_permutation_checker(\"a gentleman\",\"elegant man\")",
+      "expected": "True"
+    },
     {
       "call": "string_permutation_checker('abc', 'bca')",
       "expected": "True"

@@ -1,21 +1,52 @@
 {
   "name": "py_bracket_validator",
   "rank": "exam03",
-  "level": "level6",
+  "level": "level1",
   "lang": "python",
-  "difficulty": "hard",
+  "difficulty": "easy",
   "short_desc": "Write a function that checks if the brackets in a string are valid.",
-  "description": "Write a function that checks if the brackets in a string are valid.\n\nA string is valid if every opening bracket has a matching closing bracket\nin the correct order.\n\nAllowed brackets: (), [], {}\n\nYour function must be declared as follows:\n\n    def bracket_validator(s: str) -> bool:\n\nExamples:\n    bracket_validator(\"()\")           -> True\n    bracket_validator(\"()[]{}\")       -> True\n    bracket_validator(\"(]\")           -> False\n    bracket_validator(\"([)]\")         -> False\n    bracket_validator(\"{[]}\")         -> True\n    bracket_validator(\"hello(world)\") -> True\n    bracket_validator(\"((())\")        -> False\n    bracket_validator(\"\")             -> True",
+  "description": "Write a function that checks if the brackets in a string are valid.\n\nA string is valid if every opening bracket has a matching closing bracket\nin the correct order.\n\nAllowed brackets: (), [], {}",
   "prototype": "def bracket_validator(s: str) -> bool:",
   "function": "bracket_validator",
   "notes": [
     "File to submit: py_bracket_validator.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "bracket_validator(\"()\")",
+      "expected": "True"
+    },
+    {
+      "call": "bracket_validator(\"()[]{}\")",
+      "expected": "True"
+    },
+    {
+      "call": "bracket_validator(\"(]\")",
+      "expected": "False"
+    },
+    {
+      "call": "bracket_validator(\"([)]\")",
+      "expected": "False"
+    },
+    {
+      "call": "bracket_validator(\"{[]}\")",
+      "expected": "True"
+    },
+    {
+      "call": "bracket_validator(\"hello(world)\")",
+      "expected": "True"
+    },
+    {
+      "call": "bracket_validator(\"((())\")",
+      "expected": "False"
+    },
+    {
+      "call": "bracket_validator(\"\")",
+      "expected": "True"
+    },
     {
       "call": "bracket_validator('()')",
       "expected": "True"

@@ -5,17 +5,40 @@
   "lang": "python",
   "difficulty": "medium",
   "short_desc": "Write a function that checks if two strings are anagrams. They must contain exactly the same letters with...",
-  "description": "Write a function that checks if two strings are anagrams.\nThey must contain exactly the same letters with the same quantity,\nignoring case and spaces.\n\nYour function must be declared as follows:\n\n    def anagram(s1: str, s2: str) -> bool:\n\nExamples:\n    anagram(\"listen\", \"silent\")             -> True\n    anagram(\"Triangle\", \"Integral\")         -> True\n    anagram(\"Dormitory\", \"Dirty Room\")      -> True\n    anagram(\"hello\", \"world\")               -> False\n    anagram(\"\", \"\")                         -> True\n    anagram(\"abc\", \"abcc\")                  -> False",
+  "description": "Write a function that checks if two strings are anagrams.\nThey must contain exactly the same letters with the same quantity,\nignoring case and spaces.",
   "prototype": "def anagram(s1: str, s2: str) -> bool:",
   "function": "anagram",
   "notes": [
     "File to submit: py_anagram.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "anagram(\"listen\", \"silent\")",
+      "expected": "True"
+    },
+    {
+      "call": "anagram(\"Triangle\", \"Integral\")",
+      "expected": "True"
+    },
+    {
+      "call": "anagram(\"Dormitory\", \"Dirty Room\")",
+      "expected": "True"
+    },
+    {
+      "call": "anagram(\"hello\", \"world\")",
+      "expected": "False"
+    },
+    {
+      "call": "anagram(\"\", \"\")",
+      "expected": "True"
+    },
+    {
+      "call": "anagram(\"abc\", \"abcc\")",
+      "expected": "False"
+    },
     {
       "call": "anagram('listen', 'silent')",
       "expected": "True"

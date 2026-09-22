@@ -5,17 +5,40 @@
   "lang": "python",
   "difficulty": "hard",
   "short_desc": "Write a function that creates a Caesar cipher by shifting letters in a string by a given amount....",
-  "description": "Write a function that creates a Caesar cipher by shifting letters in a\nstring by a given amount.\nNon-alphabetic characters should remain unchanged.\nThe shift can be negative (shift left).\n\nYour function must be declared as follows:\n\n    def whisper_cipher(text: str, shift: int) -> str:\n\nExamples:\n    whisper_cipher(\"hello\", 3)       -> \"khoor\"\n    whisper_cipher(\"Hello World!\", 1)-> \"Ifmmp Xpsme!\"\n    whisper_cipher(\"xyz\", 3)         -> \"abc\"\n    whisper_cipher(\"ABC123def\", 5)   -> \"FGH123ijk\"\n    whisper_cipher(\"\", 10)           -> \"\"\n    whisper_cipher(\"abc\", -3)        -> \"xyz\"",
+  "description": "Write a function that creates a Caesar cipher by shifting letters in a\nstring by a given amount.\nNon-alphabetic characters should remain unchanged.\nThe shift can be negative (shift left).",
   "prototype": "def whisper_cipher(text: str, shift: int) -> str:",
   "function": "whisper_cipher",
   "notes": [
     "File to submit: py_whisper_cipher.py",
-    "Allowed functions: None",
     "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
+    {
+      "call": "whisper_cipher(\"hello\", 3)",
+      "expected": "\"khoor\""
+    },
+    {
+      "call": "whisper_cipher(\"Hello World!\", 1)",
+      "expected": "\"Ifmmp Xpsme!\""
+    },
+    {
+      "call": "whisper_cipher(\"xyz\", 3)",
+      "expected": "\"abc\""
+    },
+    {
+      "call": "whisper_cipher(\"ABC123def\", 5)",
+      "expected": "\"FGH123ijk\""
+    },
+    {
+      "call": "whisper_cipher(\"\", 10)",
+      "expected": "\"\""
+    },
+    {
+      "call": "whisper_cipher(\"abc\", -3)",
+      "expected": "\"xyz\""
+    },
     {
       "call": "whisper_cipher('hello', 3)",
       "expected": "'khoor'"
