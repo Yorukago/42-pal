@@ -1,0 +1,48 @@
+{
+  "name": "py_inter",
+  "rank": "exam03",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "easy",
+  "short_desc": "Write a function that returns a string with the characters that appear in both strings, without...",
+  "description": "Write a function that returns a string with the characters that appear\nin both strings, without repetitions. Characters are added in the order\nthey appear in the first string.\n\nYour function must be declared as follows:\n\n    def inter(s1: str, s2: str) -> str:\n\nExamples:\n    inter(\"hello\", \"world\")   -> \"lo\"\n    inter(\"banana\", \"band\")   -> \"ban\"\n    inter(\"abcabc\", \"bc\")     -> \"bc\"\n    inter(\"abc\", \"xyz\")       -> \"\"\n    inter(\"\", \"abc\")          -> \"\"",
+  "prototype": "def inter(s1: str, s2: str) -> str:",
+  "function": "inter",
+  "notes": [
+    "File to submit: py_inter.py",
+    "Allowed functions: None",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "inter('hello', 'world')",
+      "expected": "'lo'"
+    },
+    {
+      "call": "inter('banana', 'band')",
+      "expected": "'ban'"
+    },
+    {
+      "call": "inter('abcabc', 'bc')",
+      "expected": "'bc'"
+    },
+    {
+      "call": "inter('abc', 'xyz')",
+      "expected": "''"
+    },
+    {
+      "call": "inter('', 'abc')",
+      "expected": "''"
+    },
+    {
+      "call": "inter('abc', '')",
+      "expected": "''"
+    },
+    {
+      "call": "inter('aabbcc', 'abc')",
+      "expected": "'abc'"
+    }
+  ]
+}

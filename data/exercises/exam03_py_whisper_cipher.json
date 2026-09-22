@@ -1,28 +1,52 @@
 {
-  "name": "Shift_alphabet",
+  "name": "py_whisper_cipher",
   "rank": "exam03",
-  "level": "level1",
+  "level": "level6",
   "lang": "python",
-  "difficulty": "medium",
-  "short_desc": "Caesar-cipher shift: shift each alpha char by n positions, preserve case.",
-  "description": "Given a string `s` and an integer `n`, shift each alphabetic character\nin the string by `n` positions in the alphabet.\n\nThe function must:\n  -> Preserve case (lowercase and uppercase handled separately).\n  -> Wrap around the alphabet (e.g. 'z' + 1 -> 'a').\n  -> Leave non-alphabetic characters unchanged.\n  -> Support positive and negative shifts.\n\nFunction signature:\n  def Shift_alphabet(s: str, n: int) -> str\n\nExamples:\n  Shift_alphabet(\"abz\", 1)        -> \"bca\"\n  Shift_alphabet(\"AbZ\", 1)        -> \"BcA\"\n  Shift_alphabet(\"Hello World!\", 3) -> \"Khoor Zruog!\"\n  Shift_alphabet(\"bca\", -1)       -> \"abz\"\n  Shift_alphabet(\"abc\", 26)       -> \"abc\"\n  Shift_alphabet(\"xyz\", 3)        -> \"abc\"\n  Shift_alphabet(\"\", 10)          -> \"\"\n  Shift_alphabet(\"12345\", 4)      -> \"12345\"",
-  "prototype": "def Shift_alphabet(s: str, n: int) -> str:",
+  "difficulty": "hard",
+  "short_desc": "Write a function that creates a Caesar cipher by shifting letters in a string by a given amount....",
+  "description": "Write a function that creates a Caesar cipher by shifting letters in a\nstring by a given amount.\nNon-alphabetic characters should remain unchanged.\nThe shift can be negative (shift left).\n\nYour function must be declared as follows:\n\n    def whisper_cipher(text: str, shift: int) -> str:\n\nExamples:\n    whisper_cipher(\"hello\", 3)       -> \"khoor\"\n    whisper_cipher(\"Hello World!\", 1)-> \"Ifmmp Xpsme!\"\n    whisper_cipher(\"xyz\", 3)         -> \"abc\"\n    whisper_cipher(\"ABC123def\", 5)   -> \"FGH123ijk\"\n    whisper_cipher(\"\", 10)           -> \"\"\n    whisper_cipher(\"abc\", -3)        -> \"xyz\"",
+  "prototype": "def whisper_cipher(text: str, shift: int) -> str:",
+  "function": "whisper_cipher",
   "notes": [
-    "File to submit: Shift_alphabet.py",
-    "Use modulo 26 to wrap around.",
-    "Non-alphabetic characters (digits, spaces, punctuation) pass through unchanged."
+    "File to submit: py_whisper_cipher.py",
+    "Allowed functions: None",
+    "Return the value — do not print it."
   ],
   "test_cases": [],
   "checker": "python_call",
   "checker_calls": [
-    {"call": "Shift_alphabet('abz', 1)",         "expected": "bca"},
-    {"call": "Shift_alphabet('AbZ', 1)",         "expected": "BcA"},
-    {"call": "Shift_alphabet('Hello World!', 3)", "expected": "Khoor Zruog!"},
-    {"call": "Shift_alphabet('bca', -1)",        "expected": "abz"},
-    {"call": "Shift_alphabet('abc', 26)",        "expected": "abc"},
-    {"call": "Shift_alphabet('xyz', 3)",         "expected": "abc"},
-    {"call": "Shift_alphabet('Python 3.8!', 5)", "expected": "Udymts 3.8!"},
-    {"call": "Shift_alphabet('', 10)",           "expected": ""},
-    {"call": "Shift_alphabet('12345', 4)",       "expected": "12345"}
+    {
+      "call": "whisper_cipher('hello', 3)",
+      "expected": "'khoor'"
+    },
+    {
+      "call": "whisper_cipher('Hello World!', 1)",
+      "expected": "'Ifmmp Xpsme!'"
+    },
+    {
+      "call": "whisper_cipher('xyz', 3)",
+      "expected": "'abc'"
+    },
+    {
+      "call": "whisper_cipher('ABC123def', 5)",
+      "expected": "'FGH123ijk'"
+    },
+    {
+      "call": "whisper_cipher('', 10)",
+      "expected": "''"
+    },
+    {
+      "call": "whisper_cipher('abc', -3)",
+      "expected": "'xyz'"
+    },
+    {
+      "call": "whisper_cipher('abc', 0)",
+      "expected": "'abc'"
+    },
+    {
+      "call": "whisper_cipher('abc', 26)",
+      "expected": "'abc'"
+    }
   ]
 }
