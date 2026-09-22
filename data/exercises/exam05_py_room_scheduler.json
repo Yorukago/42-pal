@@ -17,11 +17,33 @@
   "checker_calls": [
     {
       "call": "py_room_scheduler([[0, 30], [5, 10], [15, 20]])",
-      "expected": "{\"total_rooms\": 2, \"schedule\": [[[0, 30]], [[5, 10], [15, 20]]]}"
+      "expected": "{\"total_rooms\": 2, \"schedule\": [[[0, 30]], [[5, 10], [15, 20]]]}",
+      "origin": "official"
     },
     {
       "call": "py_room_scheduler([])",
-      "expected": "{\"total_rooms\": 0, \"schedule\": []}"
+      "expected": "{\"total_rooms\": 0, \"schedule\": []}",
+      "origin": "official"
+    },
+    {
+      "call": "py_room_scheduler([[0, 10]])",
+      "expected": "{\"total_rooms\": 1, \"schedule\": [[[0, 10]]]}",
+      "origin": "local"
+    },
+    {
+      "call": "py_room_scheduler([[0, 5], [5, 10]])",
+      "expected": "{\"total_rooms\": 1, \"schedule\": [[[0, 5], [5, 10]]]}",
+      "origin": "local"
+    },
+    {
+      "call": "py_room_scheduler([[0, 10], [1, 9], [2, 8]])",
+      "expected": "{\"total_rooms\": 3, \"schedule\": [[[0, 10]], [[1, 9]], [[2, 8]]]}",
+      "origin": "local"
+    },
+    {
+      "call": "py_room_scheduler([[15, 20], [0, 30], [5, 10]])",
+      "expected": "{\"total_rooms\": 2, \"schedule\": [[[0, 30]], [[5, 10], [15, 20]]]}",
+      "origin": "local"
     }
   ]
 }

@@ -17,11 +17,43 @@
   "checker_calls": [
     {
       "call": "prism_detector([\"CAT\", \"A..\", \"T..\"], \"CAT\")",
-      "expected": "[(0, 0, \"H\"), (0, 0, \"V\")]"
+      "expected": "[(0, 0, \"H\"), (0, 0, \"V\")]",
+      "origin": "official"
     },
     {
       "call": "prism_detector([], \"CAT\")",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "official"
+    },
+    {
+      "call": "prism_detector([\"CAT\"], \"\")",
+      "expected": "[]",
+      "origin": "local"
+    },
+    {
+      "call": "prism_detector([\"TAC\"], \"CAT\")",
+      "expected": "[(2, 0, \"H-\")]",
+      "origin": "local"
+    },
+    {
+      "call": "prism_detector([\"T\", \"A\", \"C\"], \"CAT\")",
+      "expected": "[(0, 2, \"V-\")]",
+      "origin": "local"
+    },
+    {
+      "call": "prism_detector([\"C..\", \".A.\", \"..T\"], \"CAT\")",
+      "expected": "[(0, 0, \"D1\")]",
+      "origin": "local"
+    },
+    {
+      "call": "prism_detector([\"T..\", \".A.\", \"..C\"], \"CAT\")",
+      "expected": "[(2, 2, \"D1-\")]",
+      "origin": "local"
+    },
+    {
+      "call": "prism_detector([\"XYZ\"], \"CAT\")",
+      "expected": "[]",
+      "origin": "local"
     }
   ]
 }

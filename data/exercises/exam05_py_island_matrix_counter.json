@@ -17,15 +17,53 @@
   "checker_calls": [
     {
       "call": "island_matrix_counter([[\"1\", \"1\", \"1\", \"1\", \"0\"], [\"1\", \"1\", \"1\", \"0\", \"0\"], [\"1\", \"1\", \"1\", \"1\", \"0\"], [\"0\", \"0\", \"0\", \"0\", \"0\"]])",
-      "expected": "1"
+      "expected": "1",
+      "origin": "official"
     },
     {
       "call": "island_matrix_counter([[\"1\", \"1\", \"0\", \"0\", \"0\"], [\"1\", \"1\", \"0\", \"0\", \"0\"], [\"0\", \"0\", \"1\", \"0\", \"0\"], [\"0\", \"0\", \"0\", \"1\", \"1\"]])",
-      "expected": "3"
+      "expected": "3",
+      "origin": "official"
     },
     {
       "call": "island_matrix_counter([])",
-      "expected": "0"
+      "expected": "0",
+      "origin": "official"
+    },
+    {
+      "call": "island_matrix_counter([[\"0\"]])",
+      "expected": "0",
+      "origin": "local"
+    },
+    {
+      "call": "island_matrix_counter([[\"1\"]])",
+      "expected": "1",
+      "origin": "local"
+    },
+    {
+      "call": "island_matrix_counter([[\"1\", \"1\"], [\"1\", \"1\"]])",
+      "expected": "1",
+      "origin": "local"
+    },
+    {
+      "call": "island_matrix_counter([[\"1\", \"0\"], [\"0\", \"1\"]])",
+      "expected": "2",
+      "origin": "local"
+    },
+    {
+      "call": "island_matrix_counter([[\"1\", \"0\", \"1\"]])",
+      "expected": "2",
+      "origin": "local"
+    },
+    {
+      "call": "island_matrix_counter([[\"0\", \"0\"], [\"0\", \"0\"]])",
+      "expected": "0",
+      "origin": "local"
+    },
+    {
+      "call": "island_matrix_counter([[\"1\", \"0\", \"1\"], [\"0\", \"0\", \"0\"], [\"1\", \"0\", \"1\"]])",
+      "expected": "4",
+      "origin": "local"
     }
   ]
 }

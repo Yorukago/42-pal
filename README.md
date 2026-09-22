@@ -165,7 +165,7 @@ file the real grader asks for.
 | 3 | `py_package_dependency_resolver`, `py_palindrome_partitioner` |
 | 4 | `py_sliding_window_maximum` |
 
-**`exam05` — 7 exercises, levels 1–3** (source: `rank05.42exam.net`)
+**`exam05` — 7 exercises, levels 1–3** (source: `rank05.42exam.net`, vectors widened locally)
 
 | Level | Exercises |
 |:--|:--|
@@ -173,12 +173,26 @@ file the real grader asks for.
 | 2 | `py_graph_cycle_detector`, `py_island_matrix_counter`, `py_room_scheduler` |
 | 3 | `py_prism_detector`, `py_word_ladder` |
 
-> ⚠️ **`exam05` is more thinly tested than the others.** No community solution
-> set exists for Rank 05, so its 17 vectors are only the site's own examples —
-> 2 or 3 per exercise, against 14 on average for `exam03`. They were validated
-> against reference implementations, but those were written from the same
-> subject text, so a misleading subject would not be caught. Treat a pass here
-> as weaker evidence than a pass on `exam03`/`exam04`.
+> ⚠️ **`exam05`'s vectors are partly locally written.** No community solution
+> set exists for Rank 05, and the site publishes only 17 examples (2–3 per
+> exercise). 46 more were written by hand from the subject text to bring it to
+> 63. Every vector carries an `origin` field — `"official"` straight from the
+> site, `"local"` written here — so the two are always tellable apart:
+>
+> ```json
+> { "call": "generate_spiral(2)", "expected": "[[1, 2], [4, 3]]", "origin": "local" }
+> ```
+>
+> A `local` vector is a careful reading of the subject, not the exam's own word.
+> If one ever contradicts what the real grader does, the subject text wins —
+> fix the vector.
+>
+> `py_prism_detector` has **no `D2`/`D2-` vectors on purpose.** The subject maps
+> `(-1, 1)` to `"D2" (up-right)` and `(1, -1)` to `"D2-" (down-left)`, but under
+> the `(dx, dy)` convention the rest of its table uses — `(0, 1)` is `"V"`,
+> vertical *down* — those two vectors point down-left and up-right, the
+> opposite of their labels. The examples only exercise `H` and `V`, so nothing
+> settles it. Testing either would bake in a guess.
 >
 > `py_compress_decompress` asks for **two** functions (`compress` and
 > `decompress`); only the first appears in the `prototype` field, but both are

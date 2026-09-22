@@ -17,11 +17,38 @@
   "checker_calls": [
     {
       "call": "word_ladder(\"hit\", \"cog\", [\"hot\", \"dot\", \"dog\", \"lot\", \"log\", \"cog\"])",
-      "expected": "5"
+      "expected": "5",
+      "origin": "official"
     },
     {
       "call": "word_ladder(\"hit\", \"cog\", [\"hot\", \"dot\", \"dog\", \"lot\", \"log\"])",
-      "expected": "0"
+      "expected": "0",
+      "origin": "official"
+    },
+    {
+      "call": "word_ladder(\"hit\", \"cog\", [])",
+      "expected": "0",
+      "origin": "local"
+    },
+    {
+      "call": "word_ladder(\"hit\", \"hot\", [\"hot\"])",
+      "expected": "2",
+      "origin": "local"
+    },
+    {
+      "call": "word_ladder(\"hit\", \"cog\", [\"hot\", \"cog\"])",
+      "expected": "0",
+      "origin": "local"
+    },
+    {
+      "call": "word_ladder(\"hit\", \"dog\", [\"hot\", \"dot\", \"dog\"])",
+      "expected": "4",
+      "origin": "local"
+    },
+    {
+      "call": "word_ladder(\"a\", \"c\", [\"b\", \"c\"])",
+      "expected": "2",
+      "origin": "local"
     }
   ]
 }
