@@ -4,11 +4,14 @@
   "level": "level1",
   "lang": "c",
   "difficulty": "medium",
-  "short_desc": "",
-  "description": "",
-  "prototype": "",
+  "short_desc": "Execute a pipeline, wiring each command's output into the next command's input.",
+  "description": "Write the following function:\n\nint\tpicoshell(char **cmds[]);\n\nThe goal of this function is to execute a pipeline. It must execute each\ncommands of cmds and connect the output of one to the input of the\nnext command (just like a shell).\n\nCmds contains a null-terminated list of valid commands. Each rows\nof cmds are an argv array directly usable for a call to execvp. The first\narguments of each command is the command name or path and can be passed\ndirectly as the first argument of execvp.\n\nIf any error occur, The function must return 1 (you must of course\nclose all the open fds before). otherwise the function must wait all child\nprocesses and return 0. You will find in this directory a file main.c which\ncontain something to help you test your function.\n\nExamples:\n\n./picoshell /bin/ls \"|\" /usr/bin/grep picoshell\npicoshell\n\n./picoshell echo 'squalala' \"|\" cat \"|\" sed 's/a/b/g'\nsqublblb",
+  "prototype": "int\tpicoshell(char **cmds[]);",
   "notes": [
-    "Allowed functions: close, fork, wait, exit, execvp, dup2, pipe"
+    "File to submit: picoshell.c",
+    "Allowed functions: close, fork, wait, exit, execvp, dup2, pipe",
+    "Return 1 on any error, closing every open fd first; otherwise wait for all children and return 0.",
+    "A main.c is provided in this exercise's resources to help you test."
   ],
   "test_cases": []
 }

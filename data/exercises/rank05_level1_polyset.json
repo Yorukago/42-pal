@@ -4,9 +4,14 @@
   "level": "level1",
   "lang": "c++",
   "difficulty": "medium",
-  "short_desc": "",
-  "description": "",
-  "prototype": "",
-  "notes": [],
+  "short_desc": "Implement searchable_array_bag, searchable_tree_bag, and a set wrapping a searchable_bag.",
+  "description": "You will find in this directory some classes:\n- bag: an abstract class representing a bag\n- searchable_bag: an abstract class representing a bag with the ability to\n\tsearch in it.\n- array_bag: an implementation of a bag with an array an underlying data\n\tstructure.\n- tree_bag: an implementation of a bag with a binary search tree as underlying\n\tdata structure.\n\nFirst Part:\nSince a bag without a searching function isn't very useful, implement two\nclasses searchable_array_bag and searchable_tree_bag, that will inherit from\narray_bag and tree_bag and implement the searchable bag abstract class.\n\nSecond Part:\nImplement the class set that will wrap a searchable_bag and turn it into a set.\nYou will find in this dir a main that must compile with your code.\nAll classes should be under orthodox canonical form. Don't forget the const.",
+  "prototype": "class searchable_array_bag; class searchable_tree_bag; class set;",
+  "notes": [
+    "Files to submit: searchable_array_bag.cpp/.hpp, searchable_tree_bag.cpp/.hpp, set.cpp/.hpp",
+    "bag, searchable_bag, array_bag and tree_bag are provided in this exercise's resources.",
+    "All classes must follow the Orthodox Canonical Form.",
+    "Don't forget the const."
+  ],
   "test_cases": []
 }
