@@ -1,0 +1,241 @@
+{
+  "lang": "algorithms",
+  "entries": [
+    {
+      "title": "🔢 Sorting by hand - when sorted() is banned",
+      "tags": [
+        "sorting",
+        "insertion sort",
+        "key",
+        "stable",
+        "rank3",
+        "forbidden"
+      ],
+      "content": "Some subjects forbid sorted() and list.sort(). Insertion sort is short,\nstable, and easy to get right under pressure.\n\n```\ndef my_sort(lst, key=lambda x: x):\n    out = list(lst)\n    for i in range(1, len(out)):\n        cur = out[i]\n        j = i - 1\n        while j >= 0 and key(out[j]) > key(cur):\n            out[j + 1] = out[j]\n            j -= 1\n        out[j + 1] = cur\n    return out\n```\n\nStable means equal elements keep their input order. The strict `>` is what\nmakes it stable - `>=` would swap equals and break that.\n\nMulti-criteria sorting is just a tuple key:\n```\nmy_sort(words, key=lambda s: (len(s), s.lower(), count_vowels(s)))\n```\nTuples compare left to right, so that is \"by length, then alphabetically,\nthen by vowel count\" with no extra code.",
+      "tips": [
+        "exam03 py_cryptic_sorter forbids sorted() and list.sort() - this is the exercise",
+        "Read the subject for the tie-break rule: 'equal elements keep input order' means you need a STABLE sort",
+        "Build the key as a tuple instead of sorting three times",
+        "O(n^2) is fine at exam sizes - correctness beats cleverness"
+      ]
+    },
+    {
+      "title": "🔗 Merging sorted lists - without heapq",
+      "tags": [
+        "merge",
+        "sorted",
+        "two pointer",
+        "heapq",
+        "rank4",
+        "forbidden"
+      ],
+      "content": "Merging two sorted lists is a two-pointer walk:\n\n```\ndef merge_two(a, b):\n    out, i, j = [], 0, 0\n    while i < len(a) and j < len(b):\n        if a[i] <= b[j]:\n            out.append(a[i]); i += 1\n        else:\n            out.append(b[j]); j += 1\n    out.extend(a[i:])\n    out.extend(b[j:])\n    return out\n```\n\nFor many lists, fold them one at a time:\n```\ndef merge_all(lists):\n    result = []\n    for lst in lists:\n        result = merge_two(result, lst)\n    return result\n```\n\nThe two `extend` calls at the end are what people forget - one list runs\nout before the other and its tail still has to be copied.",
+      "tips": [
+        "exam04 py_merge_sorted_lists forbids sorted(), .sort() AND heapq.merge()",
+        "Use <= not < so duplicates are preserved and the merge stays stable",
+        "Empty input lists just fall through harmlessly - no special case needed"
+      ]
+    },
+    {
+      "title": "🥞 Stacks - matching brackets",
+      "tags": [
+        "stack",
+        "brackets",
+        "parsing",
+        "rank3"
+      ],
+      "content": "A stack is just a list with append() and pop(). The classic use is\nmatching nested pairs.\n\n```\nPAIRS = {')': '(', ']': '[', '}': '{'}\n\ndef bracket_validator(s):\n    stack = []\n    for ch in s:\n        if ch in \"([{\":\n            stack.append(ch)\n        elif ch in PAIRS:\n            if not stack or stack.pop() != PAIRS[ch]:\n                return False\n    return not stack\n```\n\nThree ways it fails, and all three are covered above:\n  - wrong closer          \"(]\"     -> pop gives '(' but ')' was expected\n  - closer with no opener  \"}{\"    -> stack empty on pop\n  - unclosed opener        \"((())\" -> stack not empty at the end",
+      "tips": [
+        "exam03 py_bracket_validator - non-bracket characters are simply ignored",
+        "An empty string is valid: the stack ends empty, so `not stack` is True",
+        "`return not stack` is the whole 'everything got closed' check"
+      ]
+    },
+    {
+      "title": "👉 Two pointers - subsequences and palindromes",
+      "tags": [
+        "two pointer",
+        "subsequence",
+        "palindrome",
+        "rank3"
+      ],
+      "content": "Walk one index through each string instead of nesting loops.\n\nIs `small` a subsequence of `big`? (same order, gaps allowed)\n```\ndef hidenp(small, big):\n    i = 0\n    for ch in big:\n        if i < len(small) and ch == small[i]:\n            i += 1\n    return i == len(small)\n```\nAdvance only on a match. If you consumed all of `small`, it was hidden in\n`big`.\n\nPalindrome check from both ends:\n```\ndef is_pal(s):\n    i, j = 0, len(s) - 1\n    while i < j:\n        if s[i] != s[j]:\n            return False\n        i += 1\n        j -= 1\n    return True\n```",
+      "tips": [
+        "exam03 py_hidenp is the subsequence version",
+        "An empty needle is always a subsequence - i == 0 == len(small)",
+        "For palindromes, filter/normalise the string FIRST, then compare"
+      ]
+    },
+    {
+      "title": "🌊 BFS - shortest path, level by level",
+      "tags": [
+        "bfs",
+        "queue",
+        "deque",
+        "shortest path",
+        "graph",
+        "rank5"
+      ],
+      "content": "BFS finds the SHORTEST path in an unweighted graph, because it explores\neverything one step away before anything two steps away.\n\n```\nfrom collections import deque\n\ndef word_ladder(start, end, sentence):\n    words = set(sentence)\n    if end not in words:\n        return 0\n    q = deque([(start, 1)])\n    seen = {start}\n    while q:\n        word, depth = q.popleft()\n        if word == end:\n            return depth\n        for i in range(len(word)):\n            for c in \"abcdefghijklmnopqrstuvwxyz\":\n                nxt = word[:i] + c + word[i + 1:]\n                if nxt in words and nxt not in seen:\n                    seen.add(nxt)\n                    q.append((nxt, depth + 1))\n    return 0\n```\n\nCarry the depth in the queue alongside the node - that is the length of\nthe path that reached it.",
+      "tips": [
+        "exam05 py_word_ladder - the count includes both start and end",
+        "popleft() not pop(): pop() turns BFS into DFS and you lose 'shortest'",
+        "Mark seen when you ENQUEUE, not when you dequeue, or nodes get queued twice",
+        "Put the dictionary in a set - `in` on a list is O(n) and will cost you"
+      ]
+    },
+    {
+      "title": "🎨 DFS & cycle detection - the three-colour trick",
+      "tags": [
+        "dfs",
+        "cycle",
+        "graph",
+        "recursion",
+        "rank5",
+        "forbidden"
+      ],
+      "content": "To detect a cycle in a DIRECTED graph, track three states per node:\n\n  WHITE - not visited yet\n  GREY  - on the path you are currently exploring\n  BLACK - fully explored, done\n\n```\nWHITE, GREY, BLACK = 0, 1, 2\n\ndef py_graph_cycle_detector(graph):\n    colour = {n: WHITE for n in graph}\n\n    def visit(n):\n        colour[n] = GREY\n        for nxt in graph.get(n, []):\n            if colour.get(nxt, BLACK) == GREY:\n                return True\n            if colour.get(nxt, BLACK) == WHITE and visit(nxt):\n                return True\n        colour[n] = BLACK\n        return False\n\n    return any(colour[n] == WHITE and visit(n) for n in list(graph))\n```\n\nReaching a GREY node means you looped back onto your own path - a cycle.\nReaching a BLACK node is fine: it was explored and led nowhere circular.",
+      "tips": [
+        "exam05 py_graph_cycle_detector forbids graphlib.TopologicalSorter",
+        "A self-loop {0: [0]} is a cycle - the colouring catches it for free",
+        "Loop over ALL nodes: the graph may be disconnected and the cycle in part 2",
+        "GREY vs BLACK is the whole trick - 'already seen' alone gives false positives"
+      ]
+    },
+    {
+      "title": "📦 Topological sort - dependency order",
+      "tags": [
+        "topological sort",
+        "kahn",
+        "graph",
+        "dependencies",
+        "rank4",
+        "forbidden"
+      ],
+      "content": "Install dependencies before the things that need them. Repeatedly take\nevery node with nothing left to wait for.\n\n```\ndef package_dependency_resolver(packages):\n    deps = {p: {d for d in packages[p] if d in packages} for p in packages}\n    out = []\n    while True:\n        ready = sorted(p for p in deps if p not in out and not deps[p])\n        if not ready:\n            break\n        out.extend(ready)\n        for p in ready:\n            for other in deps:\n                deps[other].discard(p)\n    return out if len(out) == len(packages) else []\n```\n\nIf you finish with fewer packages than you started with, the leftovers are\ntangled in a cycle and no valid order exists.",
+      "tips": [
+        "exam04 py_package_dependency_resolver forbids graphlib.TopologicalSorter",
+        "sorted() on the ready set gives deterministic output when several orders are valid",
+        "Filter out dependencies not in the dict FIRST, or they block forever",
+        "len(out) != len(packages) is the cycle check - return [] there"
+      ]
+    },
+    {
+      "title": "🏝️ Flood fill - counting connected regions",
+      "tags": [
+        "flood fill",
+        "dfs",
+        "grid",
+        "islands",
+        "connected components",
+        "rank5"
+      ],
+      "content": "Scan the grid; every time you hit an unvisited filled cell, that is a new\nregion - then drown the whole thing so you never count it twice.\n\n```\ndef island_matrix_counter(matrix):\n    seen, count = set(), 0\n    for y in range(len(matrix)):\n        for x in range(len(matrix[y])):\n            if matrix[y][x] != \"1\" or (y, x) in seen:\n                continue\n            count += 1\n            stack = [(y, x)]\n            while stack:\n                cy, cx = stack.pop()\n                if (cy, cx) in seen:\n                    continue\n                seen.add((cy, cx))\n                for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):\n                    ny, nx = cy + dy, cx + dx\n                    if 0 <= ny < len(matrix) and 0 <= nx < len(matrix[ny]):\n                        if matrix[ny][nx] == \"1\" and (ny, nx) not in seen:\n                            stack.append((ny, nx))\n    return count\n```",
+      "tips": [
+        "exam05 py_island_matrix_counter - 4-directional, so diagonals do NOT connect",
+        "An explicit stack beats recursion: a big grid will blow the recursion limit",
+        "The 0 <= ny < rows bound check is not optional - Python wraps negative indices silently"
+      ]
+    },
+    {
+      "title": "🪟 Sliding window & the monotonic deque",
+      "tags": [
+        "sliding window",
+        "deque",
+        "monotonic",
+        "rank4"
+      ],
+      "content": "The naive max-of-every-window is O(n*k). A deque of INDICES, kept in\ndecreasing value order, makes it O(n).\n\n```\nfrom collections import deque\n\ndef sliding_window_maximum(nums, k):\n    if not nums or k <= 0 or k > len(nums):\n        return []\n    dq, out = deque(), []\n    for i, n in enumerate(nums):\n        while dq and nums[dq[-1]] <= n:\n            dq.pop()\n        dq.append(i)\n        if dq[0] <= i - k:\n            dq.popleft()\n        if i >= k - 1:\n            out.append(nums[dq[0]])\n    return out\n```\n\nAny earlier element smaller than what just arrived can never be the max\nagain - the newcomer outlives it and beats it. So drop them.\nThe front of the deque is always the current window's maximum.",
+      "tips": [
+        "exam04 py_sliding_window_maximum - guard k <= 0 and k > len(nums), both are tested",
+        "Store indices, not values, or you cannot tell when something left the window",
+        "dq[0] <= i - k is the 'front has slid out of the window' check"
+      ]
+    },
+    {
+      "title": "🧮 Dynamic programming - build on smaller answers",
+      "tags": [
+        "dp",
+        "dynamic programming",
+        "palindrome",
+        "rank4"
+      ],
+      "content": "DP means: solve prefixes, remember them, and reuse.\n\nMinimum cuts so every piece is a palindrome:\n```\ndef palindrome_partitioner(s):\n    n = len(s)\n    if n < 2:\n        return 0\n    pal = [[False] * n for _ in range(n)]\n    cuts = [0] * n\n    for i in range(n):\n        best = i                      # worst case: cut before every char\n        for j in range(i + 1):\n            if s[j] == s[i] and (i - j < 2 or pal[j + 1][i - 1]):\n                pal[j][i] = True\n                best = 0 if j == 0 else min(best, cuts[j - 1] + 1)\n        cuts[i] = best\n    return cuts[n - 1]\n```\n\nTwo tables at once: `pal[j][i]` is \"is s[j..i] a palindrome\", and\n`cuts[i]` is \"fewest cuts for the prefix ending at i\".\n`s[j] == s[i] and pal[j+1][i-1]` is the palindrome recurrence - the ends\nmatch and the inside was already a palindrome.",
+      "tips": [
+        "exam04 py_palindrome_partitioner",
+        "If the whole prefix is a palindrome (j == 0) the answer is 0 cuts, not cuts[-1] + 1",
+        "i - j < 2 covers the 1 and 2 character cases where there is no inside to check"
+      ]
+    },
+    {
+      "title": "📅 Greedy intervals - scheduling without overlap",
+      "tags": [
+        "greedy",
+        "intervals",
+        "scheduling",
+        "sorting",
+        "rank5"
+      ],
+      "content": "Sort by start time, then drop each meeting into the first room that is\nfree. That greedy choice is optimal for this problem.\n\n```\ndef py_room_scheduler(meetings):\n    if not meetings:\n        return {\"total_rooms\": 0, \"schedule\": []}\n    rooms = []\n    for start, end in sorted(meetings, key=lambda m: m[0]):\n        for room in rooms:\n            if room[-1][1] <= start:\n                room.append([start, end])\n                break\n        else:\n            rooms.append([[start, end]])\n    return {\"total_rooms\": len(rooms), \"schedule\": rooms}\n```\n\nThat `for ... else` is not a typo: the `else` runs when the loop finished\nWITHOUT hitting `break`, i.e. no existing room was free, so open a new one.",
+      "tips": [
+        "exam05 py_room_scheduler - sorting by start time first is what makes greedy work",
+        "room[-1][1] <= start: touching ends (one ends exactly when the next starts) can share",
+        "for/else is worth knowing - it replaces a 'found = False' flag"
+      ]
+    },
+    {
+      "title": "🗺️ Grids & matrices - building and walking them",
+      "tags": [
+        "grid",
+        "matrix",
+        "2d",
+        "directions",
+        "spiral",
+        "rank4",
+        "rank5"
+      ],
+      "content": "Build a grid - and beware the aliasing trap:\n```\ngrid = [[\".\"] * n for _ in range(n)]   # correct: n separate rows\ngrid = [[\".\"] * n] * n                 # WRONG: one row, aliased n times\n```\nWith the wrong one, `grid[0][0] = \"*\"` changes every row at once.\n\nDirection vectors keep traversal code flat:\n```\nDIRS4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]\nDIRS8 = DIRS4 + [(1, 1), (-1, -1), (-1, 1), (1, -1)]\n\nfor dx, dy in DIRS8:\n    nx, ny = x + dx, y + dy\n    if 0 <= ny < len(grid) and 0 <= nx < len(grid[ny]):\n        ...\n```\n\nRows back to strings: `[\"\".join(row) for row in grid]`",
+      "tips": [
+        "Negative indices do NOT raise in Python - they wrap. Always bound-check explicitly",
+        "Decide up front whether you index [row][col] or [x][y] and write it in a comment",
+        "exam04 py_constellation_mapper tests out-of-range AND negative coordinates",
+        "Rotate 90 degrees: `[list(r) for r in zip(*grid[::-1])]`"
+      ]
+    },
+    {
+      "title": "🔤 Characters & ciphers - ord, chr and wrapping",
+      "tags": [
+        "ord",
+        "chr",
+        "caesar",
+        "cipher",
+        "ascii",
+        "rank3"
+      ],
+      "content": "```\nord('a')   # 97   character -> number\nchr(97)    # 'a'  number -> character\n```\n\nCaesar shift that wraps and keeps case:\n```\ndef shift_char(ch, n):\n    if ch.islower():\n        return chr((ord(ch) - ord('a') + n) % 26 + ord('a'))\n    if ch.isupper():\n        return chr((ord(ch) - ord('A') + n) % 26 + ord('A'))\n    return ch\n\ndef whisper_cipher(text, shift):\n    return \"\".join(shift_char(c, shift) for c in text)\n```\n\nSubtracting ord('a') maps the letter to 0-25, you shift there, `% 26`\nwraps it, then you add ord('a') back. Python's `%` returns a non-negative\nresult for a positive modulus, so negative shifts work with no extra code.",
+      "tips": [
+        "exam03 py_whisper_cipher - non-letters must pass through untouched",
+        "Test 'z' with +1 and 'a' with -1: wrapping in both directions is where it breaks",
+        "A shift of 26 (or 0) must return the string unchanged"
+      ]
+    },
+    {
+      "title": "🔟 Number bases & run-length encoding",
+      "tags": [
+        "base conversion",
+        "divmod",
+        "rle",
+        "compression",
+        "rank3",
+        "rank5"
+      ],
+      "content": "Repeated divmod peels digits off the right:\n```\nDIGITS = \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\"\n\ndef to_base(value, base):\n    if value == 0:\n        return \"0\"\n    out = \"\"\n    while value:\n        value, rem = divmod(value, base)\n        out = DIGITS[rem] + out      # prepend: digits come out backwards\n    return out\n\ndef from_base(text, base):\n    value = 0\n    for ch in text.upper():\n        value = value * base + DIGITS.index(ch)\n    return value\n```\n\nRun-length encoding is the same \"count a run, emit it\" shape:\n```\ndef compress(s):\n    out, i = [], 0\n    while i < len(s):\n        j = i\n        while j < len(s) and s[j] == s[i]:\n            j += 1\n        n = j - i\n        out.append(s[i] if n == 1 else f\"{s[i]}{n}\")\n        i = j\n    return \"\".join(out)\n```",
+      "tips": [
+        "exam03 py_number_base_converter, exam05 py_compress_decompress",
+        "value == 0 needs its own case or the while loop never runs and you return ''",
+        "Validate digits against the source base - '2' is not a valid base-2 digit",
+        "Decompressing must handle multi-digit counts: 'a12' is twelve a's, not a1 then 2"
+      ]
+    }
+  ]
+}

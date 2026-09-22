@@ -51,9 +51,18 @@ make
 * **Late-Shutdown Safety**: Silent `atexit` garbage collection guarantees a completely clean interpreter exit without traceback warnings.
 
 ### 🔵 Knowledge Corner
+* **Algorithms & Techniques**: 14 entries covering what the Python exams actually
+  test — sorting by hand when `sorted()` is forbidden, k-way merging without
+  `heapq`, BFS/DFS, topological sort, flood fill, sliding windows, DP, greedy
+  intervals, grids, ciphers and base conversion. Every code snippet is checked
+  against the real exercise vectors, so what you read is what passes.
 * **Orthodox Canonical Class Form (OCCF)**: Visual diagrams and complete templates for C++.
 * **Git Safety Guide**: Critical tips and BRANCH strategies to survive exam rules.
-* **Multi-Language Search**: High-speed, tag-based index searching across C, C++, Python, and general Tips & Tricks.
+* **Multi-Language Search**: High-speed, tag-based index searching across every section.
+
+Sections are listed in `KNOWLEDGE_SECTIONS` in `examshell.py`. A `.json` dropped
+into `data/knowledge/` must be added there to be browsable — otherwise it is
+reachable only through Search.
 
 ---
 

@@ -674,6 +674,18 @@ def exam_mode():
         prompt("Press Enter to continue...")
         break
 
+# (file stem in data/knowledge/, menu label). Listed explicitly so the order is
+# deliberate — but a file missing from here is browsable only through Search,
+# which is how git.json went unreachable for a while. Add new files here too.
+KNOWLEDGE_SECTIONS = [
+    ("c", "C"),
+    ("python", "Python"),
+    ("c++", "C++"),
+    ("algorithms", "Algorithms & Techniques"),
+    ("git", "Git Survival"),
+    ("tips", "Exam & Life Tips"),
+]
+
 def knowledge_corner():
     while True:
         clear()
@@ -681,31 +693,23 @@ def knowledge_corner():
         divider()
         print(f"  {B}KNOWLEDGE CORNER{RST}")
         divider()
-        print("  Select language:")
-        print("  [1] C")
-        print("  [2] Python")
-        print("  [3] C++")
-        print("  [4] Git & Debugging Tips")
-        print("  [5] Search all topics")
+        print("  Select a section:")
+        for idx, (_, label) in enumerate(KNOWLEDGE_SECTIONS):
+            print(f"  [{idx + 1}] {label}")
+        search_key = str(len(KNOWLEDGE_SECTIONS) + 1)
+        print(f"  [{search_key}] Search all topics")
         print("  [q] Back")
         divider()
-        
-        choice = prompt("choice", ["1", "2", "3", "4", "5", "q"])
+
+        choices = [str(i + 1) for i in range(len(KNOWLEDGE_SECTIONS))] + [search_key, "q"]
+        choice = prompt("choice", choices)
         if choice == "q":
             return
-            
-        langs = {
-            "1": "c",
-            "2": "python",
-            "3": "c++",
-            "4": "tips"
-        }
-        
-        if choice in ["1", "2", "3", "4"]:
-            browse_knowledge(langs[choice])
-        elif choice == "5":
-            search_query = prompt("Search")
-            search_knowledge(search_query)
+
+        if choice == search_key:
+            search_knowledge(prompt("Search"))
+        else:
+            browse_knowledge(KNOWLEDGE_SECTIONS[int(choice) - 1][0])
 
 def browse_knowledge(lang):
     p = Path(__file__).parent / "data" / "knowledge" / f"{lang}.json"
