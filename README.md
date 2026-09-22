@@ -67,7 +67,8 @@ examshell/
 ├── .gitignore            ← Production gitignore rules
 ├── rendu/                ← submission directories (auto-generated)
 ├── tools/
-│   ├── import_exam_bank.py  ← import a community bank into data/exercises/
+│   ├── import_exam_site.py  ← import a bank from a 42exam.net subject site
+│   ├── import_exam_bank.py  ← import a community ExamShell bank
 │   └── check_bank.py        ← validate the bank / grade reference solutions
 └── data/
     ├── exercises/        ← .json exercise files
@@ -137,22 +138,39 @@ The submitted file is loaded in a subprocess, each `call` is evaluated against i
 
 ---
 
-## Exam 03 (Rank 03 Python)
+## Python exams (Rank 03+)
 
-The `exam03` rank mirrors the current 42 Rank 03 Python exam: **14 exercises across
-levels 1–6**, graded by `python_call`. Subjects, function names and test vectors are
-taken from the real exam, so the file you submit matches what the real grader asks for:
+From Rank 03 onward the 42 exam is Python. Both banks are imported from the
+official subject sites and graded by `python_call`, using the exam's real
+assignment names — so the file examshell creates for you (`py_hidenp.py`) is the
+file the real grader asks for.
+
+**`exam03` — 14 exercises, levels 1–6** (source: `rank03.42exam.net`)
 
 | Level | Exercises |
 |:--|:--|
-| 1 | `py_cryptic_sorter`, `py_inter` |
+| 1 | `py_bracket_validator`, `py_cryptic_sorter` |
 | 2 | `py_echo_validator`, `py_mirror_matrix` |
-| 3 | `py_hidenp`, `py_number_base_converter`, `py_pattern_tracker` |
+| 3 | `py_hidenp`, `py_inter`, `py_number_base_converter`, `py_pattern_tracker` |
 | 4 | `py_anagram`, `py_shadow_merge`, `py_string_permutation_checker` |
 | 5 | `py_string_sculptor`, `py_twist_sequence` |
-| 6 | `py_bracket_validator`, `py_whisper_cipher` |
+| 6 | `py_whisper_cipher` |
 
-As in the real exam, passing means clearing **6/6** — one exercise per level.
+**`exam04` — 7 exercises, levels 1–4** (source: `rank04.42exam.net`)
+
+| Level | Exercises |
+|:--|:--|
+| 1 | `py_array_rotation_detector`, `py_constellation_mapper` |
+| 2 | `py_list_intersection_finder`, `py_merge_sorted_lists` |
+| 3 | `py_package_dependency_resolver`, `py_palindrome_partitioner` |
+| 4 | `py_sliding_window_maximum` |
+
+Passing means clearing every level — one exercise per level, as in the real exam.
+
+Several exercises carry a **Forbidden** note in their hints: `py_cryptic_sorter`
+may not use `sorted()` or `list.sort()`, `py_merge_sorted_lists` may not use
+`heapq.merge()`, and so on. These come from the official subjects and are the
+point of the exercise; the checker does not enforce them, so mind them yourself.
 
 From Rank 03 onward the real exam is Python, but the older C exams are still
 worth drilling, so each rank offers whichever variants exist on disk:
@@ -168,9 +186,22 @@ one variant present skips the C-or-Python sub-prompt, and dropping
 its own. To import a new bank:
 
 ```bash
-python3 tools/import_exam_bank.py path/to/ExamShell-Rank04 exam04
-python3 tools/check_bank.py exam04 --solutions path/to/ExamShell-Rank04/solutions
+# from an official subject site (preferred — carries levels, signatures,
+# difficulty and the Forbidden lists)
+python3 tools/import_exam_site.py https://rank05.42exam.net/js/data.js exam05
+
+# from a community ExamShell repo with an Exercises_dict.py
+python3 tools/import_exam_bank.py path/to/ExamShell-Rank05 exam05
+
+# either way, prove the vectors survived by grading known-good solutions
+python3 tools/check_bank.py exam05 --solutions path/to/solutions
 ```
+
+`import_exam_site.py` takes `--extra-vectors FILE`, a JSON map of
+`{exercise_name: [{call, expected}, ...]}`, to merge extra test cases from a
+community repo on top of the official ones (deduplicated). That is how the
+current banks were built: official levels and constraints, widened test
+coverage.
 
 `check_bank.py` is the one that matters: it grades every imported exercise
 against the bank's own reference solutions, which is what proves the test

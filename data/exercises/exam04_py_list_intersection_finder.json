@@ -1,0 +1,47 @@
+{
+  "name": "py_list_intersection_finder",
+  "rank": "exam04",
+  "level": "level2",
+  "lang": "python",
+  "difficulty": "easy",
+  "short_desc": "Write a function that finds the intersection of multiple sorted lists. Return a new list containing...",
+  "description": "Write a function that finds the intersection of multiple sorted lists.\nReturn a new list containing elements that appear in ALL input lists, in sorted order.\n\nThe function should:\n- Return elements that appear in ALL lists\n- Result should be sorted in ascending order\n- Remove duplicates from the result\n- Handle empty input or empty lists gracefully\n- If any list is empty, the intersection is empty",
+  "prototype": "def list_intersection_finder(lists: list[list[int]]) -> list[int]:",
+  "function": "list_intersection_finder",
+  "notes": [
+    "File to submit: py_list_intersection_finder.py",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "list_intersection_finder([[1, 2, 3], [2, 3, 4], [2, 3, 5]])",
+      "expected": "[2, 3]"
+    },
+    {
+      "call": "list_intersection_finder([[1, 2, 3, 4], [2, 4, 6, 8], [4, 8, 12]])",
+      "expected": "[4]"
+    },
+    {
+      "call": "list_intersection_finder([[1, 1, 2, 3], [1, 2, 2, 3], [1, 2, 3, 3]])",
+      "expected": "[1, 2, 3]"
+    },
+    {
+      "call": "list_intersection_finder([[1, 2, 3], [4, 5, 6]])",
+      "expected": "[]"
+    },
+    {
+      "call": "list_intersection_finder([])",
+      "expected": "[]"
+    },
+    {
+      "call": "list_intersection_finder([[1, 2, 3], []])",
+      "expected": "[]"
+    },
+    {
+      "call": "list_intersection_finder([[5]])",
+      "expected": "[5]"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "py_palindrome_partitioner",
+  "rank": "exam04",
+  "level": "level3",
+  "lang": "python",
+  "difficulty": "hard",
+  "short_desc": "Given a string `s`, find the minimum number of cuts needed to partition it such that every resulting...",
+  "description": "Given a string `s`, find the minimum number of cuts needed to partition it such that every resulting substring is a palindrome.\n\nA cut divides the string between two characters. With `c` cuts, the string is split into `c + 1` substrings. We want the minimum number of cuts `c` such that all parts are palindromes.\n\nReturn this minimum number of cuts (an integer).\n\nConstraints:\n- An empty string or a string of length 1 is already a palindrome -> 0 cuts.\n- If the entire string is already a palindrome -> 0 cuts.\n- In the worst case (all characters are distinct), the result is len(s) - 1 cuts.",
+  "prototype": "def palindrome_partitioner(s: str) -> int:",
+  "function": "palindrome_partitioner",
+  "notes": [
+    "File to submit: py_palindrome_partitioner.py",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "palindrome_partitioner(\"aab\")",
+      "expected": "1"
+    },
+    {
+      "call": "palindrome_partitioner(\"aba\")",
+      "expected": "0"
+    },
+    {
+      "call": "palindrome_partitioner(\"abc\")",
+      "expected": "2"
+    },
+    {
+      "call": "palindrome_partitioner(\"abcba\")",
+      "expected": "0"
+    },
+    {
+      "call": "palindrome_partitioner(\"abcd\")",
+      "expected": "3"
+    },
+    {
+      "call": "palindrome_partitioner(\"aabaa\")",
+      "expected": "0"
+    },
+    {
+      "call": "palindrome_partitioner(\"abac\")",
+      "expected": "1"
+    },
+    {
+      "call": "palindrome_partitioner(\"\")",
+      "expected": "0"
+    }
+  ]
+}

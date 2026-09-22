@@ -1,0 +1,56 @@
+{
+  "name": "py_merge_sorted_lists",
+  "rank": "exam04",
+  "level": "level2",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Write a function that merges multiple sorted lists into one sorted list while maintaining the sort order...",
+  "description": "Write a function that merges multiple sorted lists into one sorted list while maintaining the sort order efficiently.\n\nThe function should:\n- Take a list of sorted integer lists as input\n- Return a single merged list in ascending order\n- Preserve all duplicate elements in the final result\n- Handle empty lists and empty input gracefully\n- Maintain optimal efficiency for large inputs\n\nRules:\n- All input lists are guaranteed to be sorted in ascending order\n- Empty lists should be ignored during merging\n- Return empty list if no valid input is provided\n- Preserve duplicates across different lists\n- Handle negative numbers correctly\n\nEdge cases to handle:\n- Empty input list: return empty list\n- Lists containing only empty lists: return empty list\n- Single list input: return copy of that list\n- All duplicate elements: preserve all instances\n- Negative numbers: handle correctly in sort order",
+  "prototype": "def merge_sorted_lists(lists: list[list[int]]) -> list[int]:",
+  "function": "merge_sorted_lists",
+  "notes": [
+    "File to submit: py_merge_sorted_lists.py",
+    "Forbidden: sorted(), .sort(), heapq.merge()",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "merge_sorted_lists([[1, 3, 5], [2, 4, 6]])",
+      "expected": "[1, 2, 3, 4, 5, 6]"
+    },
+    {
+      "call": "merge_sorted_lists([[1, 5, 9], [2, 3, 8], [4, 6, 7]])",
+      "expected": "[1, 2, 3, 4, 5, 6, 7, 8, 9]"
+    },
+    {
+      "call": "merge_sorted_lists([[5], [1, 3], [2, 4]])",
+      "expected": "[1, 2, 3, 4, 5]"
+    },
+    {
+      "call": "merge_sorted_lists([[1, 1, 2], [2, 3, 3]])",
+      "expected": "[1, 1, 2, 2, 3, 3]"
+    },
+    {
+      "call": "merge_sorted_lists([[], [1, 2, 3]])",
+      "expected": "[1, 2, 3]"
+    },
+    {
+      "call": "merge_sorted_lists([[]])",
+      "expected": "[]"
+    },
+    {
+      "call": "merge_sorted_lists([[-5, -1, 0], [-3, 2, 4]])",
+      "expected": "[-5, -3, -1, 0, 2, 4]"
+    },
+    {
+      "call": "merge_sorted_lists([[10], [10], [10]])",
+      "expected": "[10, 10, 10]"
+    },
+    {
+      "call": "merge_sorted_lists([])",
+      "expected": "[]"
+    }
+  ]
+}

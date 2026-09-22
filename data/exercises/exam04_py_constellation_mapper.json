@@ -1,0 +1,43 @@
+{
+  "name": "py_constellation_mapper",
+  "rank": "exam04",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Write a function that maps a constellation of stars onto a grid and returns the visual representation as a...",
+  "description": "Write a function that maps a constellation of stars onto a grid and returns the visual representation as a list of strings.\n\nThe function should:\n- Take a list of star coordinates as tuples (row, col) and grid size as integer\n- Return a list of strings representing the grid\n- Stars are represented by '*' and empty spaces by '.'\n- Grid coordinates start from (0, 0) at top-left\n- Ignore coordinates outside the grid boundaries\n- Handle duplicate coordinates (star appears only once)",
+  "prototype": "def constellation_mapper(stars: list[tuple[int, int]], dim: int) -> list[str]:",
+  "function": "constellation_mapper",
+  "notes": [
+    "File to submit: py_constellation_mapper.py",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "constellation_mapper([(0, 0), (1, 1), (2, 2)], 3)",
+      "expected": "['*..', '.*.', '..*']"
+    },
+    {
+      "call": "constellation_mapper([(1, 1), (0, 1), (2, 1), (1, 0), (1, 2)], 3)",
+      "expected": "['.*.', '***', '.*.']"
+    },
+    {
+      "call": "constellation_mapper([], 2)",
+      "expected": "['..', '..']"
+    },
+    {
+      "call": "constellation_mapper([(0, 0), (0, 0), (1, 1)], 2)",
+      "expected": "['*.', '.*']"
+    },
+    {
+      "call": "constellation_mapper([(0, 0), (5, 5)], 3)",
+      "expected": "['*..', '...', '...']"
+    },
+    {
+      "call": "constellation_mapper([(1, 0), (1, 1), (1, 2)], 3)",
+      "expected": "['...', '***', '...']"
+    }
+  ]
+}

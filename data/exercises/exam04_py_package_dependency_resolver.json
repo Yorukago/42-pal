@@ -1,0 +1,56 @@
+{
+  "name": "py_package_dependency_resolver",
+  "rank": "exam04",
+  "level": "level3",
+  "lang": "python",
+  "difficulty": "hard",
+  "short_desc": "Write a function that determines a valid package installation order by resolving dependencies. Use...",
+  "description": "Write a function that determines a valid package installation order by resolving dependencies. Use topological sorting to ensure dependencies are installed before the packages that require them.\n\nThe function should:\n- Take a dictionary where keys are package names and values are lists of dependencies\n- Return packages in installation order (dependencies first)\n- Return empty list if no valid order exists (circular dependencies)\n- Handle empty input and isolated dependency chains\n- Ignore references to packages not in the input dictionary\n\nAlgorithm requirements:\n- Use topological sorting (e.g., Kahn's algorithm)\n- Process packages with no remaining dependencies first\n- Ensure deterministic output when multiple valid orders exist\n\nEdge cases to handle:\n- Empty input: return empty list\n- Packages with no dependencies: include in output first\n- Multiple independent chains: process all chains\n- Circular dependencies: return empty list\n- Non-existent dependencies: ignore missing packages\n- Self-dependencies: return empty list\n\nNotes:\n- For deterministic output, process packages alphabetically when choices exist\n- A package cannot be installed until all its dependencies are installed\n- If any circular dependency exists, no valid installation order is possible",
+  "prototype": "def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:",
+  "function": "package_dependency_resolver",
+  "notes": [
+    "File to submit: py_package_dependency_resolver.py",
+    "Forbidden: graphlib.TopologicalSorter",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "package_dependency_resolver({\"app\": [\"database\"], \"database\": [\"driver\"], \"driver\": []})",
+      "expected": "[\"driver\", \"database\", \"app\"]"
+    },
+    {
+      "call": "package_dependency_resolver({\"A\": [], \"B\": [\"A\"], \"C\": [\"A\", \"B\"]})",
+      "expected": "[\"A\", \"B\", \"C\"]"
+    },
+    {
+      "call": "package_dependency_resolver({})",
+      "expected": "[]"
+    },
+    {
+      "call": "package_dependency_resolver({\"X\": [\"Y\"], \"Y\": [\"X\"]})",
+      "expected": "[]"
+    },
+    {
+      "call": "package_dependency_resolver({\"web\": [], \"api\": [], \"frontend\": [\"web\"], \"backend\": [\"api\"]})",
+      "expected": "[\"api\", \"web\", \"backend\", \"frontend\"]"
+    },
+    {
+      "call": "package_dependency_resolver({\n    \"app\": [\"database\"],\n    \"database\": [\"driver\"],\n    \"driver\": []\n})",
+      "expected": "[\"driver\", \"database\", \"app\"]"
+    },
+    {
+      "call": "package_dependency_resolver({\n    \"A\": [],\n    \"B\": [\"A\"],\n    \"C\": [\"A\", \"B\"]\n})",
+      "expected": "[\"A\", \"B\", \"C\"]"
+    },
+    {
+      "call": "package_dependency_resolver({\n    \"X\": [\"Y\"],\n    \"Y\": [\"X\"]\n})",
+      "expected": "[]"
+    },
+    {
+      "call": "package_dependency_resolver({\n    \"web\": [],\n    \"api\": [],\n    \"frontend\": [\"web\"],\n    \"backend\": [\"api\"]\n})",
+      "expected": "[\"api\", \"web\", \"backend\", \"frontend\"]"
+    }
+  ]
+}

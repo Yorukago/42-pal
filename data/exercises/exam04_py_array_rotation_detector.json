@@ -1,0 +1,64 @@
+{
+  "name": "py_array_rotation_detector",
+  "rank": "exam04",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "easy",
+  "short_desc": "Write a Python function that takes two lists (arrays) as parameters and determines if the second list is a...",
+  "description": "Write a Python function that takes two lists (arrays) as parameters and determines if the second list is a rotation of the first list (left or right).\n\nA rotation means that the elements are shifted circularly. For example, shifting [1, 2, 3] to the right by one position results in [3, 1, 2].\n\nThe function must return True if arr2 is a rotation of arr1, and False otherwise.\nIf the arrays have different lengths, they cannot be rotations of each other.\nTwo empty arrays are considered rotations of each other.",
+  "prototype": "def array_rotation_detector(arr1: list, arr2: list) -> bool:",
+  "function": "array_rotation_detector",
+  "notes": [
+    "File to submit: py_array_rotation_detector.py",
+    "Forbidden: collections.deque.rotate()",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "array_rotation_detector([1, 2, 3, 4, 5], [4, 5, 1, 2, 3])",
+      "expected": "True"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 3, 4, 5], [5, 1, 2, 3, 4])",
+      "expected": "True"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 3], [3, 2, 1])",
+      "expected": "False"
+    },
+    {
+      "call": "array_rotation_detector([1, 2], [1, 2, 3])",
+      "expected": "False"
+    },
+    {
+      "call": "array_rotation_detector([], [])",
+      "expected": "True"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])",
+      "expected": "True"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 3, 4, 5], [1, 2, 3, 4, 5])",
+      "expected": "True"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 3, 4, 5], [2, 3, 4, 5, 1])",
+      "expected": "True"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 3], [1, 3, 2])",
+      "expected": "False"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 3], [1, 2])",
+      "expected": "False"
+    },
+    {
+      "call": "array_rotation_detector([1, 1, 1], [1, 1, 1])",
+      "expected": "True"
+    }
+  ]
+}
