@@ -148,6 +148,65 @@ def run_python(py_file, stdin_data=""):
     except subprocess.TimeoutExpired:
         return -1, "", "Timeout"
 
+PY_CALL_HARNESS = r"""
+import contextlib, io, json, runpy, sys
+
+sol_path, calls_json = sys.argv[1], sys.argv[2]
+calls = json.loads(calls_json)
+sink = io.StringIO()
+
+try:
+    with contextlib.redirect_stdout(sink):
+        ns = runpy.run_path(sol_path, run_name="examshell_solution")
+except BaseException as e:
+    print(json.dumps({"fatal": "%s: %s" % (type(e).__name__, e)}))
+    sys.exit(0)
+
+out = []
+for c in calls:
+    entry = {"call": c["call"], "expected": c["expected"]}
+    try:
+        with contextlib.redirect_stdout(sink):
+            got = eval(c["call"], ns)
+        exp = eval(c["expected"], {})
+        entry["got"] = repr(got)
+        entry["ok"] = bool(got == exp)
+    except BaseException as e:
+        entry["got"] = "%s: %s" % (type(e).__name__, e)
+        entry["ok"] = False
+    out.append(entry)
+print(json.dumps(out))
+"""
+
+def run_python_calls(sol_file, calls):
+    """Import the submitted file and evaluate each checker call against its expected value."""
+    try:
+        res = subprocess.run(
+            ["python3", "-c", PY_CALL_HARNESS, str(sol_file), json.dumps(calls)],
+            capture_output=True, text=True, timeout=10,
+        )
+    except subprocess.TimeoutExpired:
+        return False, [{"case": "python_call", "expected": "finish in 10s", "got": "timeout", "ok": False}]
+
+    lines = [l for l in res.stdout.splitlines() if l.strip()]
+    if not lines:
+        err = res.stderr.strip() or "(no output)"
+        return False, [{"case": "python_call", "expected": "test results", "got": err, "ok": False}]
+
+    try:
+        payload = json.loads(lines[-1])
+    except json.JSONDecodeError:
+        return False, [{"case": "python_call", "expected": "test results", "got": lines[-1], "ok": False}]
+
+    if isinstance(payload, dict) and "fatal" in payload:
+        return False, [{"case": "loading your file", "expected": "imports cleanly", "got": payload["fatal"], "ok": False}]
+
+    results = [
+        {"case": r["call"], "expected": r["expected"], "got": r["got"], "ok": r["ok"], "pre": True}
+        for r in payload
+    ]
+    return all(r["ok"] for r in results), results
+
 def check_exercise(ex):
     submit_dir = Path(__file__).parent / "rendu" / ex.get("name", "")
     lang = ex.get("lang", "c")
@@ -207,6 +266,12 @@ def check_exercise(ex):
         return all_ok, results
         
     elif lang == "python":
+        if ex.get("checker") == "python_call":
+            calls = ex.get("checker_calls", [])
+            if not calls:
+                return True, [{"case": "no automated tests", "expected": "manual check", "got": "submit your file and verify manually", "ok": True}]
+            return run_python_calls(sol_file, calls)
+
         test_cases = ex.get("test_cases", [])
         if not test_cases:
             return True, [{"case": "no automated tests", "expected": "manual check", "got": "submit your file and verify manually", "ok": True}]
@@ -232,8 +297,11 @@ def show_check_results(results):
         status = f"{GRN}✓{RST}" if r["ok"] else f"{RED}✗{RST}"
         print(f"  {status} {B}{r['case']}{RST}")
         if not r["ok"]:
-            print(f"      {D}expected:{RST} {r['expected']!r}")
-            print(f"      {RED}     got:{RST} {r['got']!r}")
+            # python_call results arrive pre-formatted; everything else gets repr'd
+            exp = r["expected"] if r.get("pre") else repr(r["expected"])
+            got = r["got"] if r.get("pre") else repr(r["got"])
+            print(f"      {D}expected:{RST} {exp}")
+            print(f"      {RED}     got:{RST} {got}")
 
 class ExamTimer(threading.Thread):
     def __init__(self, duration_sec):
@@ -322,51 +390,105 @@ def run_exercise(ex, timer=None, is_training=False, progress_str=None):
                 if prompt("Retry? (y/n)", ["y", "n"]) == "n":
                     return False if not is_training else "skipped"
 
-def training_mode():
+# Rank 02 is C only. From Rank 03 onward the real exam moved to Python, but the
+# old C exam is still worth drilling — so each rank offers whichever variants
+# actually have exercises on disk. Dropping exam04_*.json into data/exercises/
+# is all it takes to light up the Python option for Rank 04.
+RANK_VARIANTS = [
+    ("Rank 02", [
+        ("rank02", "C — strings, bits, lists", "Rank 02 (C — strings, bits, lists)"),
+    ]),
+    ("Rank 03", [
+        ("rank03", "C — GNL, algorithms", "Old Rank 03 (C — GNL, algorithms)"),
+        ("exam03", "Python — Common Core", "New Rank 03 (Python — Common Core)"),
+    ]),
+    ("Rank 04", [
+        ("rank04", "C — processes, syscalls", "Old Rank 04 (C — processes, syscalls)"),
+        ("exam04", "Python — Common Core", "New Rank 04 (Python — Common Core)"),
+    ]),
+    ("Rank 05", [
+        ("rank05", "C++ — OOP, OCCF, templates", "Old Rank 05 (C++ — OOP, OCCF, templates)"),
+        ("exam05", "Python — Common Core", "New Rank 05 (Python — Common Core)"),
+    ]),
+]
+
+def select_rank(title="SELECT RANK", preamble=None, include_all=False):
+    """Rank picker shared by training and exam mode.
+
+    `preamble` is a list of lines redrawn above the menu after each clear, so
+    callers keep their own screen furniture (the exam rules, say).
+
+    Returns a rank tag to filter on, None for "all ranks", or "q" to go back.
+    Ranks with no exercises are hidden; a rank with only one variant on disk
+    skips the C-or-Python sub-prompt entirely.
+    """
     while True:
+        available = []
+        for label, variants in RANK_VARIANTS:
+            present = [v for v in variants if get_exercises(rank=v[0])]
+            if present:
+                available.append((label, present))
+
+        if not available:
+            print(f"  {RED}No exercises found.{RST}")
+            time.sleep(1.5)
+            return "q"
+
         clear()
         banner()
         divider()
-        print(f"  {B}TRAINING MODE{RST}")
+        print(f"  {B}{title}{RST}")
         divider()
+        for line in preamble or []:
+            print(line)
+        if preamble:
+            divider()
         print("  Choose rank:")
-        print("  [1] Rank 02 (C — strings, bits, lists)")
-        print("  [2] Rank 03 (C — GNL / Python — Common Core)")
-        print("  [3] Rank 04 (C — processes, syscalls)")
-        print("  [4] Rank 05 (C++ — OOP, OCCF, templates)")
-        print("  [5] All ranks")
+        for idx, (label, variants) in enumerate(available):
+            desc = " / ".join(short for _, short, _ in variants)
+            print(f"  [{idx + 1}] {label} ({desc})")
+        all_key = str(len(available) + 1)
+        if include_all:
+            print(f"  [{all_key}] All ranks")
         print("  [q] Back")
         divider()
-        
-        choice = prompt("rank", ["1", "2", "3", "4", "5", "q"])
+
+        choices = [str(i + 1) for i in range(len(available))]
+        if include_all:
+            choices.append(all_key)
+        choices.append("q")
+
+        choice = prompt("rank", choices)
         if choice == "q":
+            return "q"
+        if include_all and choice == all_key:
+            return None
+
+        label, variants = available[int(choice) - 1]
+        if len(variants) == 1:
+            return variants[0][0]
+
+        clear()
+        banner()
+        divider()
+        print(f"  {B}SELECT {label.upper()} EXAM TYPE{RST}")
+        divider()
+        for idx, (_, _, menu_label) in enumerate(variants):
+            print(f"  [{idx + 1}] {menu_label}")
+        print("  [q] Back")
+        divider()
+
+        type_choice = prompt("choice", [str(i + 1) for i in range(len(variants))] + ["q"])
+        if type_choice == "q":
+            continue
+        return variants[int(type_choice) - 1][0]
+
+def training_mode():
+    while True:
+        rank_filter = select_rank(title="TRAINING MODE", include_all=True)
+        if rank_filter == "q":
             return
-            
-        ranks = {
-            "1": "rank02",
-            "2": "rank03",
-            "3": "rank04",
-            "4": "rank05",
-        }
-        
-        if choice == "2":
-            clear()
-            banner()
-            divider()
-            print(f"  {B}SELECT RANK 03 EXAM TYPE{RST}")
-            divider()
-            print("  [1] Old Rank 03 (C — GNL, algorithms)")
-            print("  [2] New Rank 03 (Python — Common Core)")
-            print("  [q] Back")
-            divider()
-            
-            type_choice = prompt("choice", ["1", "2", "q"])
-            if type_choice == "q":
-                continue
-            rank_filter = "rank03" if type_choice == "1" else "exam03"
-        else:
-            rank_filter = ranks.get(choice)
-            
+
         rank_label = rank_filter.upper() if rank_filter else "ALL RANKS"
         
         exercises = get_exercises(rank=rank_filter)
@@ -462,56 +584,36 @@ def training_mode():
 
 def exam_mode():
     while True:
+        rules = [
+            "  Rules:",
+            "  · 3 hour timer, starts now",
+            "  · Exercises are assigned randomly per level",
+            "  · No skipping — solve the current one or fail the level",
+            "  · You can quit at any time",
+        ]
+        rank_filter = select_rank(title="EXAM MODE", preamble=rules)
+        if rank_filter == "q":
+            return
+        
+        levels = sorted(
+            {ex.get("level", "") for ex in get_exercises(rank=rank_filter) if ex.get("level")},
+            key=lambda l: (len(l), l),
+        )
+        if not levels:
+            print(f"  {RED}No exercises found for that rank.{RST}")
+            time.sleep(1.5)
+            continue
+        
         clear()
         banner()
         divider()
-        print(f"  {B}EXAM MODE{RST}")
+        print(f"  {B}EXAM MODE — {rank_filter.upper()}{RST}")
         divider()
-        print("  Rules:")
-        print("  · 3 hour timer, starts now")
-        print("  · Exercises are assigned randomly per level")
-        print("  · No skipping — solve the current one or fail the level")
-        print("  · You can quit at any time")
+        for line in rules:
+            print(line)
         divider()
-        print("  Choose Rank:")
-        print("  [1] Rank 02 (C — strings, bits, lists)")
-        print("  [2] Rank 03 (C — algorithms / Python — Common Core)")
-        print("  [3] Rank 04 (C — processes)")
-        print("  [4] Rank 05 (C++ — OCCF & Templates)")
-        print("  [q] Back")
+        print(f"  {len(levels)} levels: {', '.join(levels)}")
         divider()
-        
-        choice = prompt("rank", ["1", "2", "3", "4", "q"])
-        if choice == "q":
-            return
-            
-        ranks = {
-            "1": "rank02",
-            "2": "rank03",
-            "3": "rank04",
-            "4": "rank05",
-        }
-        
-        if choice == "2":
-            clear()
-            banner()
-            divider()
-            print(f"  {B}SELECT RANK 03 EXAM TYPE{RST}")
-            divider()
-            print("  [1] Old Rank 03 (C — GNL, algorithms)")
-            print("  [2] New Rank 03 (Python — Common Core)")
-            print("  [q] Back")
-            divider()
-            
-            type_choice = prompt("choice", ["1", "2", "q"])
-            if type_choice == "q":
-                continue
-            rank_filter = "rank03" if type_choice == "1" else "exam03"
-        else:
-            rank_filter = ranks.get(choice)
-        
-        levels = [f"level{i}" for i in range(6)]
-        
         if prompt("Ready? Timer starts on Enter. (y/n)", ["y", "n"]) != "y":
             continue
             
