@@ -1,0 +1,32 @@
+{
+  "name": "py_graph_cycle_detector",
+  "rank": "exam05",
+  "level": "level2",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Write a function that determines whether a directed graph contains at least one cycle.",
+  "description": "Write a function that determines whether a directed graph contains at least one cycle.\n\nThe function takes a dictionary representing an adjacency list where keys are integer node IDs and values are lists of integer neighbor node IDs.\n\nThe function should:\n- Return True if the directed graph contains a cycle.\n- Return False if the graph is acyclic or if the input graph dictionary is empty.\n- Correctly handle graphs with multiple disconnected components.",
+  "prototype": "def py_graph_cycle_detector(graph: dict[int, list[int]]) -> bool:",
+  "function": "py_graph_cycle_detector",
+  "notes": [
+    "File to submit: py_graph_cycle_detector.py",
+    "Forbidden: graphlib.TopologicalSorter",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "py_graph_cycle_detector({0: [1], 1: [2], 2: [0]})",
+      "expected": "True"
+    },
+    {
+      "call": "py_graph_cycle_detector({0: [1], 1: [2], 2: []})",
+      "expected": "False"
+    },
+    {
+      "call": "py_graph_cycle_detector({})",
+      "expected": "False"
+    }
+  ]
+}

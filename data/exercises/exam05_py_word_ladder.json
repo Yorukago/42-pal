@@ -1,0 +1,27 @@
+{
+  "name": "py_word_ladder",
+  "rank": "exam05",
+  "level": "level3",
+  "lang": "python",
+  "difficulty": "hard",
+  "short_desc": "Write a function that computes the length of the shortest transformation sequence from a `start` word to...",
+  "description": "Write a function that computes the length of the shortest transformation sequence from a `start` word to an `end` word using a dictionary list of allowed words `sentence`.\n\nEach transformation step must change exactly one single character. All intermediate words must exist in `sentence`.\n\nThe function should:\n- Return the total number of words in the shortest ladder (including `start` and `end`).\n- Return 0 if no transformation sequence is possible.",
+  "prototype": "def word_ladder(start: str, end: str, sentence: list[str]) -> int:",
+  "function": "word_ladder",
+  "notes": [
+    "File to submit: py_word_ladder.py",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "word_ladder(\"hit\", \"cog\", [\"hot\", \"dot\", \"dog\", \"lot\", \"log\", \"cog\"])",
+      "expected": "5"
+    },
+    {
+      "call": "word_ladder(\"hit\", \"cog\", [\"hot\", \"dot\", \"dog\", \"lot\", \"log\"])",
+      "expected": "0"
+    }
+  ]
+}

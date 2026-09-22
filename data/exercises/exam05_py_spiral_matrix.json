@@ -1,0 +1,27 @@
+{
+  "name": "py_spiral_matrix",
+  "rank": "exam05",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Write a function that generates an `n x n` 2D matrix filled with numbers from 1 to `n^2` in clockwise...",
+  "description": "Write a function that generates an `n x n` 2D matrix filled with numbers from 1 to `n^2` in clockwise spiral order.\n\nThe spiral starts at the top-left cell (0, 0) moving right, then down, then left, then up, continuing inwards.",
+  "prototype": "def generate_spiral(n: int) -> list[list[int]]:",
+  "function": "generate_spiral",
+  "notes": [
+    "File to submit: py_spiral_matrix.py",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "generate_spiral(3)",
+      "expected": "[[1, 2, 3], [8, 9, 4], [7, 6, 5]]"
+    },
+    {
+      "call": "generate_spiral(1)",
+      "expected": "[[1]]"
+    }
+  ]
+}

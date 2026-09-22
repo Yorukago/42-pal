@@ -1,0 +1,31 @@
+{
+  "name": "py_island_matrix_counter",
+  "rank": "exam05",
+  "level": "level2",
+  "lang": "python",
+  "difficulty": "medium",
+  "short_desc": "Write a function island_matrix_counter(matrix) that receives a 2D matrix containing \"1\" and \"0\" string...",
+  "description": "Write a function island_matrix_counter(matrix) that receives a 2D matrix containing \"1\" and \"0\" string values and returns the total number of islands.\n\nAn island is a group of connected \"1\" cells. Cells are considered connected only when they are directly adjacent horizontally (left, right) or vertically (up, down). Diagonal cells do not count as connected.\n\nRequirements:\n- \"1\" represents land.\n- \"0\" represents water.\n- Count each separate island exactly once.\n- An empty matrix (or matrix with no rows) should return 0.\n- DFS/BFS traversal or matrix mutation can be used to explore each complete island.",
+  "prototype": "def island_matrix_counter(matrix: list[list[str]]) -> int:",
+  "function": "island_matrix_counter",
+  "notes": [
+    "File to submit: py_island_matrix_counter.py",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "island_matrix_counter([[\"1\", \"1\", \"1\", \"1\", \"0\"], [\"1\", \"1\", \"1\", \"0\", \"0\"], [\"1\", \"1\", \"1\", \"1\", \"0\"], [\"0\", \"0\", \"0\", \"0\", \"0\"]])",
+      "expected": "1"
+    },
+    {
+      "call": "island_matrix_counter([[\"1\", \"1\", \"0\", \"0\", \"0\"], [\"1\", \"1\", \"0\", \"0\", \"0\"], [\"0\", \"0\", \"1\", \"0\", \"0\"], [\"0\", \"0\", \"0\", \"1\", \"1\"]])",
+      "expected": "3"
+    },
+    {
+      "call": "island_matrix_counter([])",
+      "expected": "0"
+    }
+  ]
+}

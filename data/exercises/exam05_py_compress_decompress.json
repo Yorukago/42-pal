@@ -1,0 +1,31 @@
+{
+  "name": "py_compress_decompress",
+  "rank": "exam05",
+  "level": "level1",
+  "lang": "python",
+  "difficulty": "easy",
+  "short_desc": "Write two functions: `compress` and `decompress`.",
+  "description": "Write two functions: `compress` and `decompress`.\n\n`compress(s: str) -> str`:\n- Takes a string and compresses consecutive repeated characters by appending the count after the character.\n- If a character appears only once consecutively, omit the number '1'.\n- If the input string is empty, return an empty string.\n\n`decompress(s: str) -> str`:\n- Takes a compressed string and expands it back to its uncompressed form.\n- Handles multi-digit counts (e.g., \"a12\" -> 12 'a's).\n- If no count follows a character, it counts as 1.",
+  "prototype": "def compress(s: str) -> str:",
+  "function": "compress",
+  "notes": [
+    "File to submit: py_compress_decompress.py",
+    "Return the value — do not print it."
+  ],
+  "test_cases": [],
+  "checker": "python_call",
+  "checker_calls": [
+    {
+      "call": "compress(\"aabcccccaaa\")",
+      "expected": "\"a2bc5a3\""
+    },
+    {
+      "call": "decompress(\"a2bc5a3\")",
+      "expected": "\"aabcccccaaa\""
+    },
+    {
+      "call": "compress(\"\")",
+      "expected": "\"\""
+    }
+  ]
+}

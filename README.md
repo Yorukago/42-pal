@@ -165,6 +165,25 @@ file the real grader asks for.
 | 3 | `py_package_dependency_resolver`, `py_palindrome_partitioner` |
 | 4 | `py_sliding_window_maximum` |
 
+**`exam05` — 7 exercises, levels 1–3** (source: `rank05.42exam.net`)
+
+| Level | Exercises |
+|:--|:--|
+| 1 | `py_compress_decompress`, `py_spiral_matrix` |
+| 2 | `py_graph_cycle_detector`, `py_island_matrix_counter`, `py_room_scheduler` |
+| 3 | `py_prism_detector`, `py_word_ladder` |
+
+> ⚠️ **`exam05` is more thinly tested than the others.** No community solution
+> set exists for Rank 05, so its 17 vectors are only the site's own examples —
+> 2 or 3 per exercise, against 14 on average for `exam03`. They were validated
+> against reference implementations, but those were written from the same
+> subject text, so a misleading subject would not be caught. Treat a pass here
+> as weaker evidence than a pass on `exam03`/`exam04`.
+>
+> `py_compress_decompress` asks for **two** functions (`compress` and
+> `decompress`); only the first appears in the `prototype` field, but both are
+> described in the subject and both are graded.
+
 Passing means clearing every level — one exercise per level, as in the real exam.
 
 Several exercises carry a **Forbidden** note in their hints: `py_cryptic_sorter`
