@@ -18,47 +18,83 @@
   "checker_calls": [
     {
       "call": "array_rotation_detector([1, 2, 3, 4, 5], [4, 5, 1, 2, 3])",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "array_rotation_detector([1, 2, 3, 4, 5], [5, 1, 2, 3, 4])",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "array_rotation_detector([1, 2, 3], [3, 2, 1])",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "array_rotation_detector([1, 2], [1, 2, 3])",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "array_rotation_detector([], [])",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "array_rotation_detector([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "array_rotation_detector([1, 2, 3, 4, 5], [1, 2, 3, 4, 5])",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "array_rotation_detector([1, 2, 3, 4, 5], [2, 3, 4, 5, 1])",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "array_rotation_detector([1, 2, 3], [1, 3, 2])",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "array_rotation_detector([1, 2, 3], [1, 2])",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "array_rotation_detector([1, 1, 1], [1, 1, 1])",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
+    },
+    {
+      "call": "array_rotation_detector([], [1])",
+      "expected": "False",
+      "origin": "local"
+    },
+    {
+      "call": "array_rotation_detector([1], [1])",
+      "expected": "True",
+      "origin": "local"
+    },
+    {
+      "call": "array_rotation_detector([1, 2], [2, 1])",
+      "expected": "True",
+      "origin": "local"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 1], [1, 1, 2])",
+      "expected": "True",
+      "origin": "local"
+    },
+    {
+      "call": "array_rotation_detector([1, 2, 3, 4], [3, 4, 1, 2])",
+      "expected": "True",
+      "origin": "local"
     }
   ]
 }

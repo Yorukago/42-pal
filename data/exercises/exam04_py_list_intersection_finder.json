@@ -17,31 +17,68 @@
   "checker_calls": [
     {
       "call": "list_intersection_finder([[1, 2, 3], [2, 3, 4], [2, 3, 5]])",
-      "expected": "[2, 3]"
+      "expected": "[2, 3]",
+      "origin": "official"
     },
     {
       "call": "list_intersection_finder([[1, 2, 3, 4], [2, 4, 6, 8], [4, 8, 12]])",
-      "expected": "[4]"
+      "expected": "[4]",
+      "origin": "official"
     },
     {
       "call": "list_intersection_finder([[1, 1, 2, 3], [1, 2, 2, 3], [1, 2, 3, 3]])",
-      "expected": "[1, 2, 3]"
+      "expected": "[1, 2, 3]",
+      "origin": "official"
     },
     {
       "call": "list_intersection_finder([[1, 2, 3], [4, 5, 6]])",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "official"
     },
     {
       "call": "list_intersection_finder([])",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "official"
     },
     {
       "call": "list_intersection_finder([[1, 2, 3], []])",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "official"
     },
     {
       "call": "list_intersection_finder([[5]])",
-      "expected": "[5]"
+      "expected": "[5]",
+      "origin": "official"
+    },
+    {
+      "call": "list_intersection_finder([[1, 1, 2]])",
+      "expected": "[1, 2]",
+      "origin": "local"
+    },
+    {
+      "call": "list_intersection_finder([[1], [2], [3]])",
+      "expected": "[]",
+      "origin": "local"
+    },
+    {
+      "call": "list_intersection_finder([[-3, -1, 0], [-1, 0, 5]])",
+      "expected": "[-1, 0]",
+      "origin": "local"
+    },
+    {
+      "call": "list_intersection_finder([[1, 2], [1, 2], [1, 2]])",
+      "expected": "[1, 2]",
+      "origin": "local"
+    },
+    {
+      "call": "list_intersection_finder([[]])",
+      "expected": "[]",
+      "origin": "local"
+    },
+    {
+      "call": "list_intersection_finder([[1, 2, 3, 4, 5], [3, 4, 5, 6], [4, 5, 7]])",
+      "expected": "[4, 5]",
+      "origin": "local"
     }
   ]
 }

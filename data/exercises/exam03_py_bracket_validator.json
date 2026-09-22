@@ -17,79 +17,98 @@
   "checker_calls": [
     {
       "call": "bracket_validator(\"()\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "bracket_validator(\"()[]{}\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "bracket_validator(\"(]\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "bracket_validator(\"([)]\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "bracket_validator(\"{[]}\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "bracket_validator(\"hello(world)\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "bracket_validator(\"((())\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "bracket_validator(\"\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "bracket_validator('()')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('()[]{}')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('(]')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('([)]')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('{[]}')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('hello(world)[test]{code}')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('((()))')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('((())')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('[')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "bracket_validator('}{')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     }
   ]
 }

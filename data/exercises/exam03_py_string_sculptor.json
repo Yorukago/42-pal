@@ -17,51 +17,63 @@
   "checker_calls": [
     {
       "call": "string_sculptor(\"hello\")",
-      "expected": "\"hElLo\""
+      "expected": "\"hElLo\"",
+      "origin": "official"
     },
     {
       "call": "string_sculptor(\"Hello World\")",
-      "expected": "\"hElLo wOrLd\""
+      "expected": "\"hElLo wOrLd\"",
+      "origin": "official"
     },
     {
       "call": "string_sculptor(\"abc123def\")",
-      "expected": "\"aBc123DeF\""
+      "expected": "\"aBc123DeF\"",
+      "origin": "official"
     },
     {
       "call": "string_sculptor(\"Python3.9!\")",
-      "expected": "\"pYtHoN3.9!\""
+      "expected": "\"pYtHoN3.9!\"",
+      "origin": "official"
     },
     {
       "call": "string_sculptor(\"\")",
-      "expected": "\"\""
+      "expected": "\"\"",
+      "origin": "official"
     },
     {
       "call": "string_sculptor('hello')",
-      "expected": "'hElLo'"
+      "expected": "'hElLo'",
+      "origin": "community"
     },
     {
       "call": "string_sculptor('Hello World')",
-      "expected": "'hElLo wOrLd'"
+      "expected": "'hElLo wOrLd'",
+      "origin": "community"
     },
     {
       "call": "string_sculptor('abc123def')",
-      "expected": "'aBc123DeF'"
+      "expected": "'aBc123DeF'",
+      "origin": "community"
     },
     {
       "call": "string_sculptor('Python3.9!')",
-      "expected": "'pYtHoN3.9!'"
+      "expected": "'pYtHoN3.9!'",
+      "origin": "community"
     },
     {
       "call": "string_sculptor('')",
-      "expected": "''"
+      "expected": "''",
+      "origin": "community"
     },
     {
       "call": "string_sculptor('a')",
-      "expected": "'a'"
+      "expected": "'a'",
+      "origin": "community"
     },
     {
       "call": "string_sculptor('AB')",
-      "expected": "'aB'"
+      "expected": "'aB'",
+      "origin": "community"
     }
   ]
 }

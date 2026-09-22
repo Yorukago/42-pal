@@ -17,75 +17,93 @@
   "checker_calls": [
     {
       "call": "number_base_converter(\"1010\", 2, 10)",
-      "expected": "\"10\""
+      "expected": "\"10\"",
+      "origin": "official"
     },
     {
       "call": "number_base_converter(\"FF\", 16, 10)",
-      "expected": "\"255\""
+      "expected": "\"255\"",
+      "origin": "official"
     },
     {
       "call": "number_base_converter(\"255\", 10, 16)",
-      "expected": "\"FF\""
+      "expected": "\"FF\"",
+      "origin": "official"
     },
     {
       "call": "number_base_converter(\"123\", 10, 2)",
-      "expected": "\"1111011\""
+      "expected": "\"1111011\"",
+      "origin": "official"
     },
     {
       "call": "number_base_converter(\"Z\", 36, 10)",
-      "expected": "\"35\""
+      "expected": "\"35\"",
+      "origin": "official"
     },
     {
       "call": "number_base_converter(\"35\", 10, 36)",
-      "expected": "\"Z\""
+      "expected": "\"Z\"",
+      "origin": "official"
     },
     {
       "call": "number_base_converter(\"123\", 1, 10)",
-      "expected": "\"ERROR\""
+      "expected": "\"ERROR\"",
+      "origin": "official"
     },
     {
       "call": "number_base_converter(\"G\", 16, 10)",
-      "expected": "\"ERROR\""
+      "expected": "\"ERROR\"",
+      "origin": "official"
     },
     {
       "call": "number_base_converter('1010', 2, 10)",
-      "expected": "'10'"
+      "expected": "'10'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('FF', 16, 10)",
-      "expected": "'255'"
+      "expected": "'255'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('255', 10, 16)",
-      "expected": "'FF'"
+      "expected": "'FF'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('123', 10, 2)",
-      "expected": "'1111011'"
+      "expected": "'1111011'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('Z', 36, 10)",
-      "expected": "'35'"
+      "expected": "'35'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('35', 10, 36)",
-      "expected": "'Z'"
+      "expected": "'Z'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('123', 1, 10)",
-      "expected": "'ERROR'"
+      "expected": "'ERROR'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('G', 16, 10)",
-      "expected": "'ERROR'"
+      "expected": "'ERROR'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('0', 10, 2)",
-      "expected": "'0'"
+      "expected": "'0'",
+      "origin": "community"
     },
     {
       "call": "number_base_converter('1', 2, 10)",
-      "expected": "'1'"
+      "expected": "'1'",
+      "origin": "community"
     }
   ]
 }

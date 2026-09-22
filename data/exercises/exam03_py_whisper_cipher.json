@@ -17,59 +17,73 @@
   "checker_calls": [
     {
       "call": "whisper_cipher(\"hello\", 3)",
-      "expected": "\"khoor\""
+      "expected": "\"khoor\"",
+      "origin": "official"
     },
     {
       "call": "whisper_cipher(\"Hello World!\", 1)",
-      "expected": "\"Ifmmp Xpsme!\""
+      "expected": "\"Ifmmp Xpsme!\"",
+      "origin": "official"
     },
     {
       "call": "whisper_cipher(\"xyz\", 3)",
-      "expected": "\"abc\""
+      "expected": "\"abc\"",
+      "origin": "official"
     },
     {
       "call": "whisper_cipher(\"ABC123def\", 5)",
-      "expected": "\"FGH123ijk\""
+      "expected": "\"FGH123ijk\"",
+      "origin": "official"
     },
     {
       "call": "whisper_cipher(\"\", 10)",
-      "expected": "\"\""
+      "expected": "\"\"",
+      "origin": "official"
     },
     {
       "call": "whisper_cipher(\"abc\", -3)",
-      "expected": "\"xyz\""
+      "expected": "\"xyz\"",
+      "origin": "official"
     },
     {
       "call": "whisper_cipher('hello', 3)",
-      "expected": "'khoor'"
+      "expected": "'khoor'",
+      "origin": "community"
     },
     {
       "call": "whisper_cipher('Hello World!', 1)",
-      "expected": "'Ifmmp Xpsme!'"
+      "expected": "'Ifmmp Xpsme!'",
+      "origin": "community"
     },
     {
       "call": "whisper_cipher('xyz', 3)",
-      "expected": "'abc'"
+      "expected": "'abc'",
+      "origin": "community"
     },
     {
       "call": "whisper_cipher('ABC123def', 5)",
-      "expected": "'FGH123ijk'"
+      "expected": "'FGH123ijk'",
+      "origin": "community"
     },
     {
       "call": "whisper_cipher('', 10)",
-      "expected": "''"
+      "expected": "''",
+      "origin": "community"
     },
     {
       "call": "whisper_cipher('abc', -3)",
-      "expected": "'xyz'"
+      "expected": "'xyz'",
+      "origin": "community"
     },
     {
       "call": "whisper_cipher('abc', 0)",
-      "expected": "'abc'"
+      "expected": "'abc'",
+      "origin": "community"
     },
     {
       "call": "whisper_cipher('abc', 26)",
-      "expected": "'abc'"
+      "expected": "'abc'",
+      "origin": "community"
     }
   ]
 }

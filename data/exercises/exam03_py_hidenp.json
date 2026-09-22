@@ -17,79 +17,98 @@
   "checker_calls": [
     {
       "call": "hidenp(\"abc\", \"a1b2c3\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "hidenp(\"ace\", \"abcde\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "hidenp(\"aec\", \"abcde\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "hidenp(\"\", \"abc\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "hidenp(\"abc\", \"ab\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "hidenp(\"aaaa\", \"aaa\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "hidenp(\"sing\",\"subsequence testing\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "hidenp('abc', 'a1b2c3')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "hidenp('ace', 'abcde')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "hidenp('aec', 'abcde')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "hidenp('', 'abc')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "hidenp('', '')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "hidenp('abc', 'ab')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "hidenp('xyz', 'abc')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "hidenp('aaaa', 'aaa')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "hidenp('aab', 'aaab')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "hidenp('aba', 'aabb')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "hidenp('abc', 'ABC')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "hidenp('sing', 'subsequence testing')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     }
   ]
 }

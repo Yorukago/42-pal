@@ -17,67 +17,83 @@
   "checker_calls": [
     {
       "call": "echo_validator(\"racecar\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "echo_validator(\"A man a plan a canal Panama\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "echo_validator(\"race a car\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "echo_validator(\"Was it a car or a cat I saw\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "echo_validator(\"hello\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "echo_validator(\"Madam Im Adam\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "echo_validator(\"\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "echo_validator('racecar')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "echo_validator('A man a plan a canal Panama')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "echo_validator('race a car')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "echo_validator('Was it a car or a cat I saw')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "echo_validator('hello')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "echo_validator('Madam Im Adam')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "echo_validator('')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "echo_validator('a')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "echo_validator('ab')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     }
   ]
 }

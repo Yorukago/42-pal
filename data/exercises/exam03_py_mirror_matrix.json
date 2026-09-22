@@ -17,39 +17,48 @@
   "checker_calls": [
     {
       "call": "mirror_matrix([[1,2,3],[4,5,6]])",
-      "expected": "[[3,2,1],[6,5,4]]"
+      "expected": "[[3,2,1],[6,5,4]]",
+      "origin": "official"
     },
     {
       "call": "mirror_matrix([[1,2],[3,4],[5,6]])",
-      "expected": "[[2,1],[4,3],[6,5]]"
+      "expected": "[[2,1],[4,3],[6,5]]",
+      "origin": "official"
     },
     {
       "call": "mirror_matrix([[7]])",
-      "expected": "[[7]]"
+      "expected": "[[7]]",
+      "origin": "official"
     },
     {
       "call": "mirror_matrix([[1,2,3,4]])",
-      "expected": "[[4,3,2,1]]"
+      "expected": "[[4,3,2,1]]",
+      "origin": "official"
     },
     {
       "call": "mirror_matrix([[-1,-2],[-3,-4]])",
-      "expected": "[[-2,-1],[-4,-3]]"
+      "expected": "[[-2,-1],[-4,-3]]",
+      "origin": "official"
     },
     {
       "call": "mirror_matrix([[1, 2, 3], [4, 5, 6]])",
-      "expected": "[[3, 2, 1], [6, 5, 4]]"
+      "expected": "[[3, 2, 1], [6, 5, 4]]",
+      "origin": "community"
     },
     {
       "call": "mirror_matrix([[1, 2], [3, 4], [5, 6]])",
-      "expected": "[[2, 1], [4, 3], [6, 5]]"
+      "expected": "[[2, 1], [4, 3], [6, 5]]",
+      "origin": "community"
     },
     {
       "call": "mirror_matrix([[1, 2, 3, 4]])",
-      "expected": "[[4, 3, 2, 1]]"
+      "expected": "[[4, 3, 2, 1]]",
+      "origin": "community"
     },
     {
       "call": "mirror_matrix([[-1, -2], [-3, -4]])",
-      "expected": "[[-2, -1], [-4, -3]]"
+      "expected": "[[-2, -1], [-4, -3]]",
+      "origin": "community"
     }
   ]
 }

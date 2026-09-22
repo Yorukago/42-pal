@@ -17,67 +17,83 @@
   "checker_calls": [
     {
       "call": "anagram(\"listen\", \"silent\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "anagram(\"Triangle\", \"Integral\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "anagram(\"Dormitory\", \"Dirty Room\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "anagram(\"hello\", \"world\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "anagram(\"\", \"\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "anagram(\"abc\", \"abcc\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "anagram('listen', 'silent')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "anagram('Triangle', 'Integral')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "anagram('Dormitory', 'Dirty Room')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "anagram('Astronomer', 'Moon starer')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "anagram('hello', 'world')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "anagram('test', 'ttew')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "anagram('abc', 'abcc')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "anagram('', '')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "anagram('a gentleman', 'elegant man')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "anagram('aabb', 'ab')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     }
   ]
 }

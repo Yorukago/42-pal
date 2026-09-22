@@ -156,7 +156,7 @@ file the real grader asks for.
 | 5 | `py_string_sculptor`, `py_twist_sequence` |
 | 6 | `py_whisper_cipher` |
 
-**`exam04` — 7 exercises, levels 1–4** (source: `rank04.42exam.net`)
+**`exam04` — 7 exercises, levels 1–4** (source: `rank04.42exam.net`, vectors widened locally)
 
 | Level | Exercises |
 |:--|:--|
@@ -173,19 +173,31 @@ file the real grader asks for.
 | 2 | `py_graph_cycle_detector`, `py_island_matrix_counter`, `py_room_scheduler` |
 | 3 | `py_prism_detector`, `py_word_ladder` |
 
-> ⚠️ **`exam05`'s vectors are partly locally written.** No community solution
-> set exists for Rank 05, and the site publishes only 17 examples (2–3 per
-> exercise). 46 more were written by hand from the subject text to bring it to
-> 63. Every vector carries an `origin` field — `"official"` straight from the
-> site, `"local"` written here — so the two are always tellable apart:
->
-> ```json
-> { "call": "generate_spiral(2)", "expected": "[[1, 2], [4, 3]]", "origin": "local" }
-> ```
->
-> A `local` vector is a careful reading of the subject, not the exam's own word.
-> If one ever contradicts what the real grader does, the subject text wins —
-> fix the vector.
+### Where the test vectors come from
+
+Every vector in every Python bank carries an `origin`, so you always know how
+much weight a passing test deserves:
+
+```json
+{ "call": "generate_spiral(2)", "expected": "[[1, 2], [4, 3]]", "origin": "local" }
+```
+
+| origin | meaning |
+|:--|:--|
+| `official` | published by the exam's own subject site |
+| `community` | from a community solution repo, cross-checked against its solutions |
+| `local` | written here from the subject text |
+
+|  | official | community | local | total | per exercise |
+|:--|--:|--:|--:|--:|--:|
+| `exam03` | 87 | 114 | — | **201** | 14.4 |
+| `exam04` | 41 | 16 | 39 | **96** | 13.7 |
+| `exam05` | 17 | — | 46 | **63** | 9.0 |
+
+A `local` vector is a careful reading of the subject, not the exam's own word.
+If one ever contradicts what the real grader does, **the subject text wins** —
+fix the vector. `exam05` leans hardest on them, because no community solution
+set exists for Rank 05 to check against.
 >
 > `py_prism_detector` has **no `D2`/`D2-` vectors on purpose.** The subject maps
 > `(-1, 1)` to `"D2" (up-right)` and `(1, -1)` to `"D2-" (down-left)`, but under

@@ -17,67 +17,83 @@
   "checker_calls": [
     {
       "call": "string_permutation_checker(\"abc\", \"bca\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "string_permutation_checker(\"abc\", \"def\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "string_permutation_checker(\"listen\", \"silent\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "string_permutation_checker(\"hello\", \"bello\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "string_permutation_checker(\"\", \"\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "string_permutation_checker(\"a\", \"\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "string_permutation_checker(\"Abc\", \"abc\")",
-      "expected": "False"
+      "expected": "False",
+      "origin": "official"
     },
     {
       "call": "string_permutation_checker(\"a gentleman\",\"elegant man\")",
-      "expected": "True"
+      "expected": "True",
+      "origin": "official"
     },
     {
       "call": "string_permutation_checker('abc', 'bca')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "string_permutation_checker('abc', 'def')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "string_permutation_checker('listen', 'silent')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "string_permutation_checker('hello', 'bello')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "string_permutation_checker('', '')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     },
     {
       "call": "string_permutation_checker('a', '')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "string_permutation_checker('Abc', 'abc')",
-      "expected": "False"
+      "expected": "False",
+      "origin": "community"
     },
     {
       "call": "string_permutation_checker('a gentleman', 'elegant man')",
-      "expected": "True"
+      "expected": "True",
+      "origin": "community"
     }
   ]
 }

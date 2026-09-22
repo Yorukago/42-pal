@@ -17,51 +17,63 @@
   "checker_calls": [
     {
       "call": "inter(\"hello\", \"world\")",
-      "expected": "\"lo\""
+      "expected": "\"lo\"",
+      "origin": "official"
     },
     {
       "call": "inter(\"banana\", \"band\")",
-      "expected": "\"ban\""
+      "expected": "\"ban\"",
+      "origin": "official"
     },
     {
       "call": "inter(\"abcabc\", \"bc\")",
-      "expected": "\"bc\""
+      "expected": "\"bc\"",
+      "origin": "official"
     },
     {
       "call": "inter(\"abc\", \"xyz\")",
-      "expected": "\"\""
+      "expected": "\"\"",
+      "origin": "official"
     },
     {
       "call": "inter(\"\", \"abc\")",
-      "expected": "\"\""
+      "expected": "\"\"",
+      "origin": "official"
     },
     {
       "call": "inter('hello', 'world')",
-      "expected": "'lo'"
+      "expected": "'lo'",
+      "origin": "community"
     },
     {
       "call": "inter('banana', 'band')",
-      "expected": "'ban'"
+      "expected": "'ban'",
+      "origin": "community"
     },
     {
       "call": "inter('abcabc', 'bc')",
-      "expected": "'bc'"
+      "expected": "'bc'",
+      "origin": "community"
     },
     {
       "call": "inter('abc', 'xyz')",
-      "expected": "''"
+      "expected": "''",
+      "origin": "community"
     },
     {
       "call": "inter('', 'abc')",
-      "expected": "''"
+      "expected": "''",
+      "origin": "community"
     },
     {
       "call": "inter('abc', '')",
-      "expected": "''"
+      "expected": "''",
+      "origin": "community"
     },
     {
       "call": "inter('aabbcc', 'abc')",
-      "expected": "'abc'"
+      "expected": "'abc'",
+      "origin": "community"
     }
   ]
 }

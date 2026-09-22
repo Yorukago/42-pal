@@ -17,27 +17,68 @@
   "checker_calls": [
     {
       "call": "constellation_mapper([(0, 0), (1, 1), (2, 2)], 3)",
-      "expected": "['*..', '.*.', '..*']"
+      "expected": "['*..', '.*.', '..*']",
+      "origin": "official"
     },
     {
       "call": "constellation_mapper([(1, 1), (0, 1), (2, 1), (1, 0), (1, 2)], 3)",
-      "expected": "['.*.', '***', '.*.']"
+      "expected": "['.*.', '***', '.*.']",
+      "origin": "official"
     },
     {
       "call": "constellation_mapper([], 2)",
-      "expected": "['..', '..']"
+      "expected": "['..', '..']",
+      "origin": "official"
     },
     {
       "call": "constellation_mapper([(0, 0), (0, 0), (1, 1)], 2)",
-      "expected": "['*.', '.*']"
+      "expected": "['*.', '.*']",
+      "origin": "official"
     },
     {
       "call": "constellation_mapper([(0, 0), (5, 5)], 3)",
-      "expected": "['*..', '...', '...']"
+      "expected": "['*..', '...', '...']",
+      "origin": "official"
     },
     {
       "call": "constellation_mapper([(1, 0), (1, 1), (1, 2)], 3)",
-      "expected": "['...', '***', '...']"
+      "expected": "['...', '***', '...']",
+      "origin": "official"
+    },
+    {
+      "call": "constellation_mapper([(0, 2)], 3)",
+      "expected": "['..*', '...', '...']",
+      "origin": "local"
+    },
+    {
+      "call": "constellation_mapper([(2, 0)], 3)",
+      "expected": "['...', '...', '*..']",
+      "origin": "local"
+    },
+    {
+      "call": "constellation_mapper([], 1)",
+      "expected": "['.']",
+      "origin": "local"
+    },
+    {
+      "call": "constellation_mapper([(0, 0)], 1)",
+      "expected": "['*']",
+      "origin": "local"
+    },
+    {
+      "call": "constellation_mapper([(0, 0), (0, 1), (1, 0), (1, 1)], 2)",
+      "expected": "['**', '**']",
+      "origin": "local"
+    },
+    {
+      "call": "constellation_mapper([(3, 3), (1, 1)], 2)",
+      "expected": "['..', '.*']",
+      "origin": "local"
+    },
+    {
+      "call": "constellation_mapper([(-1, 0), (0, -1), (0, 0)], 2)",
+      "expected": "['*.', '..']",
+      "origin": "local"
     }
   ]
 }

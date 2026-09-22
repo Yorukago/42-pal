@@ -11,6 +11,8 @@ Options:
     --lang CODE            description language (default: en)
     --extra-vectors FILE   JSON {exercise_name: [{call, expected}, ...]} merged
                            in alongside the site's own examples, deduplicated.
+                           Each entry may carry its own "origin"; without one
+                           it is recorded as "community".
     --dry-run
 
 The site ships its bank as `var SUBJECTS = [...]` — a JS object literal with
@@ -85,17 +87,19 @@ def build(subj, rank_tag, lang, extra):
         notes.append("Forbidden: " + ", ".join(forbidden))
     notes.append("Return the value — do not print it.")
 
+    # every vector records where it came from, so a community or locally
+    # written expectation is never mistaken for the exam's own word
     calls, seen = [], set()
     for e in subj.get("examples", []):
         key = (e["input"].strip(), e["output"].strip())
         if key not in seen:
             seen.add(key)
-            calls.append({"call": key[0], "expected": key[1]})
+            calls.append({"call": key[0], "expected": key[1], "origin": "official"})
     for e in extra.get(name, []):
         key = (e["call"].strip(), e["expected"].strip())
         if key not in seen:
             seen.add(key)
-            calls.append({"call": key[0], "expected": key[1]})
+            calls.append({"call": key[0], "expected": key[1], "origin": e.get("origin", "community")})
 
     short = re.sub(r"\s+", " ", desc.split("\n\n")[0]).strip()
     if len(short) > 110:

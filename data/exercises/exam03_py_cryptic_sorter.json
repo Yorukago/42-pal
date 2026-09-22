@@ -18,47 +18,58 @@
   "checker_calls": [
     {
       "call": "cryptic_sorter([\"apple\",\"cat\",\"banana\",\"dog\",\"elephant\"])",
-      "expected": "[\"cat\",\"dog\",\"apple\",\"banana\",\"elephant\"]"
+      "expected": "[\"cat\",\"dog\",\"apple\",\"banana\",\"elephant\"]",
+      "origin": "official"
     },
     {
       "call": "cryptic_sorter([\"aaa\",\"bbb\",\"AAA\",\"BBB\"])",
-      "expected": "[\"aaa\", \"AAA\", \"bbb\", \"BBB\"]"
+      "expected": "[\"aaa\", \"AAA\", \"bbb\", \"BBB\"]",
+      "origin": "official"
     },
     {
       "call": "cryptic_sorter([\"hello\",\"world\",\"hi\",\"test\"])",
-      "expected": "[\"hi\",\"test\",\"hello\",\"world\"]"
+      "expected": "[\"hi\",\"test\",\"hello\",\"world\"]",
+      "origin": "official"
     },
     {
       "call": "cryptic_sorter([])",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "official"
     },
     {
       "call": "cryptic_sorter([\"\"])",
-      "expected": "[\"\"]"
+      "expected": "[\"\"]",
+      "origin": "official"
     },
     {
       "call": "cryptic_sorter(['apple', 'cat', 'banana', 'dog', 'elephant'])",
-      "expected": "['cat', 'dog', 'apple', 'banana', 'elephant']"
+      "expected": "['cat', 'dog', 'apple', 'banana', 'elephant']",
+      "origin": "community"
     },
     {
       "call": "cryptic_sorter(['aaa', 'bbb', 'AAA', 'BBB'])",
-      "expected": "['aaa', 'AAA', 'bbb', 'BBB']"
+      "expected": "['aaa', 'AAA', 'bbb', 'BBB']",
+      "origin": "community"
     },
     {
       "call": "cryptic_sorter(['hello', 'world', 'hi', 'test'])",
-      "expected": "['hi', 'test', 'hello', 'world']"
+      "expected": "['hi', 'test', 'hello', 'world']",
+      "origin": "community"
     },
     {
       "call": "cryptic_sorter([''])",
-      "expected": "['']"
+      "expected": "['']",
+      "origin": "community"
     },
     {
       "call": "cryptic_sorter(['z', 'a', 'm'])",
-      "expected": "['a', 'm', 'z']"
+      "expected": "['a', 'm', 'z']",
+      "origin": "community"
     },
     {
       "call": "cryptic_sorter(['dog', 'dog', 'cat'])",
-      "expected": "['cat', 'dog', 'dog']"
+      "expected": "['cat', 'dog', 'dog']",
+      "origin": "community"
     }
   ]
 }

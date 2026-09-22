@@ -17,67 +17,83 @@
   "checker_calls": [
     {
       "call": "pattern_tracker(\"123\")",
-      "expected": "2"
+      "expected": "2",
+      "origin": "official"
     },
     {
       "call": "pattern_tracker(\"12a34\")",
-      "expected": "2"
+      "expected": "2",
+      "origin": "official"
     },
     {
       "call": "pattern_tracker(\"987654321\")",
-      "expected": "0"
+      "expected": "0",
+      "origin": "official"
     },
     {
       "call": "pattern_tracker(\"01234567\")",
-      "expected": "7"
+      "expected": "7",
+      "origin": "official"
     },
     {
       "call": "pattern_tracker(\"abc\")",
-      "expected": "0"
+      "expected": "0",
+      "origin": "official"
     },
     {
       "call": "pattern_tracker(\"1a2b3c4\")",
-      "expected": "0"
+      "expected": "0",
+      "origin": "official"
     },
     {
       "call": "pattern_tracker(\"112233\")",
-      "expected": "2"
+      "expected": "2",
+      "origin": "official"
     },
     {
       "call": "pattern_tracker('123')",
-      "expected": "2"
+      "expected": "2",
+      "origin": "community"
     },
     {
       "call": "pattern_tracker('12a34')",
-      "expected": "2"
+      "expected": "2",
+      "origin": "community"
     },
     {
       "call": "pattern_tracker('987654321')",
-      "expected": "0"
+      "expected": "0",
+      "origin": "community"
     },
     {
       "call": "pattern_tracker('01234567')",
-      "expected": "7"
+      "expected": "7",
+      "origin": "community"
     },
     {
       "call": "pattern_tracker('abc')",
-      "expected": "0"
+      "expected": "0",
+      "origin": "community"
     },
     {
       "call": "pattern_tracker('1a2b3c4')",
-      "expected": "0"
+      "expected": "0",
+      "origin": "community"
     },
     {
       "call": "pattern_tracker('112233')",
-      "expected": "2"
+      "expected": "2",
+      "origin": "community"
     },
     {
       "call": "pattern_tracker('90')",
-      "expected": "0"
+      "expected": "0",
+      "origin": "community"
     },
     {
       "call": "pattern_tracker('')",
-      "expected": "0"
+      "expected": "0",
+      "origin": "community"
     }
   ]
 }

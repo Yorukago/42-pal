@@ -17,35 +17,78 @@
   "checker_calls": [
     {
       "call": "palindrome_partitioner(\"aab\")",
-      "expected": "1"
+      "expected": "1",
+      "origin": "official"
     },
     {
       "call": "palindrome_partitioner(\"aba\")",
-      "expected": "0"
+      "expected": "0",
+      "origin": "official"
     },
     {
       "call": "palindrome_partitioner(\"abc\")",
-      "expected": "2"
+      "expected": "2",
+      "origin": "official"
     },
     {
       "call": "palindrome_partitioner(\"abcba\")",
-      "expected": "0"
+      "expected": "0",
+      "origin": "community"
     },
     {
       "call": "palindrome_partitioner(\"abcd\")",
-      "expected": "3"
+      "expected": "3",
+      "origin": "community"
     },
     {
       "call": "palindrome_partitioner(\"aabaa\")",
-      "expected": "0"
+      "expected": "0",
+      "origin": "community"
     },
     {
       "call": "palindrome_partitioner(\"abac\")",
-      "expected": "1"
+      "expected": "1",
+      "origin": "community"
     },
     {
       "call": "palindrome_partitioner(\"\")",
-      "expected": "0"
+      "expected": "0",
+      "origin": "community"
+    },
+    {
+      "call": "palindrome_partitioner(\"a\")",
+      "expected": "0",
+      "origin": "local"
+    },
+    {
+      "call": "palindrome_partitioner(\"aa\")",
+      "expected": "0",
+      "origin": "local"
+    },
+    {
+      "call": "palindrome_partitioner(\"ab\")",
+      "expected": "1",
+      "origin": "local"
+    },
+    {
+      "call": "palindrome_partitioner(\"aabb\")",
+      "expected": "1",
+      "origin": "local"
+    },
+    {
+      "call": "palindrome_partitioner(\"abccba\")",
+      "expected": "0",
+      "origin": "local"
+    },
+    {
+      "call": "palindrome_partitioner(\"noonabbad\")",
+      "expected": "2",
+      "origin": "local"
+    },
+    {
+      "call": "palindrome_partitioner(\"racecarannakayak\")",
+      "expected": "2",
+      "origin": "local"
     }
   ]
 }

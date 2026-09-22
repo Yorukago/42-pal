@@ -18,39 +18,68 @@
   "checker_calls": [
     {
       "call": "merge_sorted_lists([[1, 3, 5], [2, 4, 6]])",
-      "expected": "[1, 2, 3, 4, 5, 6]"
+      "expected": "[1, 2, 3, 4, 5, 6]",
+      "origin": "official"
     },
     {
       "call": "merge_sorted_lists([[1, 5, 9], [2, 3, 8], [4, 6, 7]])",
-      "expected": "[1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      "expected": "[1, 2, 3, 4, 5, 6, 7, 8, 9]",
+      "origin": "official"
     },
     {
       "call": "merge_sorted_lists([[5], [1, 3], [2, 4]])",
-      "expected": "[1, 2, 3, 4, 5]"
+      "expected": "[1, 2, 3, 4, 5]",
+      "origin": "official"
     },
     {
       "call": "merge_sorted_lists([[1, 1, 2], [2, 3, 3]])",
-      "expected": "[1, 1, 2, 2, 3, 3]"
+      "expected": "[1, 1, 2, 2, 3, 3]",
+      "origin": "official"
     },
     {
       "call": "merge_sorted_lists([[], [1, 2, 3]])",
-      "expected": "[1, 2, 3]"
+      "expected": "[1, 2, 3]",
+      "origin": "official"
     },
     {
       "call": "merge_sorted_lists([[]])",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "official"
     },
     {
       "call": "merge_sorted_lists([[-5, -1, 0], [-3, 2, 4]])",
-      "expected": "[-5, -3, -1, 0, 2, 4]"
+      "expected": "[-5, -3, -1, 0, 2, 4]",
+      "origin": "official"
     },
     {
       "call": "merge_sorted_lists([[10], [10], [10]])",
-      "expected": "[10, 10, 10]"
+      "expected": "[10, 10, 10]",
+      "origin": "official"
     },
     {
       "call": "merge_sorted_lists([])",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "community"
+    },
+    {
+      "call": "merge_sorted_lists([[], [], []])",
+      "expected": "[]",
+      "origin": "local"
+    },
+    {
+      "call": "merge_sorted_lists([[1], [-1]])",
+      "expected": "[-1, 1]",
+      "origin": "local"
+    },
+    {
+      "call": "merge_sorted_lists([[1, 2, 3]])",
+      "expected": "[1, 2, 3]",
+      "origin": "local"
+    },
+    {
+      "call": "merge_sorted_lists([[0], [0], [0], [0]])",
+      "expected": "[0, 0, 0, 0]",
+      "origin": "local"
     }
   ]
 }

@@ -18,39 +18,68 @@
   "checker_calls": [
     {
       "call": "package_dependency_resolver({\"app\": [\"database\"], \"database\": [\"driver\"], \"driver\": []})",
-      "expected": "[\"driver\", \"database\", \"app\"]"
+      "expected": "[\"driver\", \"database\", \"app\"]",
+      "origin": "official"
     },
     {
       "call": "package_dependency_resolver({\"A\": [], \"B\": [\"A\"], \"C\": [\"A\", \"B\"]})",
-      "expected": "[\"A\", \"B\", \"C\"]"
+      "expected": "[\"A\", \"B\", \"C\"]",
+      "origin": "official"
     },
     {
       "call": "package_dependency_resolver({})",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "official"
     },
     {
       "call": "package_dependency_resolver({\"X\": [\"Y\"], \"Y\": [\"X\"]})",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "official"
     },
     {
       "call": "package_dependency_resolver({\"web\": [], \"api\": [], \"frontend\": [\"web\"], \"backend\": [\"api\"]})",
-      "expected": "[\"api\", \"web\", \"backend\", \"frontend\"]"
+      "expected": "[\"api\", \"web\", \"backend\", \"frontend\"]",
+      "origin": "official"
     },
     {
       "call": "package_dependency_resolver({\n    \"app\": [\"database\"],\n    \"database\": [\"driver\"],\n    \"driver\": []\n})",
-      "expected": "[\"driver\", \"database\", \"app\"]"
+      "expected": "[\"driver\", \"database\", \"app\"]",
+      "origin": "community"
     },
     {
       "call": "package_dependency_resolver({\n    \"A\": [],\n    \"B\": [\"A\"],\n    \"C\": [\"A\", \"B\"]\n})",
-      "expected": "[\"A\", \"B\", \"C\"]"
+      "expected": "[\"A\", \"B\", \"C\"]",
+      "origin": "community"
     },
     {
       "call": "package_dependency_resolver({\n    \"X\": [\"Y\"],\n    \"Y\": [\"X\"]\n})",
-      "expected": "[]"
+      "expected": "[]",
+      "origin": "community"
     },
     {
       "call": "package_dependency_resolver({\n    \"web\": [],\n    \"api\": [],\n    \"frontend\": [\"web\"],\n    \"backend\": [\"api\"]\n})",
-      "expected": "[\"api\", \"web\", \"backend\", \"frontend\"]"
+      "expected": "[\"api\", \"web\", \"backend\", \"frontend\"]",
+      "origin": "community"
+    },
+    {
+      "call": "package_dependency_resolver({\"a\": [\"a\"]})",
+      "expected": "[]",
+      "origin": "local"
+    },
+    {
+      "call": "package_dependency_resolver({\"b\": [], \"a\": []})",
+      "expected": "[\"a\", \"b\"]",
+      "origin": "local"
+    },
+    {
+      "call": "package_dependency_resolver({\"a\": [\"missing\"]})",
+      "expected": "[\"a\"]",
+      "origin": "local"
+    },
+    {
+      "call": "package_dependency_resolver({\"z\": [\"y\"], \"y\": [\"x\"], \"x\": []})",
+      "expected": "[\"x\", \"y\", \"z\"]",
+      "origin": "local"
     }
   ]
 }
