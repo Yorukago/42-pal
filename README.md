@@ -1,6 +1,6 @@
 # 42-pal! 🐚
 
-A polished, terminal-based 42 Exam trainer for C, Python, and C++. Optimized for local practice and studying.
+A polished, terminal-based 42 Exam trainer for C, Python, and C++. Optimized for local practice and studying. (yes i used claude for this FIGHT ME BRO)
 
 ---
 
